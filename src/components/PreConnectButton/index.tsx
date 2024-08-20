@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import WalletIcon from "../../assets/wallet-icon.svg";
 import type { OrdConnectKitProp } from "../OrdConnectKit";
 
@@ -5,13 +7,22 @@ interface PreConnectButtonProp extends OrdConnectKitProp {
   openModal: () => void;
   disabled?: boolean;
   connectButton?: string;
+  connectButtonComponent: ReactNode;
 }
 
 export function PreConnectButton({
   openModal,
   disabled,
   connectButton = "Wallet Connect",
+  connectButtonComponent,
 }: PreConnectButtonProp) {
+  if (connectButtonComponent) {
+    return (
+      <button onClick={openModal} aria-label="Connect Button" type="button">
+        {connectButtonComponent}
+      </button>
+    );
+  }
   return (
     <button
       type="button"

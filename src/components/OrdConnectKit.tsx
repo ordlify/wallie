@@ -9,6 +9,7 @@ import { SelectWalletModal } from "./SelectWalletModal";
 
 export interface OrdConnectKitProp {
   connectButton?: string;
+  connectButtonComponent?: ReactNode;
   hideConnectButton?: boolean;
   onViewProfile?: () => void;
   onChangeWalletClick?: () => void;
@@ -30,6 +31,7 @@ export interface OrdConnectKitProp {
  */
 export function OrdConnectKit({
   connectButton,
+  connectButtonComponent,
   hideConnectButton,
   onViewProfile,
   onChangeWalletClick,
@@ -71,6 +73,7 @@ export function OrdConnectKit({
       <PreConnectButton
         disabled={!hasMounted}
         connectButton={connectButton}
+        connectButtonComponent={connectButtonComponent}
         openModal={openModal}
       />
     );
