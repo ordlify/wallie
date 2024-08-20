@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -23,8 +23,7 @@
     "build": "tsc --project ./tsconfig.json && vite build",
     "build:watch": "tsc --watch --project ./tsconfig.json && vite build --watch",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
-    "preview": "vite preview",
-    "postinstall": "tsc --project ./tsconfig.json"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@ordzaar/standard-prettier": "^1.8.4",
