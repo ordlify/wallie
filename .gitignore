@@ -1,5 +1,5 @@
 # TypeScript build output
-/dist
+# /dist # To be added when publishing to npm
 
 # Dependency directories
 /node_modules
@@ -25,7 +25,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist # To be added when publishing to npm
 dist-ssr
 *.local
 
