@@ -410,7 +410,7 @@ export function SelectWalletModal({
         </Transition.Child>
 
         <section className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full w-full md:w-[364px] mx-auto items-end justify-center p-4 text-left sm:items-center sm:p-0">
+          <div className="flex min-h-full w-full md:w-96 mx-auto items-end justify-center p-4 text-left sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
