@@ -10,6 +10,9 @@ import * as packageJson from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    postcss: './postcss.config.mjs', 
+  },
   build: {
     lib: {
       entry: {

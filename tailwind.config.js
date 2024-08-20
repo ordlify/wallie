@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,css}"],
+module.exports = {
+  mode: "jit",
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}", 
+    "./src/components/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     extend: {
       colors: {
@@ -16,7 +20,6 @@ export default {
         "ord-light-blue-250": "#2D323D",
         "ord-blue-600": "#171E2D",
         "ord-alert": "#F8F25E",
-
         "ord-desc": "#A1A4A9",
       },
       fontFamily: {

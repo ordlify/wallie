@@ -7,6 +7,8 @@ import { PostConnectButton } from "./PostConnectButton";
 import { PreConnectButton } from "./PreConnectButton";
 import { SelectWalletModal } from "./SelectWalletModal";
 
+import "./style.css";
+
 export interface OrdConnectKitProp {
   connectButton?: string;
   connectButtonComponent?: ReactNode;
