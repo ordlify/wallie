@@ -1,4 +1,4 @@
-import "./components/style.css";
+// import "./components/style.css";
 
 export type { OrdConnectKitProp } from "./components/OrdConnectKit";
 export { OrdConnectKit } from "./components/OrdConnectKit";
