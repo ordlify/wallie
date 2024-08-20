@@ -18,7 +18,7 @@ export function PreConnectButton({
 }: PreConnectButtonProp) {
   if (connectButtonComponent) {
     return (
-      <button onClick={openModal} aria-label="Connect Button" type="button">
+      <button onClick={openModal} aria-label="Connect Button" type="button" className="w-full">
         {connectButtonComponent}
       </button>
     );

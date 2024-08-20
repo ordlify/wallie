@@ -1,10 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,css}"],
   theme: {
     extend: {
       colors: {
-        // 'ord-dark': '#111621',
         "ord-blue": "#111621",
         "ord-orange": "#FF6C3A",
         "ord-gray": "#898A95",
