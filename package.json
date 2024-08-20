@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -12,14 +12,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./*": "./dist/*",
-    "./style.css": {
-      "import": "./dist/style.css"
-    }
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
   },
   "scripts": {
     "dev": "vite",

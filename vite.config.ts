@@ -10,10 +10,11 @@ import * as packageJson from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: __dirname,
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: {
+        index: resolve(__dirname, "src/index.ts"),
+      },
       formats: ["es"],
     },
     rollupOptions: {
@@ -39,13 +40,9 @@ export default defineConfig({
     cssInjectedByJsPlugin(),
     nodePolyfills({
       globals: {
+        // required for ordit-sdk functionality
         Buffer: true,
       },
     }),
   ],
-  server: {
-    fs: {
-      allow: [__dirname],
-    },
-  },
 });
