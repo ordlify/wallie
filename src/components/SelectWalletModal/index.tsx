@@ -394,63 +394,63 @@ export function SelectWalletModal({
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="z-50 fixed inset-0 overflow-y-auto"
+        className="wallie-z-50 wallie-fixed wallie-inset-0 wallie-overflow-y-auto"
         onClose={closeModal}
       >
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter="wallie-ease-out wallie-duration-300"
+          enterFrom="wallie-opacity-0"
+          enterTo="wallie-opacity-100"
+          leave="wallie-ease-in wallie-duration-200"
+          leaveFrom="wallie-opacity-100"
+          leaveTo="wallie-opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-90 md:bg-opacity-75 transition-opacity" />
+          <div className="wallie-fixed wallie-inset-0 wallie-bg-black wallie-bg-opacity-90 md:wallie-bg-opacity-75 wallie-transition-opacity" />
         </Transition.Child>
 
-        <section className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full w-full md:w-96 mx-auto items-end justify-center p-4 text-left sm:items-center sm:p-0">
+        <section className="wallie-fixed wallie-inset-0 wallie-z-10 wallie-overflow-y-auto">
+          <div className="wallie-flex wallie-min-h-full wallie-w-full md:wallie-w-96 wallie-mx-auto wallie-items-end wallie-justify-center wallie-p-4 wallie-text-left sm:wallie-items-center sm:wallie-p-0">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              enter="wallie-ease-out wallie-duration-300"
+              enterFrom="wallie-opacity-0 wallie-scale-95"
+              enterTo="wallie-opacity-100 wallie-scale-100"
+              leave="wallie-ease-in wallie-duration-200"
+              leaveFrom="wallie-opacity-100 wallie-scale-100"
+              leaveTo="wallie-opacity-0 wallie-scale-95"
             >
-              <Dialog.Panel className="relative bg-ord-blue-600 transform overflow-hidden rounded-lg p-8 transition-all w-full">
-                <section className="flex flex-row">
+              <Dialog.Panel className="wallie-relative wallie-bg-ord-blue-600 wallie-transform wallie-overflow-hidden wallie-rounded-lg wallie-p-8 wallie-transition-all wallie-w-full">
+                <section className="wallie-flex wallie-flex-row">
                   <Dialog.Title
                     as="h3"
-                    className="text-[21px] font-medium leading-8 -mt-1  text-ord-gray"
+                    className="wallie-text-[21px] wallie-font-medium wallie-leading-8 wallie--mt-1  wallie-text-ord-gray"
                   >
                     Connect a wallet to continue
                   </Dialog.Title>
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="ml-auto"
+                    className="wallie-ml-auto"
                   >
                     <img
                       src={CloseModalIcon}
                       alt="close modal"
-                      className="w-[19px] h-[19px]"
+                      className="wallie-w-[19px] wallie-h-[19px]"
                     />
                   </button>
                 </section>
 
-                <p className="text-ord-light-blue-400 font-medium py-3">
+                <p className="wallie-text-ord-light-blue-400 wallie-font-medium wallie-py-3">
                   Choose a wallet below to connect and continue
                 </p>
 
                 {errorMessage && (
-                  <p className="text-ord-alert pb-4">{errorMessage}</p>
+                  <p className="wallie-text-ord-alert wallie-pb-4">{errorMessage}</p>
                 )}
 
-                <section className="w-full">
-                  <section className="w-full space-y-4">
+                <section className="wallie-w-full">
+                  <section className="wallie-w-full wallie-space-y-4">
                     <WalletButton
                       wallet={Wallet.XVERSE}
                       subtitle=""

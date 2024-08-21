@@ -46,10 +46,10 @@ export function PostConnectButton({
   const { wallet } = useWallie();
 
   return (
-    <Menu as="section" className="relative inline-block text-left">
+    <Menu as="section" className="wallie-relative wallie-inline-block wallie-text-left">
       {({ open }) => (
         <>
-          <Menu.Button className="ord-wallet-connected-button">
+          <Menu.Button>
             <div className="wallet-identifier-container">
               {renderAvatar ? (
                 renderAvatar(address, "large")

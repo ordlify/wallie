@@ -6,6 +6,8 @@ export default {
   plugins: [
     autoprefixer(),
     tailwindcss(),
-    cssnano()
+    cssnano({
+      preset: 'default',
+    }),
   ]
 };

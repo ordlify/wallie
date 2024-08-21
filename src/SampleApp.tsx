@@ -62,38 +62,38 @@ function TestControls() {
   }, [address.ordinals, signMsg]);
 
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col space-y-4 pt-4">
+    <div className="wallie-flex wallie-flex-col">
+      <div className="wallie-flex wallie-flex-col wallie-space-y-4 wallie-pt-4">
         <button
           type="button"
-          className="bg-ord-light-blue-400 rounded-lg"
+          className="wallie-bg-ord-light-blue-400 wallie-rounded-lg"
           onClick={handleCheckBalance}
         >
           Check balance
         </button>
         <button
           type="button"
-          className="bg-ord-light-blue-400 rounded-lg"
+          className="wallie-bg-ord-light-blue-400 wallie-rounded-lg"
           onClick={handleSend}
         >
           Send Btc
         </button>
         <button
           type="button"
-          className="bg-ord-light-blue-400 rounded-lg"
+          className="wallie-bg-ord-light-blue-400 wallie-rounded-lg"
           onClick={handleSignPsbt}
         >
           Sign PSBT
         </button>
         <button
           type="button"
-          className="bg-ord-light-blue-400 rounded-lg"
+          className="wallie-bg-ord-light-blue-400 wallie-rounded-lg"
           onClick={handleSignMessage}
         >
           Sign message
         </button>
       </div>
-      <div className="break-all">
+      <div className="wallie-break-all">
         {wallet ? <p>Wallet: {wallet}</p> : null}
         {address?.ordinals ? (
           <p>Connected Address: {address.ordinals ?? ""}</p>
@@ -118,9 +118,9 @@ function TestControls() {
 
 export function SampleApp() {
   return (
-    <div className="app h-screen flex justify-center items-center">
+    <div className="wallie-app wallie-h-screen wallie-flex wallie-justify-center wallie-items-center">
       <WallieProvider initialNetwork={Network.MAINNET}>
-        <div className="flex flex-col">
+        <div className="wallie-flex wallie-flex-col">
           <OrdConnectKit
             onViewProfile={() => console.log("View profile clicked")}
           />

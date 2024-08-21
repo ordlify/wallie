@@ -89,7 +89,7 @@ function TestControls() {
   }, [address.ordinals, signMsg]);
 
   return (
-    <div className="flex flex-col">
+    <div className="wallie-flex flex-col">
       <div className="flex flex-col space-y-4 pt-4">
         <button
           type="button"

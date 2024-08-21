@@ -67,23 +67,23 @@ export function WalletButton({
   return (
     <button
       type="button"
-      className="w-full flex flex-row justify-between items-center text-ord-light-gray bg-ord-light-blue hover:bg-ord-light-blue-250 p-2 rounded-lg md:text-xl space-x-4 md:space-x-6 ease-in transition-all duration-100 ease-in-outscale-120"
+      className="wallie-w-full wallie-flex wallie-flex-row wallie-justify-between wallie-items-center wallie-text-ord-light-gray wallie-bg-ord-light-blue wallie-hover:bg-ord-light-blue-250 wallie-p-2 wallie-rounded-lg md:wallie-text-xl wallie-space-x-4 md:space-x-6 wallie-ease-in wallie-transition-all wallie-duration-100 wallie-ease-in-outscale-120"
       onClick={handleWalletConnectClick}
       disabled={isDisabled}
     >
-      <div className="flex flex-row space-x-2">
-        <img className="w-5 md:w-8" src={icon} alt="" />
-        <span className="text-lg block font-medium">{walletName}</span>
+      <div className="wallie-flex wallie-flex-row wallie-space-x-2">
+        <img className="wallie-w-5 md:wallie-w-8" src={icon} alt="" />
+        <span className="wallie-text-lg wallie-block wallie-font-medium">{walletName}</span>
         <span
-          className="text-sm font-medium"
+          className="wallie-text-sm wallie-font-medium"
           style={{ display: isMobileDevice ? "block" : "none" }}
         >
           {subtitle}
         </span>
       </div>
       {connectedWallet === wallet && connectedAddress.ordinals ? (
-        <div className="flex flex-row ml-auto">
-          <span className="text-sm font-medium pr-3">
+        <div className="wallie-flex wallie-flex-row wallie-ml-auto">
+          <span className="wallie-text-sm wallie-font-medium wallie-pr-3">
             {truncateMiddle(connectedAddress.ordinals)}
           </span>
         </div>
