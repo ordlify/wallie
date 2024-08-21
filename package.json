@@ -55,6 +55,7 @@
     "bignumber.js": "^9.1.2",
     "bitcoinjs-lib": "6.1.6",
     "boring-avatars": "^1.10.2",
+    "encoding": "^0.1.13",
     "sats-connect": "^2.7.0"
   },
   "lint-staged": {
