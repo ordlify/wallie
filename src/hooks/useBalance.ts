@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import BigNumber from "bignumber.js";
+
 import {
   ADDRESS_FORMAT_TO_TYPE,
   AddressType,
   getAddressesFromPublicKey,
-  JsonRpcDatasource,
-} from "@ordzaar/ordit-sdk";
-
+} from "../addresses";
+import { JsonRpcDatasource } from "../modules";
 import { useWallie } from "../providers/WallieProvider";
 
 export function useBalance() {

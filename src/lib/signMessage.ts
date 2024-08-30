@@ -1,13 +1,12 @@
-import { AddressFormat } from "@ordzaar/ordit-sdk";
+import { AddressFormat } from "../addresses";
 import {
   LeatherAddressType,
   signMessage as signLeatherMessage,
-} from "@ordzaar/ordit-sdk/leather";
-import { signMessage as signMagicEdenMessage } from "@ordzaar/ordit-sdk/magiceden";
-import { signMessage as signOKXMessage } from "@ordzaar/ordit-sdk/okx";
-import { signMessage as signUnisatMessage } from "@ordzaar/ordit-sdk/unisat";
-import { signMessage as signXverseMessage } from "@ordzaar/ordit-sdk/xverse";
-
+} from "../browser-wallets/leather";
+import { signMessage as signMagicEdenMessage } from "../browser-wallets/magiceden";
+import { signMessage as signOKXMessage } from "../browser-wallets/okx";
+import { signMessage as signUnisatMessage } from "../browser-wallets/unisat";
+import { signMessage as signXverseMessage } from "../browser-wallets/xverse";
 import { Network, Wallet } from "../providers/WallieProvider";
 
 interface SignMessageParams {

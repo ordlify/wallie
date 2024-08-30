@@ -1,4 +1,4 @@
-import { AddressFormat } from '@ordzaar/ordit-sdk';
+import { AddressFormat } from '../addresses';
 import { Network, Wallet } from '../providers/WallieProvider';
 
 interface SignMessageParams {

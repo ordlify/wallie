@@ -119,7 +119,7 @@ function TestControls() {
 export function SampleApp() {
   return (
     <div className="wallie-app wallie-h-screen wallie-flex wallie-justify-center wallie-items-center">
-      <WallieProvider initialNetwork={Network.MAINNET}>
+      <WallieProvider initialNetwork={Network.TESTNET}>
         <div className="wallie-flex wallie-flex-col">
           <OrdConnectKit
             onViewProfile={() => console.log("View profile clicked")}

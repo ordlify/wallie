@@ -1,5 +1,4 @@
-import { Fragment, ReactNode } from "react";
-import Avatar from "boring-avatars";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import ChevronDownIcon from "../../assets/chevron-down.svg";
@@ -26,7 +25,6 @@ interface PostConnectButtonProp {
   onViewProfile?: () => void;
   onChangeWallet?: () => void;
   onDisconnectWallet?: () => void;
-  renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
 }
 
 const NETWORK_DISPLAY_NAME = {
@@ -41,26 +39,18 @@ export function PostConnectButton({
   onViewProfile,
   onChangeWallet,
   onDisconnectWallet,
-  renderAvatar,
 }: PostConnectButtonProp) {
   const { wallet } = useWallie();
 
   return (
-    <Menu as="section" className="wallie-relative wallie-inline-block wallie-text-left">
+    <Menu
+      as="section"
+      className="wallie-relative wallie-inline-block wallie-text-left"
+    >
       {({ open }) => (
         <>
           <Menu.Button>
             <div className="wallet-identifier-container">
-              {renderAvatar ? (
-                renderAvatar(address, "large")
-              ) : (
-                <Avatar
-                  size={28}
-                  variant="beam"
-                  name={address}
-                  colors={["#1C2DCB", "#F226B8"]}
-                />
-              )}
               <img
                 src={WALLET_TO_ICON[wallet as Wallet]}
                 alt={`${wallet} is connected`}

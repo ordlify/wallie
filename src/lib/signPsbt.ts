@@ -1,10 +1,10 @@
 import { Psbt } from "bitcoinjs-lib";
-import { signPsbt as signLeatherPsbt } from "@ordzaar/ordit-sdk/leather";
-import { signPsbt as signMagicEdenPsbt } from "@ordzaar/ordit-sdk/magiceden";
-import { signPsbt as signOKXPsbt } from "@ordzaar/ordit-sdk/okx";
-import { signPsbt as signUnisatPsbt } from "@ordzaar/ordit-sdk/unisat";
-import { signPsbt as signXversePsbt } from "@ordzaar/ordit-sdk/xverse";
 
+import { signPsbt as signLeatherPsbt } from "../browser-wallets/leather";
+import { signPsbt as signMagicEdenPsbt } from "../browser-wallets/magiceden";
+import { signPsbt as signOKXPsbt } from "../browser-wallets/okx";
+import { signPsbt as signUnisatPsbt } from "../browser-wallets/unisat";
+import { signPsbt as signXversePsbt } from "../browser-wallets/xverse";
 import { Network, Wallet } from "../providers/WallieProvider";
 
 interface InputsToSign {

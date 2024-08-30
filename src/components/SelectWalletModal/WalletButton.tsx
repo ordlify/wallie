@@ -20,7 +20,6 @@ interface WalletButtonProp {
   setErrorMessage: (msg: string) => void;
   isDisabled?: boolean;
   isMobileDevice?: boolean;
-  // renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
 }
 
 export function WalletButton({
@@ -31,7 +30,6 @@ export function WalletButton({
   setErrorMessage,
   isDisabled,
   isMobileDevice,
-  // renderAvatar,
 }: WalletButtonProp) {
   const { wallet: _connectedWallet, address: _connectedAddress } = useWallie();
 
@@ -73,7 +71,9 @@ export function WalletButton({
     >
       <div className="wallie-flex wallie-flex-row wallie-space-x-2">
         <img className="wallie-w-5 md:wallie-w-8" src={icon} alt="" />
-        <span className="wallie-text-lg wallie-block wallie-font-medium">{walletName}</span>
+        <span className="wallie-text-lg wallie-block wallie-font-medium">
+          {walletName}
+        </span>
         <span
           className="wallie-text-sm wallie-font-medium"
           style={{ display: isMobileDevice ? "block" : "none" }}

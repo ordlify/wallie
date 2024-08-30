@@ -16,7 +16,6 @@ export interface OrdConnectKitProp {
   onViewProfile?: () => void;
   onChangeWalletClick?: () => void;
   onDisconnectWalletClick?: () => void;
-  renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
 }
 
 /**
@@ -25,7 +24,6 @@ export interface OrdConnectKitProp {
  * @component
  * @param {Object} props - Props for the OrdConnectKit component.
  * @param {boolean} [props.hideConnectButton] - Hides the connect and connected status button.
- * @param {Function} [props.renderAvatar] - Render prop for rendering wallet profile avatar when connected.
  * @param {Function} [props.onViewProfile] - Callback function to handle clicking view wallet profile.
  * @param {Function} [props.onChangeWalletClick] - Callback function to handle clicking change wallet.
  * @param {Function} [props.onDisconnectWalletClick] - Callback function to handle clicking disconnect wallet.
@@ -38,7 +36,6 @@ export function OrdConnectKit({
   onViewProfile,
   onChangeWalletClick,
   onDisconnectWalletClick,
-  renderAvatar,
 }: OrdConnectKitProp) {
   const {
     address,
@@ -69,7 +66,6 @@ export function OrdConnectKit({
           disconnectWallet();
           onDisconnectWalletClick?.();
         }}
-        renderAvatar={renderAvatar}
       />
     ) : (
       <PreConnectButton

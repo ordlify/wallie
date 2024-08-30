@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
-import { JsonRpcDatasource, PSBTBuilder } from "@ordzaar/ordit-sdk";
 
 import signPsbt from "../lib/signPsbt";
+import { JsonRpcDatasource } from "../modules";
 import { useWallie } from "../providers/WallieProvider";
+import { PSBTBuilder } from "../transactions";
 
 type SendFunction = (sendParams: SendParams) => Promise<SendResponse>;
 

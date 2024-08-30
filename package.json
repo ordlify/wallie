@@ -23,6 +23,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@bitcoinerlab/secp256k1": "1.1.1",
     "@ordzaar/standard-prettier": "^1.8.4",
     "@ordzaar/standard-web-linter": "^1.8.4",
     "@types/node": "^20.12.7",
@@ -31,10 +32,20 @@
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
-    "@wallet-standard/core": "^0.0.0-20240703212708",
+    "@wallet-standard/core": "^1.0.3",
     "@wallet-standard/react": "^0.1.4",
     "autoprefixer": "10.4.14",
+    "bignumber.js": "9.1.2",
+    "bip32": "4.0.0",
+    "bip39": "3.1.0",
+    "bitcoin-address-validation": "2.2.3",
+    "bitcoinjs-lib": "6.1.6",
+    "bitcoinjs-message": "2.2.0",
+    "buffer-reverse": "1.0.1",
+    "cross-fetch": "4.0.0",
     "cssnano": "^7.0.5",
+    "ecpair": "2.1.0",
+    "ethers": "6.13.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.8",
@@ -48,15 +59,15 @@
     "vite-plugin-css-injected-by-js": "^3.5.1",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "vite-plugin-node-polyfills": "^0.22.0",
+    "sats-connect": "2.6.0"
   },
   "dependencies": {
+    "@ordzaar/standard-typescript": "^1.8.4",
+    "@types/node": "^20.14.10",
+    "happy-dom": "^13.10.1",
     "@headlessui/react": "^1.7.19",
-    "bignumber.js": "^9.1.2",
-    "bitcoinjs-lib": "6.1.6",
-    "boring-avatars": "^1.10.2",
-    "encoding": "^0.1.13",
-    "sats-connect": "^2.7.0"
+    "encoding": "^0.1.13"
   },
   "lint-staged": {
     "*": [
@@ -67,7 +78,6 @@
     ]
   },
   "peerDependencies": {
-    "@ordzaar/ordit-sdk": "^1.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

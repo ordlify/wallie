@@ -7,8 +7,8 @@ import {
   useMemo,
   useState,
 } from "react";
-import { AddressFormat } from "@ordzaar/ordit-sdk";
 
+import { AddressFormat } from "../addresses";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export enum Network {

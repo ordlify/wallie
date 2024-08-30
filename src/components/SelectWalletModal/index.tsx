@@ -1,14 +1,5 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  BrowserWalletNotInstalledError,
-  BrowserWalletRequestCancelledByUserError,
-} from "@ordzaar/ordit-sdk";
-// import { getAddresses as getLeatherAddresses } from "@ordzaar/ordit-sdk/leather";
-import { getAddresses as getMagicEdenAddress } from "@ordzaar/ordit-sdk/magiceden";
-// import { getAddresses as getOKXAddresses } from "@ordzaar/ordit-sdk/okx";
-import { getAddresses as getUnisatAddresses } from "@ordzaar/ordit-sdk/unisat";
-import { getAddresses as getXverseAddresses } from "@ordzaar/ordit-sdk/xverse";
 
 import CloseModalIcon from "../../assets/close-modal.svg";
 // import LeatherWalletIcon from "../../assets/leather-wallet.svg";
@@ -16,6 +7,15 @@ import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
 // import OKXWalletIcon from "../../assets/okx-wallet.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
 import XverseWalletIcon from "../../assets/xverse-wallet.svg";
+// import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
+import { getAddresses as getMagicEdenAddress } from "../../browser-wallets/magiceden";
+// import { getAddresses as getOKXAddresses } from "../../browser-wallets/okx";
+import { getAddresses as getUnisatAddresses } from "../../browser-wallets/unisat";
+import { getAddresses as getXverseAddresses } from "../../browser-wallets/xverse";
+import {
+  BrowserWalletNotInstalledError,
+  BrowserWalletRequestCancelledByUserError,
+} from "../../errors";
 // import { Network, useWallie, Wallet } from "../../providers/WallieProvider";
 import { useWallie, Wallet } from "../../providers/WallieProvider";
 import { isMobileUserAgent } from "../../utils/mobile-detector";
@@ -389,7 +389,14 @@ export function SelectWalletModal({
         window.unisat.removeListener("accountsChanged", listener);
       }
     };
-  }, [wallet, onConnectUnisatWallet, disconnectWallet]);
+  }, [
+    wallet,
+    onConnectUnisatWallet,
+    disconnectWallet,
+    address,
+    publicKey,
+    format,
+  ]);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>

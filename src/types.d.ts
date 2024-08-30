@@ -1,3 +1,7 @@
+type UnisatNetwork = "livenet" | "testnet";
+
+type MessageSignatureTypes = "bip322-simple" | "ecdsa";
+
 type Unisat = {
   addListener: (eventName: string, callback: (arg: string) => void) => void;
   removeListener: (eventName: string, callback: (arg: string) => void) => void;
@@ -6,8 +10,14 @@ type Unisat = {
   requestAccounts: () => Promise<string[]>;
   getAccounts: () => Promise<string[]>;
   getPublicKey: () => Promise<string>;
-  signPsbt: (hex: string) => Promise<string>;
-  signMessage: (message: string) => Promise<string>;
+  signPsbt: (
+    psbt: Psbt,
+    options: BrowserWalletSignPSBTOptions
+  ) => Promise<string>;
+  signMessage: (
+    message: string,
+    type: MessageSignatureTypes
+  ) => Promise<string>;
   sendBitcoin: (
     address: string,
     satoshis: number,
@@ -33,11 +43,6 @@ type LeatherProvider = {
   ) => Promise<LeatherJsonRPCResponse<any>>;
 };
 
-type Okx = {
-  bitcoin;
-  bitcoinTestnet;
-};
-
 declare interface Window {
   chrome: {
     app: {
@@ -57,5 +62,64 @@ declare interface Window {
   unisat: Unisat;
   satsConnect: any;
   LeatherProvider: LeatherProvider;
-  okxwallet: Okx;
+  okxwallet: {
+    bitcoin: OKXWalletProvider;
+    bitcoinTestnet: OKXWalletProvider;
+    bitcoinSignet: OKXWalletProvider;
+  };
+}
+
+interface BtcKitRequestFn {
+  (arg: object | string, params?: object | string[]): Promise<object>;
+}
+
+type LeatherProvider = {
+  request: BtcKitRequestFn;
+};
+
+type MetaMask = {
+  isMetaMask: boolean;
+  request: (options: { method: string; params?: unknown }) => Promise<unknown>;
+};
+
+type OKXAccount = {
+  address: string;
+  publicKey: string;
+};
+
+type OKXSignInput = {
+  index: number;
+  address?: string;
+  publicKey?: string;
+  sighashTypes?: number[];
+};
+
+type OKXWalletProvider = {
+  connect: () => Promise<OKXAccount>;
+  signMessage: (
+    message: string,
+    type: MessageSignatureTypes
+  ) => Promise<string>;
+  signPsbt: (
+    psbtHex: string,
+    options: {
+      autoFinalized: boolean;
+      toSignInputs: OKXSignInput[];
+    }
+  ) => Promise<string>;
+  sendBitcoin: (
+    address: string,
+    satoshis: number,
+    options: { feeRate?: number }
+  ) => Promise<string>;
+};
+
+type OKXWallet = {
+  bitcoin: OKXWalletProvider;
+  bitcoinTestnet: OKXWalletProvider;
+  bitcoinSignet: OKXWalletProvider;
+};
+
+declare module "buffer-reverse" {
+  export = (_: Buffer): Buffer => {};
 }
