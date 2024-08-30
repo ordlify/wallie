@@ -120,6 +120,4 @@ type OKXWallet = {
   bitcoinSignet: OKXWalletProvider;
 };
 
-declare module "buffer-reverse" {
-  export = (_: Buffer): Buffer => {};
-}
+declare module "buffer-reverse";
