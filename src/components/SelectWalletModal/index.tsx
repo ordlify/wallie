@@ -490,18 +490,15 @@ export function SelectWalletModal({
                         isMobileDevice={isMobile}
                       />
                     )}
-                    {!isMobile && (
-                      <>
-                        <WalletButton
-                          wallet={Wallet.MAGICEDEN}
-                          subtitle="Coming soon on mobile browsing"
-                          onConnect={onConnectMagicEdenWallet}
-                          icon={MagicEdenWalletIcon}
-                          setErrorMessage={setErrorMessage}
-                          isDisabled={isMobile}
-                          isMobileDevice={isMobile}
-                        />
-                        {/* <WalletButton
+                    <WalletButton
+                      wallet={Wallet.MAGICEDEN}
+                      subtitle=""
+                      onConnect={onConnectMagicEdenWallet}
+                      icon={MagicEdenWalletIcon}
+                      setErrorMessage={setErrorMessage}
+                      isMobileDevice={isMobile}
+                    />
+                    {/* <WalletButton
                           wallet={Wallet.LEATHER}
                           subtitle="Coming soon on mobile browsing"
                           onConnect={onConnectLeatherWallet}
@@ -509,9 +506,7 @@ export function SelectWalletModal({
                           setErrorMessage={setErrorMessage}
                           isDisabled={isMobile}
                           isMobileDevice={isMobile}
-                        /> */}
-                      </>
-                    )}
+                        />  */}
                   </section>
                 </section>
               </Dialog.Panel>
