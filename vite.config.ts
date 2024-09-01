@@ -12,10 +12,13 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: {
-        index: resolve(__dirname, "src/index.ts"),
-      },
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "Wallie",
+      fileName: "index", // Ensures the output is `index.js`
       formats: ["es"],
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"], // Keep external dependencies out of the bundle
     },
   },
   plugins: [
@@ -26,7 +29,6 @@ export default defineConfig({
     eslint(),
     nodePolyfills({
       globals: {
-        // required for ordit-sdk functionality
         Buffer: true,
       },
     }),

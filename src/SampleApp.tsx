@@ -5,6 +5,8 @@ import { useSignMessage } from "./hooks/useSignMessage";
 import { Network, useWallie, WallieProvider } from "./providers/WallieProvider";
 import { OrdConnectKit, useSendBtc, useSign } from "./index";
 
+import "./components/style.css";
+
 function TestControls() {
   const { send, error: sendError, loading: isSending } = useSendBtc();
   const {
