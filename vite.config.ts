@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
 import eslint from "vite-plugin-eslint";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
@@ -12,13 +13,13 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "Wallie",
-      fileName: "index", // Ensures the output is `index.js`
+      entry: {
+        index: resolve(__dirname, "src/index.ts"),
+      },
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"], // Keep external dependencies out of the bundle
+      external: ["react", "react-dom"],
     },
   },
   plugins: [
@@ -27,6 +28,7 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     eslint(),
+    cssInjectedByJsPlugin(),
     nodePolyfills({
       globals: {
         Buffer: true,
