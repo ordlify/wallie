@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@ordzaar/standard-typescript": "^1.8.4",
-    "@types/node": "^20.14.10",
+    "@types/node": "20.1.4",
     "happy-dom": "^13.10.1",
     "@headlessui/react": "^1.7.19",
     "encoding": "^0.1.13"
