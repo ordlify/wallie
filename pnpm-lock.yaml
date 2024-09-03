@@ -11,12 +11,6 @@ importers:
       '@headlessui/react':
         specifier: ^1.7.19
         version: 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ordzaar/standard-typescript':
-        specifier: ^1.8.4
-        version: 1.8.7(typescript@5.5.4)
-      '@types/node':
-        specifier: 20.1.4
-        version: 20.1.4
       encoding:
         specifier: ^0.1.13
         version: 0.1.13
@@ -27,12 +21,12 @@ importers:
       '@bitcoinerlab/secp256k1':
         specifier: 1.1.1
         version: 1.1.1
-      '@ordzaar/standard-prettier':
-        specifier: ^1.8.4
-        version: 1.8.7(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0))(eslint-plugin-jsx-a11y@6.9.0(eslint@8.57.0))(eslint-plugin-react-hooks@4.6.2(eslint@8.57.0))(eslint-plugin-react@7.35.2(eslint@8.57.0))(typescript@5.5.4)
       '@ordzaar/standard-web-linter':
         specifier: ^1.8.4
         version: 1.8.7(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)
+      '@types/node':
+        specifier: ^20.12.7
+        version: 20.16.3
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.5
@@ -47,10 +41,10 @@ importers:
         version: 7.18.0(eslint@8.57.0)(typescript@5.5.4)
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.0
-        version: 3.7.0(@swc/helpers@0.5.5)(vite@5.4.3(@types/node@20.1.4))
+        version: 3.7.0(@swc/helpers@0.5.5)(vite@5.4.3(@types/node@20.16.3))
       '@wallet-standard/core':
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^0.0.0-20240703212708
+        version: 0.0.0-20240703212708
       '@wallet-standard/react':
         specifier: ^0.1.4
         version: 0.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -118,23 +112,23 @@ importers:
         specifier: ^2.0.11
         version: 2.1.1
       typescript:
-        specifier: ^5
+        specifier: ^5.5.4
         version: 5.5.4
       vite:
         specifier: ^5.3.5
-        version: 5.4.3(@types/node@20.1.4)
+        version: 5.4.3(@types/node@20.16.3)
       vite-plugin-css-injected-by-js:
         specifier: ^3.5.1
-        version: 3.5.1(vite@5.4.3(@types/node@20.1.4))
+        version: 3.5.1(vite@5.4.3(@types/node@20.16.3))
       vite-plugin-dts:
         specifier: ^3.9.1
-        version: 3.9.1(@types/node@20.1.4)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.3(@types/node@20.1.4))
+        version: 3.9.1(@types/node@20.16.3)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.3(@types/node@20.16.3))
       vite-plugin-eslint:
         specifier: ^1.8.1
-        version: 1.8.1(eslint@8.57.0)(vite@5.4.3(@types/node@20.1.4))
+        version: 1.8.1(eslint@8.57.0)(vite@5.4.3(@types/node@20.16.3))
       vite-plugin-node-polyfills:
         specifier: ^0.22.0
-        version: 0.22.0(rollup@4.21.2)(vite@5.4.3(@types/node@20.1.4))
+        version: 0.22.0(rollup@4.21.2)(vite@5.4.3(@types/node@20.16.3))
 
 packages:
 
@@ -466,9 +460,6 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@ordzaar/standard-prettier@1.8.7':
-    resolution: {integrity: sha512-FF66H5EkjPGnmdv1TPiBWErhvtBnRAgEuUiD6PG6SPWAbFrjathHfng3nv2OTF9Y+Gz8CJt6J7fQeV7eDPDBvw==}
-
   '@ordzaar/standard-typescript@1.8.7':
     resolution: {integrity: sha512-1v1VfvxTD7lYdrkMF8N+AYcWPedMKxrIZrJL46qxYEPDp8hWYARVcQEd7WdaOdaBhygwc+0S4GTXJeZ9y/lQBg==}
     peerDependencies:
@@ -741,8 +732,8 @@ packages:
   '@types/node@18.15.13':
     resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
 
-  '@types/node@20.1.4':
-    resolution: {integrity: sha512-At4pvmIOki8yuwLtd7BNHl3CiWNbtclUbNtScGx4OHfBd4/oWoJC8KRCIxXwkdndzhxOsPXihrsOoydxBjlE9Q==}
+  '@types/node@20.16.3':
+    resolution: {integrity: sha512-/wdGiWRkMOm53gAsSyFMXFZHbVg7C6CbkrzHNpaHoYfsUWPg7m6ZRKtvQjgvQ9i8WT540a3ydRlRQbxjY30XxQ==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -876,20 +867,37 @@ packages:
   '@vue/shared@3.5.0':
     resolution: {integrity: sha512-m9IgiteBpCkFaMNwCOBkFksA7z8QiKc30ooRuoXWUFRDu0mGyNPlFHmbncF0/Kra1RlX8QrmBbRaIxVvikaR0Q==}
 
+  '@wallet-standard/app@0.0.0-20240703212708':
+    resolution: {integrity: sha512-9dbm+DtuhD48u0pMXs0vairkCvN1PGzhb2SWCeYNT3bmaYGkv7XfkpNLFf8O8xngm0WdM0pbP9WRfxaJfEIN6w==}
+    engines: {node: '>=16'}
+
   '@wallet-standard/app@1.0.1':
     resolution: {integrity: sha512-LnLYq2Vy2guTZ8GQKKSXQK3+FRGPil75XEdkZqE6fiLixJhZJoJa5hT7lXxwe0ykVTt9LEThdTbOpT7KadS26Q==}
+    engines: {node: '>=16'}
+
+  '@wallet-standard/base@0.0.0-20240703212708':
+    resolution: {integrity: sha512-D9z2nlH3wyR6NZBVjX2csAMAvSZvhXujWQkyx/5fhZ5QsHnbcrt0g21u231kIC7zuAzmH3tjQ0/xyR/2bfvjgA==}
     engines: {node: '>=16'}
 
   '@wallet-standard/base@1.0.1':
     resolution: {integrity: sha512-1To3ekMfzhYxe0Yhkpri+Fedq0SYcfrOfJi3vbLjMwF2qiKPjTGLwZkf2C9ftdQmxES+hmxhBzTwF4KgcOwf8w==}
     engines: {node: '>=16'}
 
-  '@wallet-standard/core@1.0.3':
-    resolution: {integrity: sha512-Jb33IIjC1wM1HoKkYD7xQ6d6PZ8EmMZvyc8R7dFgX66n/xkvksVTW04g9yLvQXrLFbcIjHrCxW6TXMhvpsAAzg==}
+  '@wallet-standard/core@0.0.0-20240703212708':
+    resolution: {integrity: sha512-KvoLY7XHk9r++bjggJGhYlORUxe8NxJZ7uPyaypvtZf9nJSviZtawWtAVXq+B+YP7EGKF6gW0HuS3mjYfXO2gg==}
     engines: {node: '>=16'}
+
+  '@wallet-standard/errors@0.0.0-20240703212708':
+    resolution: {integrity: sha512-Bord90VSpPAD30ukC3h8MEZYzv0BZoRnG+DNWcsm8MOuivsZzSmWFcnoxX4ErZgKknxaCRT8qLc3+3+k4QVL3w==}
+    engines: {node: '>=16'}
+    hasBin: true
 
   '@wallet-standard/experimental-features@0.1.1':
     resolution: {integrity: sha512-WKtnET1okeDACTbxmePGOGaIUrGvlu/DestLZvZ/ddFpUKw7nokkbinX/gHzsuAC9WGtLyhqLSppAHzN+vAAaQ==}
+    engines: {node: '>=16'}
+
+  '@wallet-standard/features@0.0.0-20240703212708':
+    resolution: {integrity: sha512-b5U7UKzlI2j+VnNZCWiEXewA4jHGcbD7xVHr91/NYSnGs5sos8Y7YXpnf+07ib/LwInd/X00g3/qzz9wRtv+Ew==}
     engines: {node: '>=16'}
 
   '@wallet-standard/features@1.0.3':
@@ -907,8 +915,8 @@ packages:
     resolution: {integrity: sha512-LEI/qF6+P4YqyeGOyxzMhbFpIo7JcQ3tEZUOIKoBfvkZpDN2n/Ww60KjCGUMhXhnrEDLMpyfrKYJJ0qLacENQw==}
     engines: {node: '>=16'}
 
-  '@wallet-standard/wallet@1.0.1':
-    resolution: {integrity: sha512-qkhJeuQU2afQTZ02yMZE5SFc91Fo3hyFjFkpQglHudENNyiSG0oUKcIjky8X32xVSaumgTZSQUAzpXnCTWHzKQ==}
+  '@wallet-standard/wallet@0.0.0-20240703212708':
+    resolution: {integrity: sha512-iTPr84ki4BZvEx4YPl/svDZ90rwj6teyAV9ip9p/q5IVLYCofzZOdUKnLu3R81O0rnnIeeDs8i6q4YkzHgtfYA==}
     engines: {node: '>=16'}
 
   acorn-jsx@5.3.2:
@@ -3230,6 +3238,9 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
   universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
@@ -3583,23 +3594,23 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@microsoft/api-extractor-model@7.28.13(@types/node@20.1.4)':
+  '@microsoft/api-extractor-model@7.28.13(@types/node@20.16.3)':
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.1.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.16.3)
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.43.0(@types/node@20.1.4)':
+  '@microsoft/api-extractor@7.43.0(@types/node@20.16.3)':
     dependencies:
-      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.1.4)
+      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.16.3)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.1.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.16.3)
       '@rushstack/rig-package': 0.5.2
-      '@rushstack/terminal': 0.10.0(@types/node@20.1.4)
-      '@rushstack/ts-command-line': 4.19.1(@types/node@20.1.4)
+      '@rushstack/terminal': 0.10.0(@types/node@20.16.3)
+      '@rushstack/ts-command-line': 4.19.1(@types/node@20.16.3)
       lodash: 4.17.21
       minimatch: 3.0.8
       resolve: 1.22.8
@@ -3674,29 +3685,6 @@ snapshots:
       fastq: 1.17.1
 
   '@nolyfill/is-core-module@1.0.39': {}
-
-  '@ordzaar/standard-prettier@1.8.7(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0))(eslint-plugin-jsx-a11y@6.9.0(eslint@8.57.0))(eslint-plugin-react-hooks@4.6.2(eslint@8.57.0))(eslint-plugin-react@7.35.2(eslint@8.57.0))(typescript@5.5.4)':
-    dependencies:
-      '@ordzaar/standard-typescript': 1.8.7(typescript@5.5.4)
-      eslint: 8.57.0
-      eslint-config-airbnb: 19.0.4(eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0))(eslint-plugin-jsx-a11y@6.9.0(eslint@8.57.0))(eslint-plugin-react-hooks@4.6.2(eslint@8.57.0))(eslint-plugin-react@7.35.2(eslint@8.57.0))(eslint@8.57.0)
-      eslint-config-airbnb-typescript: 18.0.0(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint-plugin-import@2.30.0(@typescript-eslint/parser@7.18.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-config-prettier: 9.1.0(eslint@8.57.0)
-      eslint-plugin-prettier: 5.2.1(@types/eslint@8.56.12)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
-      eslint-plugin-simple-import-sort: 12.1.1(eslint@8.57.0)
-      husky: 9.1.5
-      lint-staged: 15.2.10
-      prettier: 3.3.3
-    transitivePeerDependencies:
-      - '@types/eslint'
-      - '@typescript-eslint/eslint-plugin'
-      - '@typescript-eslint/parser'
-      - eslint-plugin-import
-      - eslint-plugin-jsx-a11y
-      - eslint-plugin-react
-      - eslint-plugin-react-hooks
-      - supports-color
-      - typescript
 
   '@ordzaar/standard-typescript@1.8.7(typescript@5.5.4)':
     dependencies:
@@ -3817,7 +3805,7 @@ snapshots:
 
   '@rushstack/eslint-patch@1.10.4': {}
 
-  '@rushstack/node-core-library@4.0.2(@types/node@20.1.4)':
+  '@rushstack/node-core-library@4.0.2(@types/node@20.16.3)':
     dependencies:
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -3826,23 +3814,23 @@ snapshots:
       semver: 7.5.4
       z-schema: 5.0.5
     optionalDependencies:
-      '@types/node': 20.1.4
+      '@types/node': 20.16.3
 
   '@rushstack/rig-package@0.5.2':
     dependencies:
       resolve: 1.22.8
       strip-json-comments: 3.1.1
 
-  '@rushstack/terminal@0.10.0(@types/node@20.1.4)':
+  '@rushstack/terminal@0.10.0(@types/node@20.16.3)':
     dependencies:
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.1.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.16.3)
       supports-color: 8.1.1
     optionalDependencies:
-      '@types/node': 20.1.4
+      '@types/node': 20.16.3
 
-  '@rushstack/ts-command-line@4.19.1(@types/node@20.1.4)':
+  '@rushstack/ts-command-line@4.19.1(@types/node@20.16.3)':
     dependencies:
-      '@rushstack/terminal': 0.10.0(@types/node@20.1.4)
+      '@rushstack/terminal': 0.10.0(@types/node@20.16.3)
       '@types/argparse': 1.0.38
       argparse: 1.0.10
       string-argv: 0.3.2
@@ -3954,7 +3942,9 @@ snapshots:
 
   '@types/node@18.15.13': {}
 
-  '@types/node@20.1.4': {}
+  '@types/node@20.16.3':
+    dependencies:
+      undici-types: 6.19.8
 
   '@types/prop-types@15.7.12': {}
 
@@ -4090,10 +4080,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.5)(vite@5.4.3(@types/node@20.1.4))':
+  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.5)(vite@5.4.3(@types/node@20.16.3))':
     dependencies:
       '@swc/core': 1.7.23(@swc/helpers@0.5.5)
-      vite: 5.4.3(@types/node@20.1.4)
+      vite: 5.4.3(@types/node@20.16.3)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -4139,22 +4129,38 @@ snapshots:
 
   '@vue/shared@3.5.0': {}
 
+  '@wallet-standard/app@0.0.0-20240703212708':
+    dependencies:
+      '@wallet-standard/base': 0.0.0-20240703212708
+
   '@wallet-standard/app@1.0.1':
     dependencies:
       '@wallet-standard/base': 1.0.1
 
+  '@wallet-standard/base@0.0.0-20240703212708': {}
+
   '@wallet-standard/base@1.0.1': {}
 
-  '@wallet-standard/core@1.0.3':
+  '@wallet-standard/core@0.0.0-20240703212708':
     dependencies:
-      '@wallet-standard/app': 1.0.1
-      '@wallet-standard/base': 1.0.1
-      '@wallet-standard/features': 1.0.3
-      '@wallet-standard/wallet': 1.0.1
+      '@wallet-standard/app': 0.0.0-20240703212708
+      '@wallet-standard/base': 0.0.0-20240703212708
+      '@wallet-standard/errors': 0.0.0-20240703212708
+      '@wallet-standard/features': 0.0.0-20240703212708
+      '@wallet-standard/wallet': 0.0.0-20240703212708
+
+  '@wallet-standard/errors@0.0.0-20240703212708':
+    dependencies:
+      chalk: 5.3.0
+      commander: 12.1.0
 
   '@wallet-standard/experimental-features@0.1.1':
     dependencies:
       '@wallet-standard/base': 1.0.1
+
+  '@wallet-standard/features@0.0.0-20240703212708':
+    dependencies:
+      '@wallet-standard/base': 0.0.0-20240703212708
 
   '@wallet-standard/features@1.0.3':
     dependencies:
@@ -4176,9 +4182,9 @@ snapshots:
       - react
       - react-dom
 
-  '@wallet-standard/wallet@1.0.1':
+  '@wallet-standard/wallet@0.0.0-20240703212708':
     dependencies:
-      '@wallet-standard/base': 1.0.1
+      '@wallet-standard/base': 0.0.0-20240703212708
 
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
@@ -6980,6 +6986,8 @@ snapshots:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
 
+  undici-types@6.19.8: {}
+
   universalify@0.1.2: {}
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
@@ -7015,13 +7023,13 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  vite-plugin-css-injected-by-js@3.5.1(vite@5.4.3(@types/node@20.1.4)):
+  vite-plugin-css-injected-by-js@3.5.1(vite@5.4.3(@types/node@20.16.3)):
     dependencies:
-      vite: 5.4.3(@types/node@20.1.4)
+      vite: 5.4.3(@types/node@20.16.3)
 
-  vite-plugin-dts@3.9.1(@types/node@20.1.4)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.3(@types/node@20.1.4)):
+  vite-plugin-dts@3.9.1(@types/node@20.16.3)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.3(@types/node@20.16.3)):
     dependencies:
-      '@microsoft/api-extractor': 7.43.0(@types/node@20.1.4)
+      '@microsoft/api-extractor': 7.43.0(@types/node@20.16.3)
       '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
       '@vue/language-core': 1.8.27(typescript@5.5.4)
       debug: 4.3.6
@@ -7030,35 +7038,35 @@ snapshots:
       typescript: 5.5.4
       vue-tsc: 1.8.27(typescript@5.5.4)
     optionalDependencies:
-      vite: 5.4.3(@types/node@20.1.4)
+      vite: 5.4.3(@types/node@20.16.3)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@5.4.3(@types/node@20.1.4)):
+  vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@5.4.3(@types/node@20.16.3)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       '@types/eslint': 8.56.12
       eslint: 8.57.0
       rollup: 2.79.1
-      vite: 5.4.3(@types/node@20.1.4)
+      vite: 5.4.3(@types/node@20.16.3)
 
-  vite-plugin-node-polyfills@0.22.0(rollup@4.21.2)(vite@5.4.3(@types/node@20.1.4)):
+  vite-plugin-node-polyfills@0.22.0(rollup@4.21.2)(vite@5.4.3(@types/node@20.16.3)):
     dependencies:
       '@rollup/plugin-inject': 5.0.5(rollup@4.21.2)
       node-stdlib-browser: 1.2.0
-      vite: 5.4.3(@types/node@20.1.4)
+      vite: 5.4.3(@types/node@20.16.3)
     transitivePeerDependencies:
       - rollup
 
-  vite@5.4.3(@types/node@20.1.4):
+  vite@5.4.3(@types/node@20.16.3):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.44
       rollup: 4.21.2
     optionalDependencies:
-      '@types/node': 20.1.4
+      '@types/node': 20.16.3
       fsevents: 2.3.3
 
   vm-browserify@1.1.2: {}
