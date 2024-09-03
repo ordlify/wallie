@@ -13,19 +13,25 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "dist"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   build: {
-    // outDir: path.resolve(__dirname, "dist"),
+    outDir: path.resolve(__dirname, "dist"),
     lib: {
-      entry: {
-        index: path.resolve(__dirname, "src/index.ts"),
-      },
-      formats: ["es"],
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "Wallie",
+      formats: ["es", "cjs"],
+      fileName: (format) => `index.${format === "es" ? "mjs" : "cjs"}`,
     },
     rollupOptions: {
-      external: ["react", "react-dom", "vm-browserify"],
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
   plugins: [
