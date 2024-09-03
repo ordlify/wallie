@@ -11,13 +11,7 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.mjs",
   },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
   build: {
-    outDir: path.resolve(__dirname, "dist"),
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "Wallie",
