@@ -173,7 +173,7 @@ function encodeDecodeObject(
 
   // eslint-disable-next-line no-restricted-syntax
   for (const key in obj) {
-    // eslint-disable-next-line no-prototype-builtins, no-continue
+    // eslint-disable-next-line no-prototype-builtins
     if (!obj.hasOwnProperty(key)) {
       // eslint-disable-next-line no-continue
       continue;

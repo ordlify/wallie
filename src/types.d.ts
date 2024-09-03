@@ -73,10 +73,6 @@ interface BtcKitRequestFn {
   (arg: object | string, params?: object | string[]): Promise<object>;
 }
 
-type LeatherProvider = {
-  request: BtcKitRequestFn;
-};
-
 type MetaMask = {
   isMetaMask: boolean;
   request: (options: { method: string; params?: unknown }) => Promise<unknown>;
