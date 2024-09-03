@@ -2,12 +2,12 @@ import { Fragment, useCallback, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import CloseModalIcon from "../../assets/close-modal.svg";
-// import LeatherWalletIcon from "../../assets/leather-wallet.svg";
+import LeatherWalletIcon from "../../assets/leather-wallet.svg";
 import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
 // import OKXWalletIcon from "../../assets/okx-wallet.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
 import XverseWalletIcon from "../../assets/xverse-wallet.svg";
-// import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
+import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
 import { getAddresses as getMagicEdenAddress } from "../../browser-wallets/magiceden";
 // import { getAddresses as getOKXAddresses } from "../../browser-wallets/okx";
 import { getAddresses as getUnisatAddresses } from "../../browser-wallets/unisat";
@@ -258,58 +258,58 @@ export function SelectWalletModal({
     updateWallet,
   ]);
 
-  // const onConnectLeatherWallet = useCallback(async () => {
-  //   try {
-  //     setErrorMessage("");
-  //     const leather = await getLeatherAddresses(network);
-  //     if (!leather || leather.length < 1) {
-  //       disconnectWallet();
-  //       throw new Error("Leather via Ordit returned no addresses.");
-  //     }
+  const onConnectLeatherWallet = useCallback(async () => {
+    try {
+      setErrorMessage("");
+      const leather = await getLeatherAddresses(network);
+      if (!leather || leather.length < 1) {
+        disconnectWallet();
+        throw new Error("Leather via Ordit returned no addresses.");
+      }
 
-  //     const paymentAddress = leather.find(
-  //       (walletAddress) => walletAddress.format === "segwit"
-  //     );
-  //     if (!paymentAddress) {
-  //       throw new Error("Leather via Ordit did not return a Segwit address.");
-  //     }
+      const paymentAddress = leather.find(
+        (walletAddress) => walletAddress.format === "segwit"
+      );
+      if (!paymentAddress) {
+        throw new Error("Leather via Ordit did not return a Segwit address.");
+      }
 
-  //     const ordinalAddress = leather.find(
-  //       (walletAddress) => walletAddress.format === "taproot"
-  //     );
-  //     if (!ordinalAddress) {
-  //       throw new Error("Leather via Ordit did not return a Taproot address.");
-  //     }
+      const ordinalAddress = leather.find(
+        (walletAddress) => walletAddress.format === "taproot"
+      );
+      if (!ordinalAddress) {
+        throw new Error("Leather via Ordit did not return a Taproot address.");
+      }
 
-  //     updateAddress({
-  //       ordinals: ordinalAddress.address,
-  //       payments: paymentAddress.address,
-  //     });
-  //     updatePublicKey({
-  //       ordinals: ordinalAddress.publicKey,
-  //       payments: paymentAddress.publicKey,
-  //     });
-  //     updateWallet(Wallet.LEATHER);
-  //     updateFormat({
-  //       ordinals: ordinalAddress.format,
-  //       payments: paymentAddress.format,
-  //     });
-  //     closeModal();
-  //     return true;
-  //   } catch (err) {
-  //     onError(Wallet.LEATHER, err as Error);
-  //     return false;
-  //   }
-  // }, [
-  //   closeModal,
-  //   disconnectWallet,
-  //   network,
-  //   onError,
-  //   updateAddress,
-  //   updateFormat,
-  //   updatePublicKey,
-  //   updateWallet,
-  // ]);
+      updateAddress({
+        ordinals: ordinalAddress.address,
+        payments: paymentAddress.address,
+      });
+      updatePublicKey({
+        ordinals: ordinalAddress.publicKey,
+        payments: paymentAddress.publicKey,
+      });
+      updateWallet(Wallet.LEATHER);
+      updateFormat({
+        ordinals: ordinalAddress.format,
+        payments: paymentAddress.format,
+      });
+      closeModal();
+      return true;
+    } catch (err) {
+      onError(Wallet.LEATHER, err as Error);
+      return false;
+    }
+  }, [
+    closeModal,
+    disconnectWallet,
+    network,
+    onError,
+    updateAddress,
+    updateFormat,
+    updatePublicKey,
+    updateWallet,
+  ]);
 
   // const onConnectOKXWallet = useCallback(async () => {
   //   try {
@@ -462,6 +462,15 @@ export function SelectWalletModal({
                 <section className="wallie-w-full">
                   <section className="wallie-w-full wallie-space-y-4">
                     <WalletButton
+                      wallet={Wallet.LEATHER}
+                      subtitle="Coming soon on mobile browsing"
+                      onConnect={onConnectLeatherWallet}
+                      icon={LeatherWalletIcon}
+                      setErrorMessage={setErrorMessage}
+                      isDisabled={isMobile}
+                      isMobileDevice={isMobile}
+                    />
+                    <WalletButton
                       wallet={Wallet.XVERSE}
                       subtitle=""
                       onConnect={onConnectXverseWallet}
@@ -498,15 +507,6 @@ export function SelectWalletModal({
                       setErrorMessage={setErrorMessage}
                       isMobileDevice={isMobile}
                     />
-                    {/* <WalletButton
-                          wallet={Wallet.LEATHER}
-                          subtitle="Coming soon on mobile browsing"
-                          onConnect={onConnectLeatherWallet}
-                          icon={LeatherWalletIcon}
-                          setErrorMessage={setErrorMessage}
-                          isDisabled={isMobile}
-                          isMobileDevice={isMobile}
-                        />  */}
                   </section>
                 </section>
               </Dialog.Panel>

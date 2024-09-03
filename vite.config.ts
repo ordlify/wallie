@@ -17,12 +17,12 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "dist"),
+    // outDir: path.resolve(__dirname, "dist"),
     lib: {
       entry: {
         index: path.resolve(__dirname, "src/index.ts"),
       },
-      formats: ["cjs"],
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["react", "react-dom", "vm-browserify"],
