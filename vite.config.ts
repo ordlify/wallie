@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react-swc";
-import { resolve } from "path";
+import path from "path";
 import { defineConfig } from "vite";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
@@ -11,16 +11,23 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.mjs",
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
   build: {
-    lib: {
-      entry: {
-        index: resolve(__dirname, "src/index.ts"),
-      },
-      formats: ["es"],
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-    },
+    outDir: path.resolve(__dirname, "dist"),
+
+    // lib: {
+    //   entry: {
+    //     index: resolve(__dirname, "src/index.ts"),
+    //   },
+    //   formats: ["es"],
+    // },
+    // rollupOptions: {
+    //   external: ["react", "react-dom"],
+    // },
   },
   plugins: [
     react(),
