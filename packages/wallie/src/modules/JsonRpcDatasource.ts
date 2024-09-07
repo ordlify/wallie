@@ -43,7 +43,7 @@ export class JsonRpcDatasource extends BaseDatasource {
     return rpc[this.network].call<number>(
       "Address.GetBalance",
       { address },
-      rpc.id
+      rpc.id,
     );
   }
 
@@ -60,7 +60,7 @@ export class JsonRpcDatasource extends BaseDatasource {
     const inscription = await rpc[this.network].call<Inscription>(
       "Ordinals.GetInscription",
       { id },
-      rpc.id
+      rpc.id,
     );
 
     return DatasourceUtility.parseInscription(inscription, { decodeMetadata });
@@ -76,7 +76,7 @@ export class JsonRpcDatasource extends BaseDatasource {
     return rpc[this.network].call<UTXO>(
       "Ordinals.GetInscriptionUtxo",
       { id },
-      rpc.id
+      rpc.id,
     );
   }
 
@@ -103,7 +103,7 @@ export class JsonRpcDatasource extends BaseDatasource {
           sort: { number: sort },
           pagination: { limit, next },
         },
-        rpc.id
+        rpc.id,
       );
       inscriptions = inscriptions.concat(_inscriptions);
       next = pagination.next;
@@ -135,7 +135,7 @@ export class JsonRpcDatasource extends BaseDatasource {
         filter,
         limit,
       },
-      rpc.id
+      rpc.id,
     );
   }
 
@@ -160,7 +160,7 @@ export class JsonRpcDatasource extends BaseDatasource {
           witness,
         },
       },
-      rpc.id
+      rpc.id,
     );
 
     tx.vout = tx.vout.map((vout) => ({
@@ -207,7 +207,7 @@ export class JsonRpcDatasource extends BaseDatasource {
           },
           sort: { value: sort },
         },
-        rpc.id
+        rpc.id,
       );
 
       utxos = utxos.concat(unspents);
@@ -229,7 +229,7 @@ export class JsonRpcDatasource extends BaseDatasource {
     return rpc[this.network].call<string>(
       "Transactions.Relay",
       { hex, maxFeeRate, validate },
-      rpc.id
+      rpc.id,
     );
   }
 }

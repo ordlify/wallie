@@ -8,7 +8,7 @@ import { useWallie } from "../providers/WallieProvider";
 
 type SendFunction = (
   address: string,
-  satoshis: number
+  satoshis: number,
 ) => Promise<string | null>;
 
 export function useSendBtc() {
@@ -90,7 +90,7 @@ export function useSendBtc() {
                 },
               ],
               network,
-            }
+            },
           );
           txid = request.txid;
           setLoading(false);
@@ -103,7 +103,7 @@ export function useSendBtc() {
             txid = await window.okxwallet.bitcoin.sendBitcoin(
               toAddress,
               satoshis,
-              {}
+              {},
             );
             setLoading(false);
             return txid;
@@ -113,7 +113,7 @@ export function useSendBtc() {
             txid = await window.okxwallet.bitcoinTestnet.sendBitcoin(
               toAddress,
               satoshis,
-              {}
+              {},
             );
             setLoading(false);
             return txid;
@@ -128,7 +128,7 @@ export function useSendBtc() {
         return null;
       }
     },
-    [address, network, publicKey, wallet]
+    [address, network, publicKey, wallet],
   );
 
   return { send, error, loading };

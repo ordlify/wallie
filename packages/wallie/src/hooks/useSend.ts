@@ -9,7 +9,7 @@ type SendFunction = (
   address: string,
   satoshis: number,
   feeRate: number,
-  relay?: boolean
+  relay?: boolean,
 ) => Promise<string | null>;
 
 export function useSend() {
@@ -67,7 +67,7 @@ export function useSend() {
         return null;
       }
     },
-    [address, network, publicKey, wallet]
+    [address, network, publicKey, wallet],
   );
 
   return { send, error, loading };

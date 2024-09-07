@@ -91,7 +91,7 @@ export function useSendV2() {
         };
       }
     },
-    [address, network, publicKey, wallet]
+    [address, network, publicKey, wallet],
   );
 
   return { send, isLoading };

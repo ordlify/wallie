@@ -18,7 +18,7 @@ interface SignMessageParams {
 }
 
 function leatherPaymentTypeFromFormat(
-  format: AddressFormat
+  format: AddressFormat,
 ): LeatherAddressType {
   if (format === "segwit") {
     return LeatherAddressType.P2WPKH;

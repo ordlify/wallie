@@ -16,12 +16,12 @@ export type LeatherErrorResponse = {
 
 export async function leatherRequest<T>(
   arg: string,
-  params?: object | string[]
+  params?: object | string[],
 ): Promise<T> {
   try {
     const res = (await window.LeatherProvider.request(
       arg,
-      params
+      params,
     )) as LeatherJsonRPCResponse<T>;
 
     return res.result;

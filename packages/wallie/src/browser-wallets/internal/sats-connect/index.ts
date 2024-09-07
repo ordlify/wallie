@@ -51,7 +51,7 @@ initEccLib(ecc);
  */
 async function satsConnectWalletGetAddresses(
   getProvider: () => Promise<BitcoinProvider>,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<WalletAddress[]> {
   if (network === "signet") {
     throw new OrditSDKError("signet network is not supported");
@@ -62,7 +62,7 @@ async function satsConnectWalletGetAddresses(
   const handleOnFinish = (response: GetAddressResponse) => {
     if (!response || !response.addresses || response.addresses.length !== 2) {
       throw new BrowserWalletSigningError(
-        "Failed to retrieve addresses using selected wallet"
+        "Failed to retrieve addresses using selected wallet",
       );
     }
 
@@ -126,7 +126,7 @@ async function satsConnectWalletSignPsbt(
     extractTx = true,
     network,
     inputsToSign,
-  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] }
+  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] },
 ): Promise<BrowserWalletSignResponse> {
   if (network === "signet") {
     throw new OrditSDKError("signet network is not supported");
@@ -145,7 +145,7 @@ async function satsConnectWalletSignPsbt(
     const { psbtBase64 } = response;
     if (!psbtBase64) {
       throw new BrowserWalletSigningError(
-        "Failed to sign psbt using selected wallet"
+        "Failed to sign psbt using selected wallet",
       );
     }
 
@@ -226,7 +226,7 @@ async function satsConnectWalletSignMessage(
   getProvider: () => Promise<BitcoinProvider>,
   message: string,
   address: string,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSignResponse> {
   if (network === "signet") {
     throw new OrditSDKError("signet network is not supported");
@@ -241,7 +241,7 @@ async function satsConnectWalletSignMessage(
   const handleOnFinish = (response: SatsConnectSignMessageResponse) => {
     if (!response) {
       throw new BrowserWalletSigningError(
-        "Failed to sign message using selected wallet"
+        "Failed to sign message using selected wallet",
       );
     }
 
@@ -292,7 +292,7 @@ async function satsConnectWalletSendBTC(
   address: string,
   senderAddress: string,
   satoshis: number,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSendBtcResponse> {
   if (network === "signet") {
     throw new OrditSDKError("signet network is not supported");
@@ -306,7 +306,7 @@ async function satsConnectWalletSendBTC(
   const handleOnFinish = (response: SatsConnectSendBtcTransactionResponse) => {
     if (!response) {
       throw new BrowserWalletSigningError(
-        "Failed to sign message using selected wallet"
+        "Failed to sign message using selected wallet",
       );
     }
 

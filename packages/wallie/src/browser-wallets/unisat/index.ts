@@ -42,7 +42,7 @@ function isInstalled() {
  */
 async function getAddresses(
   network: BrowserWalletNetwork = "mainnet",
-  readOnly?: boolean
+  readOnly?: boolean,
 ): Promise<WalletAddress[]> {
   if (network === "signet") {
     throw new OrditSDKError("signet network is not supported");
@@ -101,7 +101,7 @@ async function getAddresses(
  */
 async function signPsbt(
   psbt: Psbt,
-  { finalize = true, extractTx = true }: UnisatSignPSBTOptions = {}
+  { finalize = true, extractTx = true }: UnisatSignPSBTOptions = {},
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Unisat not installed");
@@ -166,7 +166,7 @@ async function signPsbt(
  */
 async function signMessage(
   message: string,
-  type: MessageSignatureTypes = "ecdsa"
+  type: MessageSignatureTypes = "ecdsa",
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Unisat not installed");

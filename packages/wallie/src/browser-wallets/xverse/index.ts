@@ -39,7 +39,7 @@ async function getXverseWalletProvider(): Promise<BitcoinProvider> {
 }
 
 async function getAddresses(
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<WalletAddress[]> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -55,7 +55,7 @@ async function signPsbt(
     extractTx = true,
     network,
     inputsToSign,
-  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] }
+  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] },
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -72,7 +72,7 @@ async function signPsbt(
 async function signMessage(
   message: string,
   address: string,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -82,7 +82,7 @@ async function signMessage(
     getXverseWalletProvider,
     message,
     address,
-    network
+    network,
   );
 }
 
@@ -91,7 +91,7 @@ async function sendBtc(
   address: string,
   senderAddress: string,
   satoshis: number,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSendBtcResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -103,7 +103,7 @@ async function sendBtc(
     address,
     senderAddress,
     satoshis,
-    network
+    network,
   );
 }
 

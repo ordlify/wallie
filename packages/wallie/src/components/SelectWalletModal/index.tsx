@@ -61,25 +61,25 @@ export function SelectWalletModal({
       err:
         | BrowserWalletNotInstalledError
         | BrowserWalletRequestCancelledByUserError
-        | Error
+        | Error,
     ) => {
       if (err instanceof BrowserWalletNotInstalledError) {
         window.open(
           WALLET_CHROME_EXTENSION_URL[walletProvider],
           "_blank",
-          "noopener,noreferrer"
+          "noopener,noreferrer",
         );
       }
       setErrorMessage(err.message ?? err.toString());
       disconnectWallet();
     },
-    [disconnectWallet]
+    [disconnectWallet],
   );
 
   const onConnectMagicEdenWallet = useCallback(async () => {
     if (network === "testnet") {
       const unsupportedNetworkError = new Error(
-        "Magic Eden wallet is not supported on testnet"
+        "Magic Eden wallet is not supported on testnet",
       );
       onError(Wallet.MAGICEDEN, unsupportedNetworkError);
       return false;
@@ -98,22 +98,22 @@ export function SelectWalletModal({
       const paymentAddress = magicEdenAddresses.find(
         (walletAddress) =>
           walletAddress.format === "segwit" ||
-          walletAddress.format === "p2sh-p2wpkh"
+          walletAddress.format === "p2sh-p2wpkh",
       );
 
       if (!paymentAddress) {
         throw new Error(
-          "Magic Eden via Ordit did not return a P2SH or Segwit address."
+          "Magic Eden via Ordit did not return a P2SH or Segwit address.",
         );
       }
 
       const ordinalsAddress = magicEdenAddresses.find(
-        (walletAddress) => walletAddress.format === "taproot"
+        (walletAddress) => walletAddress.format === "taproot",
       );
 
       if (!ordinalsAddress) {
         throw new Error(
-          "Magic Eden via Ordit did not return a Taproot address."
+          "Magic Eden via Ordit did not return a Taproot address.",
         );
       }
 
@@ -191,7 +191,7 @@ export function SelectWalletModal({
       updateFormat,
       updatePublicKey,
       updateWallet,
-    ]
+    ],
   );
 
   const onConnectXverseWallet = useCallback(async () => {
@@ -210,17 +210,17 @@ export function SelectWalletModal({
       const paymentAddress = xverse.find(
         (walletAddress) =>
           walletAddress.format === "p2sh-p2wpkh" ||
-          walletAddress.format === "segwit"
+          walletAddress.format === "segwit",
       );
 
       if (!paymentAddress) {
         throw new Error(
-          "Xverse via Ordit did not return a P2SH or Segwit address."
+          "Xverse via Ordit did not return a P2SH or Segwit address.",
         );
       }
 
       const ordinalsAddress = xverse.find(
-        (walletAddress) => walletAddress.format === "taproot"
+        (walletAddress) => walletAddress.format === "taproot",
       );
 
       if (!ordinalsAddress) {
@@ -267,14 +267,14 @@ export function SelectWalletModal({
       }
 
       const paymentAddress = leather.find(
-        (walletAddress) => walletAddress.format === "segwit"
+        (walletAddress) => walletAddress.format === "segwit",
       );
       if (!paymentAddress) {
         throw new Error("Leather via Ordit did not return a Segwit address.");
       }
 
       const ordinalAddress = leather.find(
-        (walletAddress) => walletAddress.format === "taproot"
+        (walletAddress) => walletAddress.format === "taproot",
       );
       if (!ordinalAddress) {
         throw new Error("Leather via Ordit did not return a Taproot address.");

@@ -16,16 +16,16 @@ type Unisat = {
   getPublicKey: () => Promise<string>;
   signPsbt: (
     psbt: Psbt,
-    options: BrowserWalletSignPSBTOptions
+    options: BrowserWalletSignPSBTOptions,
   ) => Promise<string>;
   signMessage: (
     message: string,
-    type: MessageSignatureTypes
+    type: MessageSignatureTypes,
   ) => Promise<string>;
   sendBitcoin: (
     address: string,
     satoshis: number,
-    options: { feeRate?: number }
+    options: { feeRate?: number },
   ) => Promise<string>;
   getBalance: () => Promise<{
     confirmed: number;
@@ -43,7 +43,7 @@ type LeatherJsonRPCResponse<T> = {
 type LeatherProvider = {
   request: (
     arg: string,
-    params?: object | string[]
+    params?: object | string[],
   ) => Promise<LeatherJsonRPCResponse<unknown>>;
 };
 
@@ -98,19 +98,19 @@ type OKXWalletProvider = {
   connect: () => Promise<OKXAccount>;
   signMessage: (
     message: string,
-    type: MessageSignatureTypes
+    type: MessageSignatureTypes,
   ) => Promise<string>;
   signPsbt: (
     psbtHex: string,
     options: {
       autoFinalized: boolean;
       toSignInputs: OKXSignInput[];
-    }
+    },
   ) => Promise<string>;
   sendBitcoin: (
     address: string,
     satoshis: number,
-    options: { feeRate?: number }
+    options: { feeRate?: number },
   ) => Promise<string>;
 };
 

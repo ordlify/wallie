@@ -105,7 +105,7 @@ export function WallieProvider({
   const [address, setAddress] = useLocalStorage<BiAddressString>(
     ADDRESS,
     EMPTY_BIADDRESS_OBJECT,
-    { initializeWithValue: !ssr }
+    { initializeWithValue: !ssr },
   );
 
   const [wallet, setWallet] = useLocalStorage<Wallet | null>(WALLET, null, {
@@ -114,13 +114,13 @@ export function WallieProvider({
   const [publicKey, setPublicKey] = useLocalStorage<BiAddressString>(
     PUBLIC_KEY,
     EMPTY_BIADDRESS_OBJECT,
-    { initializeWithValue: !ssr }
+    { initializeWithValue: !ssr },
   );
 
   const [format, setFormat] = useLocalStorage<BiAddressFormat>(
     FORMAT,
     EMPTY_BIADDRESS_OBJECT,
-    { initializeWithValue: !ssr }
+    { initializeWithValue: !ssr },
   );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -166,7 +166,7 @@ export function WallieProvider({
       format,
       setFormat,
       disconnectWallet,
-    ]
+    ],
   );
 
   useEffect(() => {

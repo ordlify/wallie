@@ -54,7 +54,7 @@ export function useSignMessage(): {
         throw err;
       }
     },
-    [format, network, publicKey, wallet, walletAddresses]
+    [format, network, publicKey, wallet, walletAddresses],
   );
 
   return { signMsg, error, isLoading };

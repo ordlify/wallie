@@ -16,7 +16,7 @@ export function useSign() {
     async (
       address: string,
       unsignedPsbtBase64: string,
-      options: SignPsbtOptionsParams
+      options: SignPsbtOptionsParams,
     ): Promise<SerializedPsbt> => {
       setLoading(true);
       try {
@@ -43,7 +43,7 @@ export function useSign() {
         throw err;
       }
     },
-    [format, network, publicKey, wallet]
+    [format, network, publicKey, wallet],
   );
 
   return { sign, error, loading };

@@ -24,7 +24,10 @@ export function useBalance() {
       const { address } = getAddressesFromPublicKey(
         publicKey.payments,
         network,
-        ADDRESS_FORMAT_TO_TYPE[format.payments] as Exclude<AddressType, "p2wsh">
+        ADDRESS_FORMAT_TO_TYPE[format.payments] as Exclude<
+          AddressType,
+          "p2wsh"
+        >,
       )[0];
 
       const datasource = new JsonRpcDatasource({ network });
@@ -33,7 +36,7 @@ export function useBalance() {
       const totalAmountInSats = Number(
         new BigNumber(totalBalance)
           .multipliedBy(100_000_000)
-          .toFixed(0, BigNumber.ROUND_HALF_DOWN)
+          .toFixed(0, BigNumber.ROUND_HALF_DOWN),
       );
 
       setLoading(false);

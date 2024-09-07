@@ -29,7 +29,7 @@ function isInstalled() {
 }
 
 async function getAddresses(
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<WalletAddress[]> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Leather not installed");
@@ -42,7 +42,7 @@ async function getAddresses(
   const addresses = res.addresses.filter(
     (address) =>
       address.type === LeatherAddressType.P2TR ||
-      address.type === LeatherAddressType.P2WPKH
+      address.type === LeatherAddressType.P2WPKH,
   );
 
   // Hacky validation: there's no parameter to specify the network value when getting the address.
@@ -54,7 +54,7 @@ async function getAddresses(
     (network === "signet" && derivedNetwork !== "testnet") // error if network is signet but derived network is not testnet (signet has same address format as testnet)
   ) {
     throw new BrowserWalletNetworkMismatchError(
-      "Leather network mismatch, please switch it manually"
+      "Leather network mismatch, please switch it manually",
     );
   }
 
@@ -68,7 +68,7 @@ async function getAddresses(
 // Leather supports BIP-322 message signing.
 async function signMessage(
   message: string,
-  { network = "mainnet", paymentType }: LeatherSignMessageOptions
+  { network = "mainnet", paymentType }: LeatherSignMessageOptions,
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Leather not installed");
@@ -80,7 +80,7 @@ async function signMessage(
       message,
       paymentType,
       network,
-    }
+    },
   );
 
   return {
@@ -98,7 +98,7 @@ async function signPsbt(
     accountNumber,
     network = "mainnet",
     signAtIndexes = [],
-  }: LeatherSignPSBTOptions = {}
+  }: LeatherSignPSBTOptions = {},
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Leather not installed");

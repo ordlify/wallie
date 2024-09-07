@@ -201,7 +201,7 @@ export class PSBTBuilder extends FeeEstimator {
       {
         address: this.address,
         signingIndexes: [],
-      }
+      },
     );
   }
 
@@ -249,7 +249,7 @@ export class PSBTBuilder extends FeeEstimator {
 
   private addInputs() {
     const reservedIndexes = this.injectableInputs.map(
-      (input) => input.injectionIndex
+      (input) => input.injectionIndex,
     );
     const injectedIndexes: number[] = [];
 
@@ -257,7 +257,7 @@ export class PSBTBuilder extends FeeEstimator {
       const indexReserved = reservedIndexes.includes(inputIndex);
       if (indexReserved) {
         const injectable = this.injectableInputs.find(
-          (o) => o.injectionIndex === inputIndex
+          (o) => o.injectionIndex === inputIndex,
         )!;
         this.injectInput(injectable);
         injectedIndexes.push(injectable.injectionIndex);
@@ -270,7 +270,7 @@ export class PSBTBuilder extends FeeEstimator {
 
       if (
         existingInputHashes.includes(
-          generateTxUniqueIdentifier(input.hash, input.index)
+          generateTxUniqueIdentifier(input.hash, input.index),
         )
       ) {
         return;
@@ -279,7 +279,7 @@ export class PSBTBuilder extends FeeEstimator {
       this.psbt.addInput(input);
       this.psbt.setInputSequence(
         indexReserved ? inputIndex + 1 : inputIndex,
-        this.getInputSequence()
+        this.getInputSequence(),
       );
     });
 
@@ -299,7 +299,7 @@ export class PSBTBuilder extends FeeEstimator {
     this.outputs.forEach((output, outputIndex) => {
       if (reservedIndexes.includes(outputIndex)) {
         const injectable = this.injectableOutputs.find(
-          (o) => o.injectionIndex === outputIndex
+          (o) => o.injectionIndex === outputIndex,
         )!;
         this.injectOutput(injectable);
         injectedIndexes.push(injectable.injectionIndex);
@@ -330,12 +330,12 @@ export class PSBTBuilder extends FeeEstimator {
   private calculateOutputAmount() {
     this.outputAmount = Math.floor(
       this.outputs.reduce((acc, curr) => acc + curr.value, 0) +
-        this.injectableOutputs.reduce((acc, curr) => acc + curr.sats, 0)
+        this.injectableOutputs.reduce((acc, curr) => acc + curr.sats, 0),
     );
 
     if (this.outputAmount < MINIMUM_AMOUNT_IN_SATS) {
       throw new Error(
-        `Output amount too low. Minimum output amount needs to be ${MINIMUM_AMOUNT_IN_SATS} sats`
+        `Output amount too low. Minimum output amount needs to be ${MINIMUM_AMOUNT_IN_SATS} sats`,
       );
     }
   }
@@ -349,7 +349,7 @@ export class PSBTBuilder extends FeeEstimator {
     }
 
     this.changeAmount = Math.floor(
-      this.inputAmount - this.outputAmount - this.fee
+      this.inputAmount - this.outputAmount - this.fee,
     );
 
     if (this.changeAmount < 0) {
@@ -359,7 +359,7 @@ export class PSBTBuilder extends FeeEstimator {
         throw new Error(
           `Insufficient balance. Decrease the output amount by ${
             this.changeAmount * -1
-          } sats`
+          } sats`,
         );
       }
     }
@@ -371,7 +371,7 @@ export class PSBTBuilder extends FeeEstimator {
 
   private getReservedUTXOs() {
     return this.utxos.map((utxo) =>
-      generateTxUniqueIdentifier(utxo.txid, utxo.n)
+      generateTxUniqueIdentifier(utxo.txid, utxo.n),
     );
   }
 
@@ -457,12 +457,12 @@ export class PSBTBuilder extends FeeEstimator {
 
     this.inputAmount += this.injectableInputs.reduce(
       (acc, curr) => acc + curr.sats,
-      0
+      0,
     );
     response.forEach((input) => {
       const txUniqueIdentifier = generateTxUniqueIdentifier(
         input.hash,
-        input.index
+        input.index,
       );
       if (this.usedUTXOs.includes(txUniqueIdentifier)) {
         return;

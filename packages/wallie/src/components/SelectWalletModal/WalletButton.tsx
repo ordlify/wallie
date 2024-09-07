@@ -55,7 +55,7 @@ export function WalletButton({
     ]);
     if (result === "timeout") {
       setErrorMessage(
-        "No wallet pop-up? The extension is not responding. Try reloading your browser."
+        "No wallet pop-up? The extension is not responding. Try reloading your browser.",
       );
     } else {
       setLoading(false);

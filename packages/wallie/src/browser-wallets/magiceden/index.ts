@@ -38,12 +38,12 @@ async function getMagicEdenWalletProvider(): Promise<MagicEdenBitcoinProvider> {
     (wallet) =>
       wallet.name === "Magic Eden" &&
       (wallet as MagicEdenWallet).features["sats-connect:"]?.provider
-        ?.isMagicEden === true
+        ?.isMagicEden === true,
   ) as MagicEdenWallet | undefined;
 
   if (!meWallet) {
     throw new BrowserWalletNotInstalledError(
-      "Magic Eden Wallet not installed."
+      "Magic Eden Wallet not installed.",
     );
   }
 
@@ -75,17 +75,17 @@ async function isInstalled(): Promise<boolean> {
 }
 
 async function getAddresses(
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<WalletAddress[]> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError(
-      "Magic Eden Wallet not installed."
+      "Magic Eden Wallet not installed.",
     );
   }
 
   if (network !== "mainnet") {
     throw new BrowserWalletNetworkMismatchError(
-      "Magic Eden Wallet only supports mainnet"
+      "Magic Eden Wallet only supports mainnet",
     );
   }
 
@@ -99,17 +99,17 @@ async function signPsbt(
     extractTx = true,
     network,
     inputsToSign,
-  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] }
+  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] },
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError(
-      "Magic Eden Wallet not installed."
+      "Magic Eden Wallet not installed.",
     );
   }
 
   if (network !== "mainnet") {
     throw new BrowserWalletNetworkMismatchError(
-      "Magic Eden Wallet only supports mainnet"
+      "Magic Eden Wallet only supports mainnet",
     );
   }
 
@@ -124,17 +124,17 @@ async function signPsbt(
 async function signMessage(
   message: string,
   address: string,
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError(
-      "Magic Eden Wallet not installed."
+      "Magic Eden Wallet not installed.",
     );
   }
 
   if (network !== "mainnet") {
     throw new BrowserWalletNetworkMismatchError(
-      "Magic Eden Wallet only supports mainnet"
+      "Magic Eden Wallet only supports mainnet",
     );
   }
 
@@ -142,7 +142,7 @@ async function signMessage(
     getMagicEdenWalletProvider,
     message,
     address,
-    network
+    network,
   );
 }
 

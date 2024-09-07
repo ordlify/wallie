@@ -21,7 +21,7 @@ function getItemFromLocalStorage<T>(_key: string): T | null {
 
   if (typeof window === "undefined") {
     console.warn(
-      `Attempted to read local storage key ${_key} even though environment is not a browser.`
+      `Attempted to read local storage key ${_key} even though environment is not a browser.`,
     );
   }
 
@@ -43,7 +43,7 @@ function setItemToLocalStorage<T>(_key: string, value: T) {
 
   if (typeof window === "undefined") {
     console.warn(
-      `Attempted to set local storage key ${_key} even though environment is not a browser.`
+      `Attempted to set local storage key ${_key} even though environment is not a browser.`,
     );
   }
 
@@ -62,7 +62,7 @@ function setItemToLocalStorage<T>(_key: string, value: T) {
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,
-  options: { initializeWithValue?: boolean } = {}
+  options: { initializeWithValue?: boolean } = {},
 ): [T, Dispatch<SetStateAction<T>>] {
   const { initializeWithValue = true } = options;
   const readValue = useCallback(() => {
@@ -86,7 +86,7 @@ export function useLocalStorage<T>(
       setItemToLocalStorage(key, newValue);
       setInnerState(newValue);
     },
-    [key]
+    [key],
   );
 
   useEffect(() => {

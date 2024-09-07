@@ -23,7 +23,7 @@ export default async function walletProvider(): Promise<MagicEdenBitcoinProvider
     (wallet) =>
       wallet.name === "Magic Eden" &&
       (wallet as MagicEdenWallet).features["sats-connect:"]?.provider
-        ?.isMagicEden === true
+        ?.isMagicEden === true,
   ) as MagicEdenWallet | undefined;
 
   if (!meWallet) {

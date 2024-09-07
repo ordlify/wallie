@@ -32,19 +32,19 @@ type OKXWalletProvider = {
   connect: () => Promise<OKXAccount>;
   signMessage: (
     message: string,
-    type: MessageSignatureTypes
+    type: MessageSignatureTypes,
   ) => Promise<string>;
   signPsbt: (
     psbtHex: string,
     options: {
       autoFinalized: boolean;
       toSignInputs: OKXSignInput[];
-    }
+    },
   ) => Promise<string>;
   sendBitcoin: (
     address: string,
     satoshis: number,
-    options: { feeRate?: number }
+    options: { feeRate?: number },
   ) => Promise<string>;
 };
 
@@ -56,7 +56,7 @@ function isInstalled(): boolean {
 }
 
 function getOKXWalletProvider(
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): OKXWalletProvider {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("OKX Wallet not installed");
@@ -85,7 +85,7 @@ function getOKXWalletProvider(
 }
 
 async function getAddresses(
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<WalletAddress[]> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("OKX Wallet not installed");
@@ -130,7 +130,7 @@ async function signPsbt(
     extractTx = true,
     network,
     inputsToSign,
-  }: OKXSignPSBTOptions = { network: "mainnet", inputsToSign: [] }
+  }: OKXSignPSBTOptions = { network: "mainnet", inputsToSign: [] },
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("OKX Wallet not installed");
@@ -174,7 +174,7 @@ async function signPsbt(
 
   if (!signedPsbtHex) {
     throw new BrowserWalletSigningError(
-      "Failed to sign psbt hex using OKX Wallet"
+      "Failed to sign psbt hex using OKX Wallet",
     );
   }
 
@@ -206,7 +206,7 @@ async function signPsbt(
 async function signMessage(
   message: string,
   type: MessageSignatureTypes = "ecdsa",
-  network: BrowserWalletNetwork = "mainnet"
+  network: BrowserWalletNetwork = "mainnet",
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("OKX Wallet not installed");
@@ -228,7 +228,7 @@ async function signMessage(
 
   if (!signature) {
     throw new BrowserWalletSigningError(
-      "Failed to sign message using OKX Wallet"
+      "Failed to sign message using OKX Wallet",
     );
   }
 
