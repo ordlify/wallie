@@ -3,6 +3,7 @@ import { BrowserWalletNetwork } from '../../config/types';
 import { BrowserWalletSignResponse, WalletAddress } from '../types';
 import { OKXSignPSBTOptions } from './types';
 
+type MessageSignatureTypes = "bip322-simple" | "ecdsa";
 declare function isInstalled(): boolean;
 declare function getAddresses(network?: BrowserWalletNetwork): Promise<WalletAddress[]>;
 declare function signPsbt(psbt: Psbt, { finalize, extractTx, network, inputsToSign, }?: OKXSignPSBTOptions): Promise<BrowserWalletSignResponse>;

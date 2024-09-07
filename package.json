@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -46,27 +46,28 @@
     "cross-fetch": "4.0.0",
     "cssnano": "^7.0.5",
     "ecpair": "2.1.0",
-    "ethers": "6.13.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.8",
+    "ethers": "6.13.1",
     "postcss": "8.4.23",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sats-connect": "^2.8.0",
     "tailwindcss": "3.3.2",
+    "terser": "^5.31.6",
     "turbo": "^2.0.11",
-    "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-plugin-css-injected-by-js": "^3.5.1",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-node-polyfills": "^0.22.0",
-    "sats-connect": "2.6.0"
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "dependencies": {
-    "happy-dom": "^13.10.1",
     "@headlessui/react": "^1.7.19",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "happy-dom": "^13.10.1",
+    "typescript": "^5.5.4"
   },
   "lint-staged": {
     "*": [

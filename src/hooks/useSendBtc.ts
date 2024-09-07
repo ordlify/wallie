@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { BitcoinNetworkType, sendBtcTransaction } from "sats-connect";
 
+// import { sendBtc as sendXverseBTC } from "../browser-wallets/xverse";
 import { leatherRequest } from "../lib/leatherProvider";
 import magicEdenProvider from "../lib/magicEdenProvider";
 import { useWallie } from "../providers/WallieProvider";

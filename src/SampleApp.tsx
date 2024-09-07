@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useCallback, useState } from "react";
 
 import { useBalance } from "./hooks/useBalance";
@@ -30,7 +31,7 @@ function TestControls() {
   }, [getBalance]);
 
   const handleSend = useCallback(async () => {
-    const txId = await send("3E8G3V48L4xCaoEExMRjeP7E3Q1km2sHd6", 2000);
+    const txId = await send("2NF2Uwm15ovqBFcKs6RHiNgzuAwCt7e2wCq", 5000);
     if (txId) {
       setResult(txId);
     }

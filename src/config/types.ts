@@ -4,3 +4,5 @@ export type BrowserWalletNetwork = Extract<
   Network,
   "mainnet" | "testnet" | "signet"
 >;
+
+export type UnisatNetwork = "livenet" | "testnet";

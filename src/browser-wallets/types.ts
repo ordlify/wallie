@@ -24,3 +24,7 @@ export interface BrowserWalletSignResponse {
   hex: string;
   base64: string | null;
 }
+
+export interface BrowserWalletSendBtcResponse {
+  txid: string | null;
+}

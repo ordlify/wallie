@@ -1,7 +1,7 @@
 import { Psbt } from 'bitcoinjs-lib';
 import { BitcoinProvider } from 'sats-connect';
 import { BrowserWalletNetwork } from '../../../config/types';
-import { BrowserWalletSignResponse, WalletAddress } from '../../types';
+import { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from '../../types';
 import { SatsConnectSignPSBTOptions } from './types';
 
 /**
@@ -29,7 +29,7 @@ declare function satsConnectWalletGetAddresses(getProvider: () => Promise<Bitcoi
  */
 declare function satsConnectWalletSignPsbt(getProvider: () => Promise<BitcoinProvider>, psbt: Psbt, { finalize, extractTx, network, inputsToSign, }?: SatsConnectSignPSBTOptions): Promise<BrowserWalletSignResponse>;
 /**
- * Signs a message.
+ * Send a Bitcoin transaction.
  *
  * @param message Message to be signed
  * @param address Address to sign with
@@ -41,6 +41,19 @@ declare function satsConnectWalletSignPsbt(getProvider: () => Promise<BitcoinPro
  * @throws {BrowserWalletRequestCancelledByUserError} Request was cancelled by user
  */
 declare function satsConnectWalletSignMessage(getProvider: () => Promise<BitcoinProvider>, message: string, address: string, network?: BrowserWalletNetwork): Promise<BrowserWalletSignResponse>;
-export { satsConnectWalletGetAddresses, satsConnectWalletSignMessage, satsConnectWalletSignPsbt, };
+/**
+ * Send a Bitcoin transaction.
+ *
+ * @param message Message to be signed
+ * @param address Address to sign with
+ * @param network Network (mainnet or testnet)
+ * @returns An object containing `base64` and `hex`.
+ * @throws {BrowserWalletNotInstalledError} Wallet is not installed
+ * @throws {BrowserWalletSigningError} Failed to sign with selected wallet
+ * @throws {OrditSDKError} Invalid options provided
+ * @throws {BrowserWalletRequestCancelledByUserError} Request was cancelled by user
+ */
+declare function satsConnectWalletSendBTC(getProvider: () => Promise<BitcoinProvider>, message: string, address: string, senderAddress: string, satoshis: number, network?: BrowserWalletNetwork): Promise<BrowserWalletSendBtcResponse>;
+export { satsConnectWalletGetAddresses, satsConnectWalletSendBTC, satsConnectWalletSignMessage, satsConnectWalletSignPsbt, };
 export * from '../../types';
 export * from './types';

@@ -2,6 +2,10 @@ type UnisatNetwork = "livenet" | "testnet";
 
 type MessageSignatureTypes = "bip322-simple" | "ecdsa";
 
+type Network = "mainnet" | "testnet" | "regtest" | "signet";
+
+type BrowserWalletNetwork = Extract<Network, "mainnet" | "testnet" | "signet">;
+
 type Unisat = {
   addListener: (eventName: string, callback: (arg: string) => void) => void;
   removeListener: (eventName: string, callback: (arg: string) => void) => void;
@@ -40,7 +44,7 @@ type LeatherProvider = {
   request: (
     arg: string,
     params?: object | string[]
-  ) => Promise<LeatherJsonRPCResponse<any>>;
+  ) => Promise<LeatherJsonRPCResponse<unknown>>;
 };
 
 declare interface Window {
@@ -60,7 +64,7 @@ declare interface Window {
     };
   };
   unisat: Unisat;
-  satsConnect: any;
+  satsConnect: unknown;
   LeatherProvider: LeatherProvider;
   okxwallet: {
     bitcoin: OKXWalletProvider;

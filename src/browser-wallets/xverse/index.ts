@@ -5,11 +5,16 @@ import { BrowserWalletNetwork } from "../../config/types";
 import { BrowserWalletNotInstalledError, OrditSDKError } from "../../errors";
 import {
   satsConnectWalletGetAddresses,
+  satsConnectWalletSendBTC,
   satsConnectWalletSignMessage,
   satsConnectWalletSignPsbt,
 } from "../internal/sats-connect";
 import type { SatsConnectSignPSBTOptions } from "../internal/sats-connect/types";
-import { BrowserWalletSignResponse, WalletAddress } from "../types";
+import {
+  BrowserWalletSendBtcResponse,
+  BrowserWalletSignResponse,
+  WalletAddress,
+} from "../types";
 
 /**
  * Checks if the Xverse extension is installed.
@@ -34,7 +39,7 @@ async function getXverseWalletProvider(): Promise<BitcoinProvider> {
 }
 
 async function getAddresses(
-  network: BrowserWalletNetwork = "mainnet",
+  network: BrowserWalletNetwork = "mainnet"
 ): Promise<WalletAddress[]> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -50,7 +55,7 @@ async function signPsbt(
     extractTx = true,
     network,
     inputsToSign,
-  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] },
+  }: SatsConnectSignPSBTOptions = { network: "mainnet", inputsToSign: [] }
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -67,7 +72,7 @@ async function signPsbt(
 async function signMessage(
   message: string,
   address: string,
-  network: BrowserWalletNetwork = "mainnet",
+  network: BrowserWalletNetwork = "mainnet"
 ): Promise<BrowserWalletSignResponse> {
   if (!isInstalled()) {
     throw new BrowserWalletNotInstalledError("Selected wallet not installed");
@@ -77,8 +82,29 @@ async function signMessage(
     getXverseWalletProvider,
     message,
     address,
-    network,
+    network
   );
 }
 
-export { getAddresses, isInstalled, signMessage, signPsbt };
+async function sendBtc(
+  message: string,
+  address: string,
+  senderAddress: string,
+  satoshis: number,
+  network: BrowserWalletNetwork = "mainnet"
+): Promise<BrowserWalletSendBtcResponse> {
+  if (!isInstalled()) {
+    throw new BrowserWalletNotInstalledError("Selected wallet not installed");
+  }
+
+  return satsConnectWalletSendBTC(
+    getXverseWalletProvider,
+    message,
+    address,
+    senderAddress,
+    satoshis,
+    network
+  );
+}
+
+export { getAddresses, isInstalled, sendBtc, signMessage, signPsbt };

@@ -1,7 +1,7 @@
 import { Psbt } from 'bitcoinjs-lib';
 import { BrowserWalletNetwork } from '../../config/types';
 import { SatsConnectSignPSBTOptions } from '../internal/sats-connect/types';
-import { BrowserWalletSignResponse, WalletAddress } from '../types';
+import { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from '../types';
 
 /**
  * Checks if the Xverse extension is installed.
@@ -13,4 +13,5 @@ declare function isInstalled(): boolean;
 declare function getAddresses(network?: BrowserWalletNetwork): Promise<WalletAddress[]>;
 declare function signPsbt(psbt: Psbt, { finalize, extractTx, network, inputsToSign, }?: SatsConnectSignPSBTOptions): Promise<BrowserWalletSignResponse>;
 declare function signMessage(message: string, address: string, network?: BrowserWalletNetwork): Promise<BrowserWalletSignResponse>;
-export { getAddresses, isInstalled, signMessage, signPsbt };
+declare function sendBtc(message: string, address: string, senderAddress: string, satoshis: number, network?: BrowserWalletNetwork): Promise<BrowserWalletSendBtcResponse>;
+export { getAddresses, isInstalled, sendBtc, signMessage, signPsbt };

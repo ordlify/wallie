@@ -5,6 +5,9 @@ import {
   getAddress,
   GetAddressOptions,
   GetAddressResponse,
+  sendBtcTransaction as satsConnectSendBtcTransaction,
+  SendBtcTransactionOptions as SatsConnectSendBtcTransactionOptions,
+  SendBtcTransactionResponse as SatsConnectSendBtcTransactionResponse,
   signMessage as satsConnectSignMessage,
   SignMessageOptions as SatsConnectSignMessageOptions,
   SignMessageResponse as SatsConnectSignMessageResponse,
@@ -22,7 +25,11 @@ import {
   BrowserWalletSigningError,
   OrditSDKError,
 } from "../../../errors";
-import type { BrowserWalletSignResponse, WalletAddress } from "../../types";
+import type {
+  BrowserWalletSendBtcResponse,
+  BrowserWalletSignResponse,
+  WalletAddress,
+} from "../../types";
 
 import { NETWORK_TO_BITCOIN_NETWORK_TYPE } from "./constants";
 import type { SatsConnectSignPSBTOptions } from "./types";
@@ -204,7 +211,7 @@ async function satsConnectWalletSignPsbt(
 }
 
 /**
- * Signs a message.
+ * Send a Bitcoin transaction.
  *
  * @param message Message to be signed
  * @param address Address to sign with
@@ -267,8 +274,79 @@ async function satsConnectWalletSignMessage(
   return { hex: hex!, base64 };
 }
 
+/**
+ * Send a Bitcoin transaction.
+ *
+ * @param message Message to be signed
+ * @param address Address to sign with
+ * @param network Network (mainnet or testnet)
+ * @returns An object containing `base64` and `hex`.
+ * @throws {BrowserWalletNotInstalledError} Wallet is not installed
+ * @throws {BrowserWalletSigningError} Failed to sign with selected wallet
+ * @throws {OrditSDKError} Invalid options provided
+ * @throws {BrowserWalletRequestCancelledByUserError} Request was cancelled by user
+ */
+async function satsConnectWalletSendBTC(
+  getProvider: () => Promise<BitcoinProvider>,
+  message: string,
+  address: string,
+  senderAddress: string,
+  satoshis: number,
+  network: BrowserWalletNetwork = "mainnet"
+): Promise<BrowserWalletSendBtcResponse> {
+  if (network === "signet") {
+    throw new OrditSDKError("signet network is not supported");
+  }
+  if (!message || !network || !address) {
+    throw new OrditSDKError("Invalid options provided");
+  }
+
+  let txid: string;
+
+  const handleOnFinish = (response: SatsConnectSendBtcTransactionResponse) => {
+    if (!response) {
+      throw new BrowserWalletSigningError(
+        "Failed to sign message using selected wallet"
+      );
+    }
+
+    txid = response;
+  };
+
+  const handleOnCancel = () => {
+    throw new BrowserWalletRequestCancelledByUserError();
+  };
+
+  const options: SatsConnectSendBtcTransactionOptions = {
+    payload: {
+      network: {
+        type: NETWORK_TO_BITCOIN_NETWORK_TYPE[network],
+      },
+      message,
+      recipients: [
+        {
+          address,
+          amountSats: BigInt(satoshis),
+        },
+      ],
+      senderAddress,
+    },
+    getProvider,
+    onFinish: handleOnFinish,
+    onCancel: handleOnCancel,
+  };
+
+  await satsConnectSendBtcTransaction(options);
+
+  // The Return is supplied by the await statement above, which extracts the hex and optional base64 from the response.
+  // Hex is always returned, hence the not null assertion.
+  // In cases where there is no hex, an error would be thrown by the handleOnFinish function.
+  return { txid: txid! };
+}
+
 export {
   satsConnectWalletGetAddresses,
+  satsConnectWalletSendBTC,
   satsConnectWalletSignMessage,
   satsConnectWalletSignPsbt,
 };

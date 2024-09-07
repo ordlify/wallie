@@ -71,7 +71,6 @@ export function SelectWalletModal({
         );
       }
       setErrorMessage(err.message ?? err.toString());
-      console.error(`Error while connecting to ${walletProvider} wallet`, err);
       disconnectWallet();
     },
     [disconnectWallet]

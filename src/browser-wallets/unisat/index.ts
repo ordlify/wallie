@@ -15,6 +15,7 @@ import { NETWORK_TO_UNISAT_NETWORK } from "./constants";
 import type { UnisatSignPSBTOptions } from "./types";
 
 type UnisatError = { code?: number; message: string };
+type MessageSignatureTypes = "bip322-simple" | "ecdsa";
 
 /**
  * Checks if the browser wallet extension is installed.

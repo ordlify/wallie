@@ -15,6 +15,38 @@ import { BrowserWalletSignResponse, WalletAddress } from "../types";
 import { OKXSignPSBTOptions } from "./types";
 
 type OKXError = { code?: number; message: string };
+type MessageSignatureTypes = "bip322-simple" | "ecdsa";
+type OKXSignInput = {
+  index: number;
+  address?: string;
+  publicKey?: string;
+  sighashTypes?: number[];
+};
+
+type OKXAccount = {
+  address: string;
+  publicKey: string;
+};
+
+type OKXWalletProvider = {
+  connect: () => Promise<OKXAccount>;
+  signMessage: (
+    message: string,
+    type: MessageSignatureTypes
+  ) => Promise<string>;
+  signPsbt: (
+    psbtHex: string,
+    options: {
+      autoFinalized: boolean;
+      toSignInputs: OKXSignInput[];
+    }
+  ) => Promise<string>;
+  sendBitcoin: (
+    address: string,
+    satoshis: number,
+    options: { feeRate?: number }
+  ) => Promise<string>;
+};
 
 function isInstalled(): boolean {
   if (typeof window === "undefined") {

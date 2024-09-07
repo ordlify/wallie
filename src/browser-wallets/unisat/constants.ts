@@ -1,4 +1,4 @@
-import type { BrowserWalletNetwork } from "../../config/types";
+import type { BrowserWalletNetwork, UnisatNetwork } from "../../config/types";
 
 export const NETWORK_TO_UNISAT_NETWORK: Record<
   Extract<BrowserWalletNetwork, "mainnet" | "testnet">,

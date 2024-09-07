@@ -3,6 +3,7 @@ import { BrowserWalletNetwork } from '../../config/types';
 import { BrowserWalletSignResponse, WalletAddress } from '../types';
 import { UnisatSignPSBTOptions } from './types';
 
+type MessageSignatureTypes = "bip322-simple" | "ecdsa";
 /**
  * Checks if the browser wallet extension is installed.
  *
