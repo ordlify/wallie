@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "private": true,
   "repository": "https://github.com/ordlify/wallie",
