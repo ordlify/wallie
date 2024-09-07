@@ -5,6 +5,7 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
 import eslint from "vite-plugin-eslint";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
+import { terser } from "rollup-plugin-terser"; // Import Terser plugin
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,9 +26,27 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+        },
       },
+      plugins: [
+        terser({
+          compress: {
+            drop_console: true, // Example: Remove console logs
+            passes: 2, // Apply optimizations twice
+          },
+          format: {
+            comments: false, // Remove comments
+          },
+          mangle: {
+            toplevel: true, // Mangle top-level variable/function names
+          },
+        }),
+      ],
     },
-    minify: "terser",
   },
   plugins: [
     react(),
