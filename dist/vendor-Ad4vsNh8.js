@@ -101,8 +101,8 @@ process.nextTick = function(B) {
 }, process.umask = function() {
   return 0;
 };
-var browserExports = browser$c.exports;
-const process$1 = getDefaultExportFromCjs$1(browserExports);
+var browserExports$1 = browser$c.exports;
+const process$1 = getDefaultExportFromCjs$1(browserExports$1);
 var commonjsGlobal = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
 function getDefaultExportFromCjs(B) {
   return B && B.__esModule && Object.prototype.hasOwnProperty.call(B, "default") ? B.default : B;
@@ -2624,7 +2624,7 @@ var ieee754 = { read: function(B, L, K, W, V) {
     throw new Error("BigInt not supported");
   }
 })(buffer$1);
-const Buffer$2 = buffer$1.Buffer, Blob$1 = buffer$1.Blob, BlobOptions = buffer$1.BlobOptions, Buffer$1$1 = buffer$1.Buffer, File = buffer$1.File, FileOptions = buffer$1.FileOptions, INSPECT_MAX_BYTES = buffer$1.INSPECT_MAX_BYTES, SlowBuffer = buffer$1.SlowBuffer, TranscodeEncoding = buffer$1.TranscodeEncoding, atob = buffer$1.atob, btoa = buffer$1.btoa, constants$1 = buffer$1.constants, isAscii = buffer$1.isAscii, isUtf8 = buffer$1.isUtf8, kMaxLength = buffer$1.kMaxLength, kStringMaxLength = buffer$1.kStringMaxLength, resolveObjectURL = buffer$1.resolveObjectURL, transcode = buffer$1.transcode, dist$2 = Object.freeze(Object.defineProperty({ __proto__: null, Blob: Blob$1, BlobOptions, Buffer: Buffer$1$1, File, FileOptions, INSPECT_MAX_BYTES, SlowBuffer, TranscodeEncoding, atob, btoa, constants: constants$1, default: Buffer$2, isAscii, isUtf8, kMaxLength, kStringMaxLength, resolveObjectURL, transcode }, Symbol.toStringTag, { value: "Module" }));
+const Buffer$3 = buffer$1.Buffer, Blob$1 = buffer$1.Blob, BlobOptions = buffer$1.BlobOptions, Buffer$1$1 = buffer$1.Buffer, File = buffer$1.File, FileOptions = buffer$1.FileOptions, INSPECT_MAX_BYTES = buffer$1.INSPECT_MAX_BYTES, SlowBuffer = buffer$1.SlowBuffer, TranscodeEncoding = buffer$1.TranscodeEncoding, atob = buffer$1.atob, btoa = buffer$1.btoa, constants$1 = buffer$1.constants, isAscii = buffer$1.isAscii, isUtf8 = buffer$1.isUtf8, kMaxLength = buffer$1.kMaxLength, kStringMaxLength = buffer$1.kStringMaxLength, resolveObjectURL = buffer$1.resolveObjectURL, transcode = buffer$1.transcode, dist$2 = Object.freeze(Object.defineProperty({ __proto__: null, Blob: Blob$1, BlobOptions, Buffer: Buffer$1$1, File, FileOptions, INSPECT_MAX_BYTES, SlowBuffer, TranscodeEncoding, atob, btoa, constants: constants$1, default: Buffer$3, isAscii, isUtf8, kMaxLength, kStringMaxLength, resolveObjectURL, transcode }, Symbol.toStringTag, { value: "Module" }));
 var src$4 = {}, address = {}, networks$2 = {};
 Object.defineProperty(networks$2, "__esModule", { value: !0 }), networks$2.testnet = networks$2.regtest = networks$2.bitcoin = void 0, networks$2.bitcoin = { messagePrefix: `Bitcoin Signed Message:
 `, bech32: "bc", bip32: { public: 76067358, private: 76066276 }, pubKeyHash: 0, scriptHash: 5, wif: 128 }, networks$2.regtest = { messagePrefix: `Bitcoin Signed Message:
@@ -2667,7 +2667,7 @@ function encode$k(B, L) {
   if (128 & L[0]) throw new Error("S value is negative");
   if (K > 1 && B[0] === 0 && !(128 & B[1])) throw new Error("R value excessively padded");
   if (W > 1 && L[0] === 0 && !(128 & L[1])) throw new Error("S value excessively padded");
-  const V = Buffer$2.allocUnsafe(6 + K + W);
+  const V = Buffer$3.allocUnsafe(6 + K + W);
   return V[0] = 48, V[1] = V.length - 2, V[2] = 2, V[3] = B.length, B.copy(V, 4), V[4 + K] = 2, V[5 + K] = L.length, L.copy(V, 6 + K), V;
 }
 Object.defineProperty(bip66, "__esModule", { value: !0 }), bip66.encode = bip66.decode = bip66.check = void 0, bip66.check = check$d, bip66.decode = decode$k, bip66.encode = encode$k;
@@ -2729,7 +2729,7 @@ function scriptNumSize(B) {
 }
 function encode$i(B) {
   let L = Math.abs(B);
-  const K = scriptNumSize(L), W = Buffer$2.allocUnsafe(K), V = B < 0;
+  const K = scriptNumSize(L), W = Buffer$3.allocUnsafe(K), V = B < 0;
   for (let J = 0; J < K; ++J) W.writeUInt8(255 & L, J), L >>= 8;
   return 128 & W[K - 1] ? W.writeUInt8(V ? 128 : 0, K - 1) : V && (W[K - 1] |= 128), W;
 }
@@ -2799,7 +2799,7 @@ function requireExtra() {
   hasRequiredExtra = 1;
   var B = native$1, L = errors$1;
   function K(ke) {
-    return Buffer$2.isBuffer(ke);
+    return Buffer$3.isBuffer(ke);
   }
   function W(ke) {
     return typeof ke == "string" && /^([0-9a-f]{2})+$/i.test(ke);
@@ -2993,28 +2993,28 @@ var typeforce_1 = typeforce$4, hasRequiredScript_signature, hasRequiredScript;
 function requireScript_signature() {
   if (hasRequiredScript_signature) return script_signature;
   hasRequiredScript_signature = 1, Object.defineProperty(script_signature, "__esModule", { value: !0 }), script_signature.encode = script_signature.decode = void 0;
-  const B = bip66, L = requireScript(), K = types$7, { typeforce: W } = K, V = Buffer$2.alloc(1, 0);
+  const B = bip66, L = requireScript(), K = types$7, { typeforce: W } = K, V = Buffer$3.alloc(1, 0);
   function J(ie) {
     let ne = 0;
     for (; ie[ne] === 0; ) ++ne;
-    return ne === ie.length ? V : 128 & (ie = ie.slice(ne))[0] ? Buffer$2.concat([V, ie], 1 + ie.length) : ie;
+    return ne === ie.length ? V : 128 & (ie = ie.slice(ne))[0] ? Buffer$3.concat([V, ie], 1 + ie.length) : ie;
   }
   function re(ie) {
     ie[0] === 0 && (ie = ie.slice(1));
-    const ne = Buffer$2.alloc(32, 0), oe = Math.max(0, 32 - ie.length);
+    const ne = Buffer$3.alloc(32, 0), oe = Math.max(0, 32 - ie.length);
     return ie.copy(ne, oe), ne;
   }
   return script_signature.decode = function(ie) {
     const ne = ie.readUInt8(ie.length - 1);
     if (!(0, L.isDefinedHashType)(ne)) throw new Error("Invalid hashType " + ne);
     const oe = B.decode(ie.slice(0, -1)), ce = re(oe.r), pe = re(oe.s);
-    return { signature: Buffer$2.concat([ce, pe], 64), hashType: ne };
+    return { signature: Buffer$3.concat([ce, pe], 64), hashType: ne };
   }, script_signature.encode = function(ie, ne) {
     if (W({ signature: K.BufferN(64), hashType: K.UInt8 }, { signature: ie, hashType: ne }), !(0, L.isDefinedHashType)(ne)) throw new Error("Invalid hashType " + ne);
-    const oe = Buffer$2.allocUnsafe(1);
+    const oe = Buffer$3.allocUnsafe(1);
     oe.writeUInt8(ne, 0);
     const ce = J(ie.slice(0, 32)), pe = J(ie.slice(32, 64));
-    return Buffer$2.concat([B.encode(ce, pe), oe]);
+    return Buffer$3.concat([B.encode(ce, pe), oe]);
   }, script_signature;
 }
 function requireScript() {
@@ -3037,15 +3037,15 @@ function requireScript() {
       return lt.length === 0 ? K.OPS.OP_0 : lt.length === 1 ? lt[0] >= 1 && lt[0] <= 16 ? ne + lt[0] : lt[0] === 129 ? K.OPS.OP_1NEGATE : void 0 : void 0;
     }
     function ke(lt) {
-      return Buffer$2.isBuffer(lt);
+      return Buffer$3.isBuffer(lt);
     }
     function ot(lt) {
-      return Buffer$2.isBuffer(lt);
+      return Buffer$3.isBuffer(lt);
     }
     function at(lt) {
       if (ke(lt)) return lt;
       ie(re.Array, lt);
-      const yt = lt.reduce(($t, It) => ot(It) ? It.length === 1 && pe(It) !== void 0 ? $t + 1 : $t + W.encodingLength(It.length) + It.length : $t + 1, 0), St = Buffer$2.allocUnsafe(yt);
+      const yt = lt.reduce(($t, It) => ot(It) ? It.length === 1 && pe(It) !== void 0 ? $t + 1 : $t + W.encodingLength(It.length) + It.length : $t + 1, 0), St = Buffer$3.allocUnsafe(yt);
       let mt = 0;
       if (lt.forEach(($t) => {
         if (ot($t)) {
@@ -3092,13 +3092,13 @@ function requireScript() {
         return K.REVERSE_OPS[yt];
       }).join(" ");
     }, B.fromASM = function(lt) {
-      return ie(re.String, lt), at(lt.split(" ").map((yt) => K.OPS[yt] !== void 0 ? K.OPS[yt] : (ie(re.Hex, yt), Buffer$2.from(yt, "hex"))));
+      return ie(re.String, lt), at(lt.split(" ").map((yt) => K.OPS[yt] !== void 0 ? K.OPS[yt] : (ie(re.Hex, yt), Buffer$3.from(yt, "hex"))));
     }, B.toStack = function(lt) {
-      return lt = ft(lt), ie(ce, lt), lt.map((yt) => ot(yt) ? yt : yt === K.OPS.OP_0 ? Buffer$2.allocUnsafe(0) : V.encode(yt - ne));
+      return lt = ft(lt), ie(ce, lt), lt.map((yt) => ot(yt) ? yt : yt === K.OPS.OP_0 ? Buffer$3.allocUnsafe(0) : V.encode(yt - ne));
     }, B.isCanonicalPubKey = function(lt) {
       return re.isPoint(lt);
     }, B.isDefinedHashType = dt, B.isCanonicalScriptSignature = function(lt) {
-      return !!Buffer$2.isBuffer(lt) && !!dt(lt[lt.length - 1]) && L.check(lt.slice(0, -1));
+      return !!Buffer$3.isBuffer(lt) && !!dt(lt[lt.length - 1]) && L.check(lt.slice(0, -1));
     }, B.number = V, B.signature = J;
   }(script)), script;
 }
@@ -3248,7 +3248,7 @@ function p2pk(B, L) {
   return Object.assign(W, B);
 }
 p2pk$1.p2pk = p2pk;
-var p2pkh$1 = {}, crypto$4 = {}, ripemd160$1 = {}, _md = {}, _assert = {};
+var p2pkh$1 = {}, crypto$5 = {}, ripemd160$1 = {}, _md = {}, _assert = {};
 function number$1(B) {
   if (!Number.isSafeInteger(B) || B < 0) throw new Error(`positive integer expected, not ${B}`);
 }
@@ -3278,8 +3278,8 @@ function output(B, L) {
 Object.defineProperty(_assert, "__esModule", { value: !0 }), _assert.isBytes = isBytes, _assert.number = number$1, _assert.bool = bool, _assert.bytes = bytes, _assert.hash = hash$2, _assert.exists = exists, _assert.output = output;
 const assert$3 = { number: number$1, bool, bytes, hash: hash$2, exists, output };
 _assert.default = assert$3;
-var utils$5 = {}, crypto$3 = {};
-Object.defineProperty(crypto$3, "__esModule", { value: !0 }), crypto$3.crypto = void 0, crypto$3.crypto = typeof globalThis == "object" && "crypto" in globalThis ? globalThis.crypto : void 0, function(B) {
+var utils$5 = {}, crypto$4 = {};
+Object.defineProperty(crypto$4, "__esModule", { value: !0 }), crypto$4.crypto = void 0, crypto$4.crypto = typeof globalThis == "object" && "crypto" in globalThis ? globalThis.crypto : void 0, function(B) {
   Object.defineProperty(B, "__esModule", { value: !0 }), B.Hash = B.nextTick = B.byteSwapIfBE = B.byteSwap = B.isLE = B.rotl = B.rotr = B.createView = B.u32 = B.u8 = void 0, B.isBytes = function(oe) {
     return oe instanceof Uint8Array || oe != null && typeof oe == "object" && oe.constructor.name === "Uint8Array";
   }, B.byteSwap32 = function(oe) {
@@ -3339,7 +3339,7 @@ Object.defineProperty(crypto$3, "__esModule", { value: !0 }), crypto$3.crypto = 
     if (L.crypto && typeof L.crypto.randomBytes == "function") return L.crypto.randomBytes(oe);
     throw new Error("crypto.getRandomValues must be defined");
   };
-  const L = crypto$3, K = _assert;
+  const L = crypto$4, K = _assert;
   B.u8 = (oe) => new Uint8Array(oe.buffer, oe.byteOffset, oe.byteLength), B.u32 = (oe) => new Uint32Array(oe.buffer, oe.byteOffset, Math.floor(oe.byteLength / 4)), B.createView = (oe) => new DataView(oe.buffer, oe.byteOffset, oe.byteLength), B.rotr = (oe, ce) => oe << 32 - ce | oe >>> ce, B.rotl = (oe, ce) => oe << ce | oe >>> 32 - ce >>> 0, B.isLE = new Uint8Array(new Uint32Array([287454020]).buffer)[0] === 68, B.byteSwap = (oe) => oe << 24 & 4278190080 | oe << 8 & 16711680 | oe >>> 8 & 65280 | oe >>> 24 & 255, B.byteSwapIfBE = B.isLE ? (oe) => oe : (oe) => (0, B.byteSwap)(oe);
   const W = Array.from({ length: 256 }, (oe, ce) => ce.toString(16).padStart(2, "0")), V = { _0: 48, _9: 57, _A: 65, _F: 70, _a: 97, _f: 102 };
   function J(oe) {
@@ -3576,20 +3576,20 @@ sha256$5.sha256 = (0, utils_js_1$1.wrapConstructor)(() => new SHA256()), sha256$
   Object.defineProperty(B, "__esModule", { value: !0 }), B.taggedHash = B.TAGGED_HASH_PREFIXES = B.TAGS = B.hash256 = B.hash160 = B.sha256 = B.sha1 = B.ripemd160 = void 0;
   const L = ripemd160$1, K = sha1$1, W = sha256$5;
   function V(J) {
-    return Buffer$2.from((0, W.sha256)(Uint8Array.from(J)));
+    return Buffer$3.from((0, W.sha256)(Uint8Array.from(J)));
   }
   B.ripemd160 = function(J) {
-    return Buffer$2.from((0, L.ripemd160)(Uint8Array.from(J)));
+    return Buffer$3.from((0, L.ripemd160)(Uint8Array.from(J)));
   }, B.sha1 = function(J) {
-    return Buffer$2.from((0, K.sha1)(Uint8Array.from(J)));
+    return Buffer$3.from((0, K.sha1)(Uint8Array.from(J)));
   }, B.sha256 = V, B.hash160 = function(J) {
-    return Buffer$2.from((0, L.ripemd160)((0, W.sha256)(Uint8Array.from(J))));
+    return Buffer$3.from((0, L.ripemd160)((0, W.sha256)(Uint8Array.from(J))));
   }, B.hash256 = function(J) {
-    return Buffer$2.from((0, W.sha256)((0, W.sha256)(Uint8Array.from(J))));
-  }, B.TAGS = ["BIP0340/challenge", "BIP0340/aux", "BIP0340/nonce", "TapLeaf", "TapBranch", "TapSighash", "TapTweak", "KeyAgg list", "KeyAgg coefficient"], B.TAGGED_HASH_PREFIXES = { "BIP0340/challenge": Buffer$2.from([123, 181, 45, 122, 159, 239, 88, 50, 62, 177, 191, 122, 64, 125, 179, 130, 210, 243, 242, 216, 27, 177, 34, 79, 73, 254, 81, 143, 109, 72, 211, 124, 123, 181, 45, 122, 159, 239, 88, 50, 62, 177, 191, 122, 64, 125, 179, 130, 210, 243, 242, 216, 27, 177, 34, 79, 73, 254, 81, 143, 109, 72, 211, 124]), "BIP0340/aux": Buffer$2.from([241, 239, 78, 94, 192, 99, 202, 218, 109, 148, 202, 250, 157, 152, 126, 160, 105, 38, 88, 57, 236, 193, 31, 151, 45, 119, 165, 46, 216, 193, 204, 144, 241, 239, 78, 94, 192, 99, 202, 218, 109, 148, 202, 250, 157, 152, 126, 160, 105, 38, 88, 57, 236, 193, 31, 151, 45, 119, 165, 46, 216, 193, 204, 144]), "BIP0340/nonce": Buffer$2.from([7, 73, 119, 52, 167, 155, 203, 53, 91, 155, 140, 125, 3, 79, 18, 28, 244, 52, 215, 62, 247, 45, 218, 25, 135, 0, 97, 251, 82, 191, 235, 47, 7, 73, 119, 52, 167, 155, 203, 53, 91, 155, 140, 125, 3, 79, 18, 28, 244, 52, 215, 62, 247, 45, 218, 25, 135, 0, 97, 251, 82, 191, 235, 47]), TapLeaf: Buffer$2.from([174, 234, 143, 220, 66, 8, 152, 49, 5, 115, 75, 88, 8, 29, 30, 38, 56, 211, 95, 28, 181, 64, 8, 212, 211, 87, 202, 3, 190, 120, 233, 238, 174, 234, 143, 220, 66, 8, 152, 49, 5, 115, 75, 88, 8, 29, 30, 38, 56, 211, 95, 28, 181, 64, 8, 212, 211, 87, 202, 3, 190, 120, 233, 238]), TapBranch: Buffer$2.from([25, 65, 161, 242, 229, 110, 185, 95, 162, 169, 241, 148, 190, 92, 1, 247, 33, 111, 51, 237, 130, 176, 145, 70, 52, 144, 208, 91, 245, 22, 160, 21, 25, 65, 161, 242, 229, 110, 185, 95, 162, 169, 241, 148, 190, 92, 1, 247, 33, 111, 51, 237, 130, 176, 145, 70, 52, 144, 208, 91, 245, 22, 160, 21]), TapSighash: Buffer$2.from([244, 10, 72, 223, 75, 42, 112, 200, 180, 146, 75, 242, 101, 70, 97, 237, 61, 149, 253, 102, 163, 19, 235, 135, 35, 117, 151, 198, 40, 228, 160, 49, 244, 10, 72, 223, 75, 42, 112, 200, 180, 146, 75, 242, 101, 70, 97, 237, 61, 149, 253, 102, 163, 19, 235, 135, 35, 117, 151, 198, 40, 228, 160, 49]), TapTweak: Buffer$2.from([232, 15, 225, 99, 156, 156, 160, 80, 227, 175, 27, 57, 193, 67, 198, 62, 66, 156, 188, 235, 21, 217, 64, 251, 181, 197, 161, 244, 175, 87, 197, 233, 232, 15, 225, 99, 156, 156, 160, 80, 227, 175, 27, 57, 193, 67, 198, 62, 66, 156, 188, 235, 21, 217, 64, 251, 181, 197, 161, 244, 175, 87, 197, 233]), "KeyAgg list": Buffer$2.from([72, 28, 151, 28, 60, 11, 70, 215, 240, 178, 117, 174, 89, 141, 78, 44, 126, 215, 49, 156, 89, 74, 92, 110, 199, 158, 160, 212, 153, 2, 148, 240, 72, 28, 151, 28, 60, 11, 70, 215, 240, 178, 117, 174, 89, 141, 78, 44, 126, 215, 49, 156, 89, 74, 92, 110, 199, 158, 160, 212, 153, 2, 148, 240]), "KeyAgg coefficient": Buffer$2.from([191, 201, 4, 3, 77, 28, 136, 232, 200, 14, 34, 229, 61, 36, 86, 109, 100, 130, 78, 214, 66, 114, 129, 192, 145, 0, 249, 77, 205, 82, 201, 129, 191, 201, 4, 3, 77, 28, 136, 232, 200, 14, 34, 229, 61, 36, 86, 109, 100, 130, 78, 214, 66, 114, 129, 192, 145, 0, 249, 77, 205, 82, 201, 129]) }, B.taggedHash = function(J, re) {
-    return V(Buffer$2.concat([B.TAGGED_HASH_PREFIXES[J], re]));
+    return Buffer$3.from((0, W.sha256)((0, W.sha256)(Uint8Array.from(J))));
+  }, B.TAGS = ["BIP0340/challenge", "BIP0340/aux", "BIP0340/nonce", "TapLeaf", "TapBranch", "TapSighash", "TapTweak", "KeyAgg list", "KeyAgg coefficient"], B.TAGGED_HASH_PREFIXES = { "BIP0340/challenge": Buffer$3.from([123, 181, 45, 122, 159, 239, 88, 50, 62, 177, 191, 122, 64, 125, 179, 130, 210, 243, 242, 216, 27, 177, 34, 79, 73, 254, 81, 143, 109, 72, 211, 124, 123, 181, 45, 122, 159, 239, 88, 50, 62, 177, 191, 122, 64, 125, 179, 130, 210, 243, 242, 216, 27, 177, 34, 79, 73, 254, 81, 143, 109, 72, 211, 124]), "BIP0340/aux": Buffer$3.from([241, 239, 78, 94, 192, 99, 202, 218, 109, 148, 202, 250, 157, 152, 126, 160, 105, 38, 88, 57, 236, 193, 31, 151, 45, 119, 165, 46, 216, 193, 204, 144, 241, 239, 78, 94, 192, 99, 202, 218, 109, 148, 202, 250, 157, 152, 126, 160, 105, 38, 88, 57, 236, 193, 31, 151, 45, 119, 165, 46, 216, 193, 204, 144]), "BIP0340/nonce": Buffer$3.from([7, 73, 119, 52, 167, 155, 203, 53, 91, 155, 140, 125, 3, 79, 18, 28, 244, 52, 215, 62, 247, 45, 218, 25, 135, 0, 97, 251, 82, 191, 235, 47, 7, 73, 119, 52, 167, 155, 203, 53, 91, 155, 140, 125, 3, 79, 18, 28, 244, 52, 215, 62, 247, 45, 218, 25, 135, 0, 97, 251, 82, 191, 235, 47]), TapLeaf: Buffer$3.from([174, 234, 143, 220, 66, 8, 152, 49, 5, 115, 75, 88, 8, 29, 30, 38, 56, 211, 95, 28, 181, 64, 8, 212, 211, 87, 202, 3, 190, 120, 233, 238, 174, 234, 143, 220, 66, 8, 152, 49, 5, 115, 75, 88, 8, 29, 30, 38, 56, 211, 95, 28, 181, 64, 8, 212, 211, 87, 202, 3, 190, 120, 233, 238]), TapBranch: Buffer$3.from([25, 65, 161, 242, 229, 110, 185, 95, 162, 169, 241, 148, 190, 92, 1, 247, 33, 111, 51, 237, 130, 176, 145, 70, 52, 144, 208, 91, 245, 22, 160, 21, 25, 65, 161, 242, 229, 110, 185, 95, 162, 169, 241, 148, 190, 92, 1, 247, 33, 111, 51, 237, 130, 176, 145, 70, 52, 144, 208, 91, 245, 22, 160, 21]), TapSighash: Buffer$3.from([244, 10, 72, 223, 75, 42, 112, 200, 180, 146, 75, 242, 101, 70, 97, 237, 61, 149, 253, 102, 163, 19, 235, 135, 35, 117, 151, 198, 40, 228, 160, 49, 244, 10, 72, 223, 75, 42, 112, 200, 180, 146, 75, 242, 101, 70, 97, 237, 61, 149, 253, 102, 163, 19, 235, 135, 35, 117, 151, 198, 40, 228, 160, 49]), TapTweak: Buffer$3.from([232, 15, 225, 99, 156, 156, 160, 80, 227, 175, 27, 57, 193, 67, 198, 62, 66, 156, 188, 235, 21, 217, 64, 251, 181, 197, 161, 244, 175, 87, 197, 233, 232, 15, 225, 99, 156, 156, 160, 80, 227, 175, 27, 57, 193, 67, 198, 62, 66, 156, 188, 235, 21, 217, 64, 251, 181, 197, 161, 244, 175, 87, 197, 233]), "KeyAgg list": Buffer$3.from([72, 28, 151, 28, 60, 11, 70, 215, 240, 178, 117, 174, 89, 141, 78, 44, 126, 215, 49, 156, 89, 74, 92, 110, 199, 158, 160, 212, 153, 2, 148, 240, 72, 28, 151, 28, 60, 11, 70, 215, 240, 178, 117, 174, 89, 141, 78, 44, 126, 215, 49, 156, 89, 74, 92, 110, 199, 158, 160, 212, 153, 2, 148, 240]), "KeyAgg coefficient": Buffer$3.from([191, 201, 4, 3, 77, 28, 136, 232, 200, 14, 34, 229, 61, 36, 86, 109, 100, 130, 78, 214, 66, 114, 129, 192, 145, 0, 249, 77, 205, 82, 201, 129, 191, 201, 4, 3, 77, 28, 136, 232, 200, 14, 34, 229, 61, 36, 86, 109, 100, 130, 78, 214, 66, 114, 129, 192, 145, 0, 249, 77, 205, 82, 201, 129]) }, B.taggedHash = function(J, re) {
+    return V(Buffer$3.concat([B.TAGGED_HASH_PREFIXES[J], re]));
   };
-}(crypto$4);
+}(crypto$5);
 var src$3 = base$5;
 const basex$1 = src$3, ALPHABET$2 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 var bs58$1 = basex$1(ALPHABET$2), base58$1 = bs58$1, base$4 = function(B) {
@@ -3614,17 +3614,17 @@ function sha256x2$1(B) {
 }
 var bs58check$5 = bs58checkBase$1(sha256x2$1);
 Object.defineProperty(p2pkh$1, "__esModule", { value: !0 }), p2pkh$1.p2pkh = void 0;
-const bcrypto$5 = crypto$4, networks_1$4 = networks$2, bscript$6 = requireScript(), types_1$4 = types$7, lazy$3 = lazy$7, bs58check$4 = bs58check$5, OPS$3 = bscript$6.OPS;
+const bcrypto$5 = crypto$5, networks_1$4 = networks$2, bscript$6 = requireScript(), types_1$4 = types$7, lazy$3 = lazy$7, bs58check$4 = bs58check$5, OPS$3 = bscript$6.OPS;
 function p2pkh(B, L) {
   if (!(B.address || B.hash || B.output || B.pubkey || B.input)) throw new TypeError("Not enough data");
   L = Object.assign({ validate: !0 }, L || {}), (0, types_1$4.typeforce)({ network: types_1$4.typeforce.maybe(types_1$4.typeforce.Object), address: types_1$4.typeforce.maybe(types_1$4.typeforce.String), hash: types_1$4.typeforce.maybe(types_1$4.typeforce.BufferN(20)), output: types_1$4.typeforce.maybe(types_1$4.typeforce.BufferN(25)), pubkey: types_1$4.typeforce.maybe(types_1$4.isPoint), signature: types_1$4.typeforce.maybe(bscript$6.isCanonicalScriptSignature), input: types_1$4.typeforce.maybe(types_1$4.typeforce.Buffer) }, B);
   const K = lazy$3.value(() => {
-    const re = Buffer$2.from(bs58check$4.decode(B.address));
+    const re = Buffer$3.from(bs58check$4.decode(B.address));
     return { version: re.readUInt8(0), hash: re.slice(1) };
   }), W = lazy$3.value(() => bscript$6.decompile(B.input)), V = B.network || networks_1$4.bitcoin, J = { name: "p2pkh", network: V };
   if (lazy$3.prop(J, "address", () => {
     if (!J.hash) return;
-    const re = Buffer$2.allocUnsafe(21);
+    const re = Buffer$3.allocUnsafe(21);
     return re.writeUInt8(V.pubKeyHash, 0), J.hash.copy(re, 1), bs58check$4.encode(re);
   }), lazy$3.prop(J, "hash", () => B.output ? B.output.slice(3, 23) : B.address ? K().hash : B.pubkey || J.pubkey ? bcrypto$5.hash160(B.pubkey || J.pubkey) : void 0), lazy$3.prop(J, "output", () => {
     if (J.hash) return bscript$6.compile([OPS$3.OP_DUP, OPS$3.OP_HASH160, J.hash, OPS$3.OP_EQUALVERIFY, OPS$3.OP_CHECKSIG]);
@@ -3637,7 +3637,7 @@ function p2pkh(B, L) {
   }), lazy$3.prop(J, "witness", () => {
     if (J.input) return [];
   }), L.validate) {
-    let re = Buffer$2.from([]);
+    let re = Buffer$3.from([]);
     if (B.address) {
       if (K().version !== V.pubKeyHash) throw new TypeError("Invalid version or Network mismatch");
       if (K().hash.length !== 20) throw new TypeError("Invalid address");
@@ -3674,22 +3674,22 @@ function p2pkh(B, L) {
 p2pkh$1.p2pkh = p2pkh;
 var p2sh$1 = {};
 Object.defineProperty(p2sh$1, "__esModule", { value: !0 }), p2sh$1.p2sh = void 0;
-const bcrypto$4 = crypto$4, networks_1$3 = networks$2, bscript$5 = requireScript(), types_1$3 = types$7, lazy$2 = lazy$7, bs58check$3 = bs58check$5, OPS$2 = bscript$5.OPS;
+const bcrypto$4 = crypto$5, networks_1$3 = networks$2, bscript$5 = requireScript(), types_1$3 = types$7, lazy$2 = lazy$7, bs58check$3 = bs58check$5, OPS$2 = bscript$5.OPS;
 function p2sh(B, L) {
   if (!(B.address || B.hash || B.output || B.redeem || B.input)) throw new TypeError("Not enough data");
   L = Object.assign({ validate: !0 }, L || {}), (0, types_1$3.typeforce)({ network: types_1$3.typeforce.maybe(types_1$3.typeforce.Object), address: types_1$3.typeforce.maybe(types_1$3.typeforce.String), hash: types_1$3.typeforce.maybe(types_1$3.typeforce.BufferN(20)), output: types_1$3.typeforce.maybe(types_1$3.typeforce.BufferN(23)), redeem: types_1$3.typeforce.maybe({ network: types_1$3.typeforce.maybe(types_1$3.typeforce.Object), output: types_1$3.typeforce.maybe(types_1$3.typeforce.Buffer), input: types_1$3.typeforce.maybe(types_1$3.typeforce.Buffer), witness: types_1$3.typeforce.maybe(types_1$3.typeforce.arrayOf(types_1$3.typeforce.Buffer)) }), input: types_1$3.typeforce.maybe(types_1$3.typeforce.Buffer), witness: types_1$3.typeforce.maybe(types_1$3.typeforce.arrayOf(types_1$3.typeforce.Buffer)) }, B);
   let K = B.network;
   K || (K = B.redeem && B.redeem.network || networks_1$3.bitcoin);
   const W = { network: K }, V = lazy$2.value(() => {
-    const ie = Buffer$2.from(bs58check$3.decode(B.address));
+    const ie = Buffer$3.from(bs58check$3.decode(B.address));
     return { version: ie.readUInt8(0), hash: ie.slice(1) };
   }), J = lazy$2.value(() => bscript$5.decompile(B.input)), re = lazy$2.value(() => {
     const ie = J(), ne = ie[ie.length - 1];
-    return { network: K, output: ne === OPS$2.OP_FALSE ? Buffer$2.from([]) : ne, input: bscript$5.compile(ie.slice(0, -1)), witness: B.witness || [] };
+    return { network: K, output: ne === OPS$2.OP_FALSE ? Buffer$3.from([]) : ne, input: bscript$5.compile(ie.slice(0, -1)), witness: B.witness || [] };
   });
   if (lazy$2.prop(W, "address", () => {
     if (!W.hash) return;
-    const ie = Buffer$2.allocUnsafe(21);
+    const ie = Buffer$3.allocUnsafe(21);
     return ie.writeUInt8(W.network.scriptHash, 0), W.hash.copy(ie, 1), bs58check$3.encode(ie);
   }), lazy$2.prop(W, "hash", () => B.output ? B.output.slice(2, 22) : B.address ? V().hash : W.redeem && W.redeem.output ? bcrypto$4.hash160(W.redeem.output) : void 0), lazy$2.prop(W, "output", () => {
     if (W.hash) return bscript$5.compile([OPS$2.OP_HASH160, W.hash, OPS$2.OP_EQUAL]);
@@ -3701,7 +3701,7 @@ function p2sh(B, L) {
     const ie = ["p2sh"];
     return W.redeem !== void 0 && W.redeem.name !== void 0 && ie.push(W.redeem.name), ie.join("-");
   }), L.validate) {
-    let ie = Buffer$2.from([]);
+    let ie = Buffer$3.from([]);
     if (B.address) {
       if (V().version !== K.scriptHash) throw new TypeError("Invalid version or Network mismatch");
       if (V().hash.length !== 20) throw new TypeError("Invalid address");
@@ -3740,7 +3740,7 @@ function p2sh(B, L) {
     if (B.input) {
       const oe = J();
       if (!oe || oe.length < 1) throw new TypeError("Input too short");
-      if (!Buffer$2.isBuffer(re().output)) throw new TypeError("Input is invalid");
+      if (!Buffer$3.isBuffer(re().output)) throw new TypeError("Input is invalid");
       ne(re());
     }
     if (B.redeem) {
@@ -3854,13 +3854,13 @@ function getLibraryFromEncoding(B) {
   }, toWords, fromWordsUnsafe, fromWords };
 }
 dist$1.bech32 = getLibraryFromEncoding("bech32"), dist$1.bech32m = getLibraryFromEncoding("bech32m"), Object.defineProperty(p2wpkh$1, "__esModule", { value: !0 }), p2wpkh$1.p2wpkh = void 0;
-const bcrypto$3 = crypto$4, networks_1$2 = networks$2, bscript$4 = requireScript(), types_1$2 = types$7, lazy$1 = lazy$7, bech32_1$1 = dist$1, OPS$1 = bscript$4.OPS, EMPTY_BUFFER$2 = Buffer$2.alloc(0);
+const bcrypto$3 = crypto$5, networks_1$2 = networks$2, bscript$4 = requireScript(), types_1$2 = types$7, lazy$1 = lazy$7, bech32_1$1 = dist$1, OPS$1 = bscript$4.OPS, EMPTY_BUFFER$2 = Buffer$3.alloc(0);
 function p2wpkh(B, L) {
   if (!(B.address || B.hash || B.output || B.pubkey || B.witness)) throw new TypeError("Not enough data");
   L = Object.assign({ validate: !0 }, L || {}), (0, types_1$2.typeforce)({ address: types_1$2.typeforce.maybe(types_1$2.typeforce.String), hash: types_1$2.typeforce.maybe(types_1$2.typeforce.BufferN(20)), input: types_1$2.typeforce.maybe(types_1$2.typeforce.BufferN(0)), network: types_1$2.typeforce.maybe(types_1$2.typeforce.Object), output: types_1$2.typeforce.maybe(types_1$2.typeforce.BufferN(22)), pubkey: types_1$2.typeforce.maybe(types_1$2.isPoint), signature: types_1$2.typeforce.maybe(bscript$4.isCanonicalScriptSignature), witness: types_1$2.typeforce.maybe(types_1$2.typeforce.arrayOf(types_1$2.typeforce.Buffer)) }, B);
   const K = lazy$1.value(() => {
     const J = bech32_1$1.bech32.decode(B.address), re = J.words.shift(), ie = bech32_1$1.bech32.fromWords(J.words);
-    return { version: re, prefix: J.prefix, data: Buffer$2.from(ie) };
+    return { version: re, prefix: J.prefix, data: Buffer$3.from(ie) };
   }), W = B.network || networks_1$2.bitcoin, V = { name: "p2wpkh", network: W };
   if (lazy$1.prop(V, "address", () => {
     if (!V.hash) return;
@@ -3875,7 +3875,7 @@ function p2wpkh(B, L) {
   }), lazy$1.prop(V, "witness", () => {
     if (B.pubkey && B.signature) return [B.signature, B.pubkey];
   }), L.validate) {
-    let J = Buffer$2.from([]);
+    let J = Buffer$3.from([]);
     if (B.address) {
       if (W && W.bech32 !== K().prefix) throw new TypeError("Invalid prefix or Network mismatch");
       if (K().version !== 0) throw new TypeError("Invalid address version");
@@ -3911,16 +3911,16 @@ function p2wpkh(B, L) {
 p2wpkh$1.p2wpkh = p2wpkh;
 var p2wsh$1 = {};
 Object.defineProperty(p2wsh$1, "__esModule", { value: !0 }), p2wsh$1.p2wsh = void 0;
-const bcrypto$2 = crypto$4, networks_1$1 = networks$2, bscript$3 = requireScript(), types_1$1 = types$7, lazy = lazy$7, bech32_1 = dist$1, OPS = bscript$3.OPS, EMPTY_BUFFER$1 = Buffer$2.alloc(0);
+const bcrypto$2 = crypto$5, networks_1$1 = networks$2, bscript$3 = requireScript(), types_1$1 = types$7, lazy = lazy$7, bech32_1 = dist$1, OPS = bscript$3.OPS, EMPTY_BUFFER$1 = Buffer$3.alloc(0);
 function chunkHasUncompressedPubkey(B) {
-  return !(!Buffer$2.isBuffer(B) || B.length !== 65 || B[0] !== 4 || !(0, types_1$1.isPoint)(B));
+  return !(!Buffer$3.isBuffer(B) || B.length !== 65 || B[0] !== 4 || !(0, types_1$1.isPoint)(B));
 }
 function p2wsh(B, L) {
   if (!(B.address || B.hash || B.output || B.redeem || B.witness)) throw new TypeError("Not enough data");
   L = Object.assign({ validate: !0 }, L || {}), (0, types_1$1.typeforce)({ network: types_1$1.typeforce.maybe(types_1$1.typeforce.Object), address: types_1$1.typeforce.maybe(types_1$1.typeforce.String), hash: types_1$1.typeforce.maybe(types_1$1.typeforce.BufferN(32)), output: types_1$1.typeforce.maybe(types_1$1.typeforce.BufferN(34)), redeem: types_1$1.typeforce.maybe({ input: types_1$1.typeforce.maybe(types_1$1.typeforce.Buffer), network: types_1$1.typeforce.maybe(types_1$1.typeforce.Object), output: types_1$1.typeforce.maybe(types_1$1.typeforce.Buffer), witness: types_1$1.typeforce.maybe(types_1$1.typeforce.arrayOf(types_1$1.typeforce.Buffer)) }), input: types_1$1.typeforce.maybe(types_1$1.typeforce.BufferN(0)), witness: types_1$1.typeforce.maybe(types_1$1.typeforce.arrayOf(types_1$1.typeforce.Buffer)) }, B);
   const K = lazy.value(() => {
     const re = bech32_1.bech32.decode(B.address), ie = re.words.shift(), ne = bech32_1.bech32.fromWords(re.words);
-    return { version: ie, prefix: re.prefix, data: Buffer$2.from(ne) };
+    return { version: ie, prefix: re.prefix, data: Buffer$3.from(ne) };
   }), W = lazy.value(() => bscript$3.decompile(B.redeem.input));
   let V = B.network;
   V || (V = B.redeem && B.redeem.network || networks_1$1.bitcoin);
@@ -3945,7 +3945,7 @@ function p2wsh(B, L) {
     const re = ["p2wsh"];
     return J.redeem !== void 0 && J.redeem.name !== void 0 && re.push(J.redeem.name), re.join("-");
   }), L.validate) {
-    let re = Buffer$2.from([]);
+    let re = Buffer$3.from([]);
     if (B.address) {
       if (K().prefix !== V.bech32) throw new TypeError("Invalid prefix or Network mismatch");
       if (K().version !== 0) throw new TypeError("Invalid address version");
@@ -3998,11 +3998,11 @@ function getEccLib() {
   return _ECCLIB_CACHE.eccLib;
 }
 ecc_lib.initEccLib = initEccLib, ecc_lib.getEccLib = getEccLib;
-const h$3 = (B) => Buffer$2.from(B, "hex");
+const h$3 = (B) => Buffer$3.from(B, "hex");
 function verifyEcc(B) {
   assert$2(typeof B.isXOnlyPoint == "function"), assert$2(B.isXOnlyPoint(h$3("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert$2(B.isXOnlyPoint(h$3("fffffffffffffffffffffffffffffffffffffffffffffffffffffffeeffffc2e"))), assert$2(B.isXOnlyPoint(h$3("f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9"))), assert$2(B.isXOnlyPoint(h$3("0000000000000000000000000000000000000000000000000000000000000001"))), assert$2(!B.isXOnlyPoint(h$3("0000000000000000000000000000000000000000000000000000000000000000"))), assert$2(!B.isXOnlyPoint(h$3("fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"))), assert$2(typeof B.xOnlyPointAddTweak == "function"), tweakAddVectors.forEach((L) => {
     const K = B.xOnlyPointAddTweak(h$3(L.pubkey), h$3(L.tweak));
-    L.result === null ? assert$2(K === null) : (assert$2(K !== null), assert$2(K.parity === L.parity), assert$2(Buffer$2.from(K.xOnlyPubkey).equals(h$3(L.result))));
+    L.result === null ? assert$2(K === null) : (assert$2(K !== null), assert$2(K.parity === L.parity), assert$2(Buffer$3.from(K.xOnlyPubkey).equals(h$3(L.result))));
   });
 }
 function assert$2(B) {
@@ -4033,16 +4033,16 @@ var bip341 = {}, bufferutils = {}, safeBuffer$1 = { exports: {} };
     return K.SlowBuffer(re);
   };
 })(safeBuffer$1, safeBuffer$1.exports);
-var safeBufferExports = safeBuffer$1.exports, Buffer$1 = safeBufferExports.Buffer, MAX_SAFE_INTEGER$2 = 9007199254740991;
+var safeBufferExports = safeBuffer$1.exports, Buffer$2 = safeBufferExports.Buffer, MAX_SAFE_INTEGER$2 = 9007199254740991;
 function checkUInt53$1(B) {
   if (B < 0 || B > MAX_SAFE_INTEGER$2 || B % 1 != 0) throw new RangeError("value out of range");
 }
 function encode$h(B, L, K) {
-  if (checkUInt53$1(B), L || (L = Buffer$1.allocUnsafe(encodingLength$1(B))), !Buffer$1.isBuffer(L)) throw new TypeError("buffer must be a Buffer instance");
+  if (checkUInt53$1(B), L || (L = Buffer$2.allocUnsafe(encodingLength$1(B))), !Buffer$2.isBuffer(L)) throw new TypeError("buffer must be a Buffer instance");
   return K || (K = 0), B < 253 ? (L.writeUInt8(B, K), encode$h.bytes = 1) : B <= 65535 ? (L.writeUInt8(253, K), L.writeUInt16LE(B, K + 1), encode$h.bytes = 3) : B <= 4294967295 ? (L.writeUInt8(254, K), L.writeUInt32LE(B, K + 1), encode$h.bytes = 5) : (L.writeUInt8(255, K), L.writeUInt32LE(B >>> 0, K + 1), L.writeUInt32LE(B / 4294967296 | 0, K + 5), encode$h.bytes = 9), L;
 }
 function decode$h(B, L) {
-  if (!Buffer$1.isBuffer(B)) throw new TypeError("buffer must be a Buffer instance");
+  if (!Buffer$2.isBuffer(B)) throw new TypeError("buffer must be a Buffer instance");
   L || (L = 0);
   var K = B.readUInt8(L);
   if (K < 253) return decode$h.bytes = 1, K;
@@ -4079,13 +4079,13 @@ function reverseBuffer$2(B) {
   return B;
 }
 function cloneBuffer(B) {
-  const L = Buffer$2.allocUnsafe(B.length);
+  const L = Buffer$3.allocUnsafe(B.length);
   return B.copy(L), L;
 }
 bufferutils.varuint = varuint$7, bufferutils.readUInt64LE = readUInt64LE$1, bufferutils.writeUInt64LE = writeUInt64LE$1, bufferutils.reverseBuffer = reverseBuffer$2, bufferutils.cloneBuffer = cloneBuffer;
 class BufferWriter {
   static withCapacity(L) {
-    return new BufferWriter(Buffer$2.alloc(L));
+    return new BufferWriter(Buffer$3.alloc(L));
   }
   constructor(L, K = 0) {
     this.buffer = L, this.offset = K, typeforce$3(types$5.tuple(types$5.Buffer, types$5.UInt32), [L, K]);
@@ -4316,7 +4316,7 @@ function requireAddress() {
   hasRequiredAddress = 1, Object.defineProperty(address, "__esModule", { value: !0 }), address.toOutputScript = address.fromOutputScript = address.toBech32 = address.toBase58Check = address.fromBech32 = address.fromBase58Check = void 0;
   const B = networks$2, L = requirePayments(), K = requireScript(), W = types$7, V = dist$1, J = bs58check$5;
   function re(oe) {
-    const ce = Buffer$2.from(J.decode(oe));
+    const ce = Buffer$3.from(J.decode(oe));
     if (ce.length < 21) throw new TypeError(oe + " is too short");
     if (ce.length > 21) throw new TypeError(oe + " is too long");
     return { version: ce.readUInt8(0), hash: ce.slice(1) };
@@ -4331,7 +4331,7 @@ function requireAddress() {
       if (pe = ce.words[0], pe !== 0) throw new TypeError(oe + " uses wrong encoding");
     } else if (ce = V.bech32m.decode(oe), pe = ce.words[0], pe === 0) throw new TypeError(oe + " uses wrong encoding");
     const ke = V.bech32.fromWords(ce.words.slice(1));
-    return { version: pe, prefix: ce.prefix, data: Buffer$2.from(ke) };
+    return { version: pe, prefix: ce.prefix, data: Buffer$3.from(ke) };
   }
   function ne(oe, ce, pe) {
     const ke = V.bech32.toWords(oe);
@@ -4339,7 +4339,7 @@ function requireAddress() {
   }
   return address.fromBase58Check = re, address.fromBech32 = ie, address.toBase58Check = function(oe, ce) {
     (0, W.typeforce)((0, W.tuple)(W.Hash160bit, W.UInt8), arguments);
-    const pe = Buffer$2.allocUnsafe(21);
+    const pe = Buffer$3.allocUnsafe(21);
     return pe.writeUInt8(ce, 0), oe.copy(pe, 1), J.encode(pe);
   }, address.toBech32 = ne, address.fromOutputScript = function(oe, ce) {
     ce = ce || B.bitcoin;
@@ -4405,7 +4405,7 @@ function requireAddress() {
 }
 bufferutils.BufferReader = BufferReader, function(B) {
   Object.defineProperty(B, "__esModule", { value: !0 }), B.tweakKey = B.tapTweakHash = B.tapleafHash = B.findScriptPath = B.toHashTree = B.rootHashFromPath = B.MAX_TAPTREE_DEPTH = B.LEAF_VERSION_TAPSCRIPT = void 0;
-  const L = require$$1$2, K = ecc_lib, W = crypto$4, V = bufferutils, J = types$7;
+  const L = require$$1$2, K = ecc_lib, W = crypto$5, V = bufferutils, J = types$7;
   function re(ce) {
     const pe = ce.version || B.LEAF_VERSION_TAPSCRIPT;
     return W.taggedHash("TapLeaf", L.Buffer.concat([L.Buffer.from([pe]), oe(ce.output)]));
@@ -4458,7 +4458,7 @@ function fastMerkleRoot(B, L) {
   for (; K > 1; ) {
     let V = 0;
     for (let J = 0; J < K; J += 2, ++V) {
-      const re = W[J], ie = J + 1 === K ? re : W[J + 1], ne = Buffer$2.concat([re, ie]);
+      const re = W[J], ie = J + 1 === K ? re : W[J + 1], ne = Buffer$3.concat([re, ie]);
       W[V] = L(ne);
     }
     K = V;
@@ -4468,7 +4468,7 @@ function fastMerkleRoot(B, L) {
 Object.defineProperty(merkle, "__esModule", { value: !0 }), merkle.fastMerkleRoot = void 0, merkle.fastMerkleRoot = fastMerkleRoot;
 var transaction = {};
 Object.defineProperty(transaction, "__esModule", { value: !0 }), transaction.Transaction = void 0;
-const bufferutils_1$2 = bufferutils, bcrypto$1 = crypto$4, bscript$2 = requireScript(), script_1 = requireScript(), types$4 = types$7, { typeforce: typeforce$2 } = types$4;
+const bufferutils_1$2 = bufferutils, bcrypto$1 = crypto$5, bscript$2 = requireScript(), script_1 = requireScript(), types$4 = types$7, { typeforce: typeforce$2 } = types$4;
 function varSliceSize(B) {
   const L = B.length;
   return bufferutils_1$2.varuint.encodingLength(L) + L;
@@ -4477,7 +4477,7 @@ function vectorSize(B) {
   const L = B.length;
   return bufferutils_1$2.varuint.encodingLength(L) + B.reduce((K, W) => K + varSliceSize(W), 0);
 }
-const EMPTY_BUFFER = Buffer$2.allocUnsafe(0), EMPTY_WITNESS = [], ZERO = Buffer$2.from("0000000000000000000000000000000000000000000000000000000000000000", "hex"), ONE = Buffer$2.from("0000000000000000000000000000000000000000000000000000000000000001", "hex"), VALUE_UINT64_MAX = Buffer$2.from("ffffffffffffffff", "hex"), BLANK_OUTPUT = { script: EMPTY_BUFFER, valueBuffer: VALUE_UINT64_MAX };
+const EMPTY_BUFFER = Buffer$3.allocUnsafe(0), EMPTY_WITNESS = [], ZERO = Buffer$3.from("0000000000000000000000000000000000000000000000000000000000000000", "hex"), ONE = Buffer$3.from("0000000000000000000000000000000000000000000000000000000000000001", "hex"), VALUE_UINT64_MAX = Buffer$3.from("ffffffffffffffff", "hex"), BLANK_OUTPUT = { script: EMPTY_BUFFER, valueBuffer: VALUE_UINT64_MAX };
 function isOutput(B) {
   return B.value !== void 0;
 }
@@ -4504,7 +4504,7 @@ class Transaction {
     return V;
   }
   static fromHex(L) {
-    return Transaction.fromBuffer(Buffer$2.from(L, "hex"), !1);
+    return Transaction.fromBuffer(Buffer$3.from(L, "hex"), !1);
   }
   static isCoinbaseHash(L) {
     typeforce$2(types$4.Hash256bit, L);
@@ -4554,7 +4554,7 @@ class Transaction {
     W & Transaction.SIGHASH_ANYONECANPAY ? (J.ins = [J.ins[L]], J.ins[0].script = V) : (J.ins.forEach((ie) => {
       ie.script = EMPTY_BUFFER;
     }), J.ins[L].script = V);
-    const re = Buffer$2.allocUnsafe(J.byteLength(!1) + 4);
+    const re = Buffer$3.allocUnsafe(J.byteLength(!1) + 4);
     return re.writeInt32LE(W, re.length - 4), J.__toBuffer(re, 0, !1), bcrypto$1.hash256(re);
   }
   hashForWitnessV1(L, K, W, V, J, re) {
@@ -4587,30 +4587,30 @@ class Transaction {
       const St = bufferutils_1$2.BufferWriter.withCapacity(varSliceSize(re));
       St.writeVarSlice(re), yt.writeSlice(bcrypto$1.sha256(St.end()));
     }
-    return ce && yt.writeSlice(ft), J && (yt.writeSlice(J), yt.writeUInt8(0), yt.writeUInt32(4294967295)), bcrypto$1.taggedHash("TapSighash", Buffer$2.concat([Buffer$2.from([0]), yt.end()]));
+    return ce && yt.writeSlice(ft), J && (yt.writeSlice(J), yt.writeUInt8(0), yt.writeUInt32(4294967295)), bcrypto$1.taggedHash("TapSighash", Buffer$3.concat([Buffer$3.from([0]), yt.end()]));
   }
   hashForWitnessV0(L, K, W, V) {
     typeforce$2(types$4.tuple(types$4.UInt32, types$4.Buffer, types$4.Satoshi, types$4.UInt32), arguments);
-    let J, re = Buffer$2.from([]), ie = ZERO, ne = ZERO, oe = ZERO;
-    if (V & Transaction.SIGHASH_ANYONECANPAY || (re = Buffer$2.allocUnsafe(36 * this.ins.length), J = new bufferutils_1$2.BufferWriter(re, 0), this.ins.forEach((pe) => {
+    let J, re = Buffer$3.from([]), ie = ZERO, ne = ZERO, oe = ZERO;
+    if (V & Transaction.SIGHASH_ANYONECANPAY || (re = Buffer$3.allocUnsafe(36 * this.ins.length), J = new bufferutils_1$2.BufferWriter(re, 0), this.ins.forEach((pe) => {
       J.writeSlice(pe.hash), J.writeUInt32(pe.index);
-    }), ne = bcrypto$1.hash256(re)), V & Transaction.SIGHASH_ANYONECANPAY || (31 & V) === Transaction.SIGHASH_SINGLE || (31 & V) === Transaction.SIGHASH_NONE || (re = Buffer$2.allocUnsafe(4 * this.ins.length), J = new bufferutils_1$2.BufferWriter(re, 0), this.ins.forEach((pe) => {
+    }), ne = bcrypto$1.hash256(re)), V & Transaction.SIGHASH_ANYONECANPAY || (31 & V) === Transaction.SIGHASH_SINGLE || (31 & V) === Transaction.SIGHASH_NONE || (re = Buffer$3.allocUnsafe(4 * this.ins.length), J = new bufferutils_1$2.BufferWriter(re, 0), this.ins.forEach((pe) => {
       J.writeUInt32(pe.sequence);
     }), oe = bcrypto$1.hash256(re)), (31 & V) !== Transaction.SIGHASH_SINGLE && (31 & V) !== Transaction.SIGHASH_NONE) {
       const pe = this.outs.reduce((ke, ot) => ke + 8 + varSliceSize(ot.script), 0);
-      re = Buffer$2.allocUnsafe(pe), J = new bufferutils_1$2.BufferWriter(re, 0), this.outs.forEach((ke) => {
+      re = Buffer$3.allocUnsafe(pe), J = new bufferutils_1$2.BufferWriter(re, 0), this.outs.forEach((ke) => {
         J.writeUInt64(ke.value), J.writeVarSlice(ke.script);
       }), ie = bcrypto$1.hash256(re);
     } else if ((31 & V) === Transaction.SIGHASH_SINGLE && L < this.outs.length) {
       const pe = this.outs[L];
-      re = Buffer$2.allocUnsafe(8 + varSliceSize(pe.script)), J = new bufferutils_1$2.BufferWriter(re, 0), J.writeUInt64(pe.value), J.writeVarSlice(pe.script), ie = bcrypto$1.hash256(re);
+      re = Buffer$3.allocUnsafe(8 + varSliceSize(pe.script)), J = new bufferutils_1$2.BufferWriter(re, 0), J.writeUInt64(pe.value), J.writeVarSlice(pe.script), ie = bcrypto$1.hash256(re);
     }
-    re = Buffer$2.allocUnsafe(156 + varSliceSize(K)), J = new bufferutils_1$2.BufferWriter(re, 0);
+    re = Buffer$3.allocUnsafe(156 + varSliceSize(K)), J = new bufferutils_1$2.BufferWriter(re, 0);
     const ce = this.ins[L];
     return J.writeInt32(this.version), J.writeSlice(ne), J.writeSlice(oe), J.writeSlice(ce.hash), J.writeUInt32(ce.index), J.writeVarSlice(K), J.writeUInt64(W), J.writeUInt32(ce.sequence), J.writeSlice(ie), J.writeUInt32(this.locktime), J.writeUInt32(V), bcrypto$1.hash256(re);
   }
   getHash(L) {
-    return L && this.isCoinbase() ? Buffer$2.alloc(32, 0) : bcrypto$1.hash256(this.__toBuffer(void 0, void 0, L));
+    return L && this.isCoinbase() ? Buffer$3.alloc(32, 0) : bcrypto$1.hash256(this.__toBuffer(void 0, void 0, L));
   }
   getId() {
     return (0, bufferutils_1$2.reverseBuffer)(this.getHash(!1)).toString("hex");
@@ -4628,7 +4628,7 @@ class Transaction {
     typeforce$2(types$4.tuple(types$4.Number, [types$4.Buffer]), arguments), this.ins[L].witness = K;
   }
   __toBuffer(L, K, W = !1) {
-    L || (L = Buffer$2.allocUnsafe(this.byteLength(W)));
+    L || (L = Buffer$3.allocUnsafe(this.byteLength(W)));
     const V = new bufferutils_1$2.BufferWriter(L, K || 0);
     V.writeInt32(this.version);
     const J = W && this.hasWitnesses();
@@ -4642,7 +4642,7 @@ class Transaction {
   }
 }
 transaction.Transaction = Transaction, Transaction.DEFAULT_SEQUENCE = 4294967295, Transaction.SIGHASH_DEFAULT = 0, Transaction.SIGHASH_ALL = 1, Transaction.SIGHASH_NONE = 2, Transaction.SIGHASH_SINGLE = 3, Transaction.SIGHASH_ANYONECANPAY = 128, Transaction.SIGHASH_OUTPUT_MASK = 3, Transaction.SIGHASH_INPUT_MASK = 128, Transaction.ADVANCED_TRANSACTION_MARKER = 0, Transaction.ADVANCED_TRANSACTION_FLAG = 1, Object.defineProperty(block, "__esModule", { value: !0 }), block.Block = void 0;
-const bufferutils_1$1 = bufferutils, bcrypto = crypto$4, merkle_1 = merkle, transaction_1$3 = transaction, types$3 = types$7, { typeforce: typeforce$1 } = types$3, errorMerkleNoTxes = new TypeError("Cannot compute merkle root for zero transactions"), errorWitnessNotSegwit = new TypeError("Cannot compute witness commit for non-segwit block");
+const bufferutils_1$1 = bufferutils, bcrypto = crypto$5, merkle_1 = merkle, transaction_1$3 = transaction, types$3 = types$7, { typeforce: typeforce$1 } = types$3, errorMerkleNoTxes = new TypeError("Cannot compute merkle root for zero transactions"), errorWitnessNotSegwit = new TypeError("Cannot compute witness commit for non-segwit block");
 class Block {
   constructor() {
     this.version = 1, this.prevHash = void 0, this.merkleRoot = void 0, this.timestamp = 0, this.witnessCommit = void 0, this.bits = 0, this.nonce = 0, this.transactions = void 0;
@@ -4664,27 +4664,27 @@ class Block {
     return re && (W.witnessCommit = re), W;
   }
   static fromHex(L) {
-    return Block.fromBuffer(Buffer$2.from(L, "hex"));
+    return Block.fromBuffer(Buffer$3.from(L, "hex"));
   }
   static calculateTarget(L) {
-    const K = ((4278190080 & L) >> 24) - 3, W = 8388607 & L, V = Buffer$2.alloc(32, 0);
+    const K = ((4278190080 & L) >> 24) - 3, W = 8388607 & L, V = Buffer$3.alloc(32, 0);
     return V.writeUIntBE(W, 29 - K, 3), V;
   }
   static calculateMerkleRoot(L, K) {
     if (typeforce$1([{ getHash: types$3.Function }], L), L.length === 0) throw errorMerkleNoTxes;
     if (K && !txesHaveWitnessCommit(L)) throw errorWitnessNotSegwit;
     const W = L.map((J) => J.getHash(K)), V = (0, merkle_1.fastMerkleRoot)(W, bcrypto.hash256);
-    return K ? bcrypto.hash256(Buffer$2.concat([V, L[0].ins[0].witness[0]])) : V;
+    return K ? bcrypto.hash256(Buffer$3.concat([V, L[0].ins[0].witness[0]])) : V;
   }
   getWitnessCommit() {
     if (!txesHaveWitnessCommit(this.transactions)) return null;
-    const L = this.transactions[0].outs.filter((W) => W.script.slice(0, 6).equals(Buffer$2.from("6a24aa21a9ed", "hex"))).map((W) => W.script.slice(6, 38));
+    const L = this.transactions[0].outs.filter((W) => W.script.slice(0, 6).equals(Buffer$3.from("6a24aa21a9ed", "hex"))).map((W) => W.script.slice(6, 38));
     if (L.length === 0) return null;
     const K = L[L.length - 1];
-    return K instanceof Buffer$2 && K.length === 32 ? K : null;
+    return K instanceof Buffer$3 && K.length === 32 ? K : null;
   }
   hasWitnessCommit() {
-    return this.witnessCommit instanceof Buffer$2 && this.witnessCommit.length === 32 || this.getWitnessCommit() !== null;
+    return this.witnessCommit instanceof Buffer$3 && this.witnessCommit.length === 32 || this.getWitnessCommit() !== null;
   }
   hasWitness() {
     return anyTxHasWitness(this.transactions);
@@ -4706,7 +4706,7 @@ class Block {
     return L.setUTCSeconds(this.timestamp), L;
   }
   toBuffer(L) {
-    const K = Buffer$2.allocUnsafe(this.byteLength(L)), W = new bufferutils_1$1.BufferWriter(K);
+    const K = Buffer$3.allocUnsafe(this.byteLength(L)), W = new bufferutils_1$1.BufferWriter(K);
     return W.writeInt32(this.version), W.writeSlice(this.prevHash), W.writeSlice(this.merkleRoot), W.writeUInt32(this.timestamp), W.writeUInt32(this.bits), W.writeUInt32(this.nonce), L || !this.transactions || (bufferutils_1$1.varuint.encode(this.transactions.length, K, W.offset), W.offset += bufferutils_1$1.varuint.encode.bytes, this.transactions.forEach((V) => {
       const J = V.byteLength();
       V.toBuffer(K, W.offset), W.offset += J;
@@ -4759,7 +4759,7 @@ function decode$g(B) {
   return K;
 }
 function encode$g(B) {
-  const L = Buffer$2.from([typeFields_1$g.GlobalTypes.GLOBAL_XPUB]), K = Buffer$2.concat([L, B.extendedPubkey]), W = B.path.split("/"), V = Buffer$2.allocUnsafe(4 * W.length);
+  const L = Buffer$3.from([typeFields_1$g.GlobalTypes.GLOBAL_XPUB]), K = Buffer$3.concat([L, B.extendedPubkey]), W = B.path.split("/"), V = Buffer$3.allocUnsafe(4 * W.length);
   B.masterFingerprint.copy(V, 0);
   let J = 4;
   return W.slice(1).forEach((re) => {
@@ -4770,7 +4770,7 @@ function encode$g(B) {
 }
 function check$c(B) {
   const L = B.extendedPubkey, K = B.masterFingerprint, W = B.path;
-  return Buffer$2.isBuffer(L) && L.length === 78 && [2, 3].indexOf(L[45]) > -1 && Buffer$2.isBuffer(K) && K.length === 4 && typeof W == "string" && !!W.match(/^m(\/\d+'?)*$/);
+  return Buffer$3.isBuffer(L) && L.length === 78 && [2, 3].indexOf(L[45]) > -1 && Buffer$3.isBuffer(K) && K.length === 4 && typeof W == "string" && !!W.match(/^m(\/\d+'?)*$/);
 }
 function canAddToArray$3(B, L, K) {
   const W = L.extendedPubkey.toString("hex");
@@ -4781,7 +4781,7 @@ var unsignedTx$1 = {};
 Object.defineProperty(unsignedTx$1, "__esModule", { value: !0 });
 const typeFields_1$f = typeFields;
 function encode$f(B) {
-  return { key: Buffer$2.from([typeFields_1$f.GlobalTypes.UNSIGNED_TX]), value: B.toBuffer() };
+  return { key: Buffer$3.from([typeFields_1$f.GlobalTypes.UNSIGNED_TX]), value: B.toBuffer() };
 }
 unsignedTx$1.encode = encode$f;
 var finalScriptSig$1 = {};
@@ -4792,10 +4792,10 @@ function decode$f(B) {
   return B.value;
 }
 function encode$e(B) {
-  return { key: Buffer$2.from([typeFields_1$e.InputTypes.FINAL_SCRIPTSIG]), value: B };
+  return { key: Buffer$3.from([typeFields_1$e.InputTypes.FINAL_SCRIPTSIG]), value: B };
 }
 function check$b(B) {
-  return Buffer$2.isBuffer(B);
+  return Buffer$3.isBuffer(B);
 }
 function canAdd$8(B, L) {
   return !!B && !!L && B.finalScriptSig === void 0;
@@ -4809,10 +4809,10 @@ function decode$e(B) {
   return B.value;
 }
 function encode$d(B) {
-  return { key: Buffer$2.from([typeFields_1$d.InputTypes.FINAL_SCRIPTWITNESS]), value: B };
+  return { key: Buffer$3.from([typeFields_1$d.InputTypes.FINAL_SCRIPTWITNESS]), value: B };
 }
 function check$a(B) {
-  return Buffer$2.isBuffer(B);
+  return Buffer$3.isBuffer(B);
 }
 function canAdd$7(B, L) {
   return !!B && !!L && B.finalScriptWitness === void 0;
@@ -4826,10 +4826,10 @@ function decode$d(B) {
   return B.value;
 }
 function encode$c(B) {
-  return { key: Buffer$2.from([typeFields_1$c.InputTypes.NON_WITNESS_UTXO]), value: B };
+  return { key: Buffer$3.from([typeFields_1$c.InputTypes.NON_WITNESS_UTXO]), value: B };
 }
 function check$9(B) {
-  return Buffer$2.isBuffer(B);
+  return Buffer$3.isBuffer(B);
 }
 function canAdd$6(B, L) {
   return !!B && !!L && B.nonWitnessUtxo === void 0;
@@ -4844,14 +4844,14 @@ function decode$c(B) {
   return { pubkey: B.key.slice(1), signature: B.value };
 }
 function encode$b(B) {
-  const L = Buffer$2.from([typeFields_1$b.InputTypes.PARTIAL_SIG]);
-  return { key: Buffer$2.concat([L, B.pubkey]), value: B.signature };
+  const L = Buffer$3.from([typeFields_1$b.InputTypes.PARTIAL_SIG]);
+  return { key: Buffer$3.concat([L, B.pubkey]), value: B.signature };
 }
 function check$8(B) {
-  return Buffer$2.isBuffer(B.pubkey) && Buffer$2.isBuffer(B.signature) && [33, 65].includes(B.pubkey.length) && [2, 3, 4].includes(B.pubkey[0]) && isDerSigWithSighash(B.signature);
+  return Buffer$3.isBuffer(B.pubkey) && Buffer$3.isBuffer(B.signature) && [33, 65].includes(B.pubkey.length) && [2, 3, 4].includes(B.pubkey[0]) && isDerSigWithSighash(B.signature);
 }
 function isDerSigWithSighash(B) {
-  if (!Buffer$2.isBuffer(B) || B.length < 9 || B[0] !== 48 || B.length !== B[1] + 3 || B[2] !== 2) return !1;
+  if (!Buffer$3.isBuffer(B) || B.length < 9 || B[0] !== 48 || B.length !== B[1] + 3 || B[2] !== 2) return !1;
   const L = B[3];
   if (L > 33 || L < 1 || B[3 + L + 1] !== 2) return !1;
   const K = B[3 + L + 2];
@@ -4870,7 +4870,7 @@ function decode$b(B) {
   return B.value.toString("utf8");
 }
 function encode$a(B) {
-  return { key: Buffer$2.from([typeFields_1$a.InputTypes.POR_COMMITMENT]), value: Buffer$2.from(B, "utf8") };
+  return { key: Buffer$3.from([typeFields_1$a.InputTypes.POR_COMMITMENT]), value: Buffer$3.from(B, "utf8") };
 }
 function check$7(B) {
   return typeof B == "string";
@@ -4887,7 +4887,7 @@ function decode$a(B) {
   return B.value.readUInt32LE(0);
 }
 function encode$9(B) {
-  const L = Buffer$2.from([typeFields_1$9.InputTypes.SIGHASH_TYPE]), K = Buffer$2.allocUnsafe(4);
+  const L = Buffer$3.from([typeFields_1$9.InputTypes.SIGHASH_TYPE]), K = Buffer$3.allocUnsafe(4);
   return K.writeUInt32LE(B, 0), { key: L, value: K };
 }
 function check$6(B) {
@@ -4906,10 +4906,10 @@ function decode$9(B) {
   return B.value;
 }
 function encode$8(B) {
-  return { key: Buffer$2.from([typeFields_1$8.InputTypes.TAP_KEY_SIG]), value: B };
+  return { key: Buffer$3.from([typeFields_1$8.InputTypes.TAP_KEY_SIG]), value: B };
 }
 function check$5(B) {
-  return Buffer$2.isBuffer(B) && (B.length === 64 || B.length === 65);
+  return Buffer$3.isBuffer(B) && (B.length === 64 || B.length === 65);
 }
 function canAdd$3(B, L) {
   return !!B && !!L && B.tapKeySig === void 0;
@@ -4927,11 +4927,11 @@ function decode$8(B) {
   return { controlBlock: B.key.slice(1), script: K, leafVersion: L };
 }
 function encode$7(B) {
-  const L = Buffer$2.from([typeFields_1$7.InputTypes.TAP_LEAF_SCRIPT]), K = Buffer$2.from([B.leafVersion]);
-  return { key: Buffer$2.concat([L, B.controlBlock]), value: Buffer$2.concat([B.script, K]) };
+  const L = Buffer$3.from([typeFields_1$7.InputTypes.TAP_LEAF_SCRIPT]), K = Buffer$3.from([B.leafVersion]);
+  return { key: Buffer$3.concat([L, B.controlBlock]), value: Buffer$3.concat([B.script, K]) };
 }
 function check$4(B) {
-  return Buffer$2.isBuffer(B.controlBlock) && (B.controlBlock.length - 1) % 32 == 0 && (254 & B.controlBlock[0]) === B.leafVersion && Buffer$2.isBuffer(B.script);
+  return Buffer$3.isBuffer(B.controlBlock) && (B.controlBlock.length - 1) % 32 == 0 && (254 & B.controlBlock[0]) === B.leafVersion && Buffer$3.isBuffer(B.script);
 }
 function canAddToArray$1(B, L, K) {
   const W = L.controlBlock.toString("hex");
@@ -4947,10 +4947,10 @@ function decode$7(B) {
   return B.value;
 }
 function encode$6(B) {
-  return { key: Buffer$2.from([typeFields_1$6.InputTypes.TAP_MERKLE_ROOT]), value: B };
+  return { key: Buffer$3.from([typeFields_1$6.InputTypes.TAP_MERKLE_ROOT]), value: B };
 }
 function check$3(B) {
-  return Buffer$2.isBuffer(B) && B.length === 32;
+  return Buffer$3.isBuffer(B) && B.length === 32;
 }
 function canAdd$2(B, L) {
   return !!B && !!L && B.tapMerkleRoot === void 0;
@@ -4966,11 +4966,11 @@ function decode$6(B) {
   return { pubkey: B.key.slice(1, 33), leafHash: B.key.slice(33), signature: B.value };
 }
 function encode$5(B) {
-  const L = Buffer$2.from([typeFields_1$5.InputTypes.TAP_SCRIPT_SIG]);
-  return { key: Buffer$2.concat([L, B.pubkey, B.leafHash]), value: B.signature };
+  const L = Buffer$3.from([typeFields_1$5.InputTypes.TAP_SCRIPT_SIG]);
+  return { key: Buffer$3.concat([L, B.pubkey, B.leafHash]), value: B.signature };
 }
 function check$2(B) {
-  return Buffer$2.isBuffer(B.pubkey) && Buffer$2.isBuffer(B.leafHash) && Buffer$2.isBuffer(B.signature) && B.pubkey.length === 32 && B.leafHash.length === 32 && (B.signature.length === 64 || B.signature.length === 65);
+  return Buffer$3.isBuffer(B.pubkey) && Buffer$3.isBuffer(B.leafHash) && Buffer$3.isBuffer(B.signature) && B.pubkey.length === 32 && B.leafHash.length === 32 && (B.signature.length === 64 || B.signature.length === 65);
 }
 function canAddToArray(B, L, K) {
   const W = L.pubkey.toString("hex") + L.leafHash.toString("hex");
@@ -4984,11 +4984,11 @@ function checkUInt53(B) {
   if (B < 0 || B > MAX_SAFE_INTEGER$1 || B % 1 != 0) throw new RangeError("value out of range");
 }
 function encode$4(B, L, K) {
-  if (checkUInt53(B), L || (L = Buffer$2.allocUnsafe(encodingLength(B))), !Buffer$2.isBuffer(L)) throw new TypeError("buffer must be a Buffer instance");
+  if (checkUInt53(B), L || (L = Buffer$3.allocUnsafe(encodingLength(B))), !Buffer$3.isBuffer(L)) throw new TypeError("buffer must be a Buffer instance");
   return K || (K = 0), B < 253 ? (L.writeUInt8(B, K), Object.assign(encode$4, { bytes: 1 })) : B <= 65535 ? (L.writeUInt8(253, K), L.writeUInt16LE(B, K + 1), Object.assign(encode$4, { bytes: 3 })) : B <= 4294967295 ? (L.writeUInt8(254, K), L.writeUInt32LE(B, K + 1), Object.assign(encode$4, { bytes: 5 })) : (L.writeUInt8(255, K), L.writeUInt32LE(B >>> 0, K + 1), L.writeUInt32LE(B / 4294967296 | 0, K + 5), Object.assign(encode$4, { bytes: 9 })), L;
 }
 function decode$5(B, L) {
-  if (!Buffer$2.isBuffer(B)) throw new TypeError("buffer must be a Buffer instance");
+  if (!Buffer$3.isBuffer(B)) throw new TypeError("buffer must be a Buffer instance");
   L || (L = 0);
   const K = B.readUInt8(L);
   if (K < 253) return Object.assign(decode$5, { bytes: 1 }), K;
@@ -5013,10 +5013,10 @@ function reverseBuffer$1(B) {
 }
 function keyValsToBuffer(B) {
   const L = B.map(keyValToBuffer);
-  return L.push(Buffer$2.from([0])), Buffer$2.concat(L);
+  return L.push(Buffer$3.from([0])), Buffer$3.concat(L);
 }
 function keyValToBuffer(B) {
-  const L = B.key.length, K = B.value.length, W = varuint$6.encodingLength(L), V = varuint$6.encodingLength(K), J = Buffer$2.allocUnsafe(W + L + V + K);
+  const L = B.key.length, K = B.value.length, W = varuint$6.encodingLength(L), V = varuint$6.encodingLength(K), J = Buffer$3.allocUnsafe(W + L + V + K);
   return varuint$6.encode(L, J, 0), B.key.copy(J, W), varuint$6.encode(K, J, W + L), B.value.copy(J, W + L + V), J;
 }
 function verifuint(B, L) {
@@ -5046,11 +5046,11 @@ function decode$4(B) {
   return { script: V, value: L };
 }
 function encode$3(B) {
-  const { script: L, value: K } = B, W = varuint$5.encodingLength(L.length), V = Buffer$2.allocUnsafe(8 + W + L.length);
-  return tools_1$2.writeUInt64LE(V, K, 0), varuint$5.encode(L.length, V, 8), L.copy(V, 8 + W), { key: Buffer$2.from([typeFields_1$4.InputTypes.WITNESS_UTXO]), value: V };
+  const { script: L, value: K } = B, W = varuint$5.encodingLength(L.length), V = Buffer$3.allocUnsafe(8 + W + L.length);
+  return tools_1$2.writeUInt64LE(V, K, 0), varuint$5.encode(L.length, V, 8), L.copy(V, 8 + W), { key: Buffer$3.from([typeFields_1$4.InputTypes.WITNESS_UTXO]), value: V };
 }
 function check$1(B) {
-  return Buffer$2.isBuffer(B.script) && typeof B.value == "number";
+  return Buffer$3.isBuffer(B.script) && typeof B.value == "number";
 }
 function canAdd$1(B, L) {
   return !!B && !!L && B.witnessUtxo === void 0;
@@ -5070,11 +5070,11 @@ function decode$3(B) {
   return { leaves: K };
 }
 function encode$2(B) {
-  const L = Buffer$2.from([typeFields_1$3.OutputTypes.TAP_TREE]), K = [].concat(...B.leaves.map((W) => [Buffer$2.of(W.depth, W.leafVersion), varuint$4.encode(W.script.length), W.script]));
-  return { key: L, value: Buffer$2.concat(K) };
+  const L = Buffer$3.from([typeFields_1$3.OutputTypes.TAP_TREE]), K = [].concat(...B.leaves.map((W) => [Buffer$3.of(W.depth, W.leafVersion), varuint$4.encode(W.script.length), W.script]));
+  return { key: L, value: Buffer$3.concat(K) };
 }
 function check(B) {
-  return Array.isArray(B.leaves) && B.leaves.every((L) => L.depth >= 0 && L.depth <= 128 && (254 & L.leafVersion) === L.leafVersion && Buffer$2.isBuffer(L.script));
+  return Array.isArray(B.leaves) && B.leaves.every((L) => L.depth >= 0 && L.depth <= 128 && (254 & L.leafVersion) === L.leafVersion && Buffer$3.isBuffer(L.script));
 }
 function canAdd(B, L) {
   return !!B && !!L && B.tapTree === void 0;
@@ -5096,7 +5096,7 @@ function makeConverter$4(B, L = isValidDERKey) {
     }
     return V;
   }, encode: function(K) {
-    const W = Buffer$2.from([B]), V = Buffer$2.concat([W, K.pubkey]), J = K.path.split("/"), re = Buffer$2.allocUnsafe(4 * J.length);
+    const W = Buffer$3.from([B]), V = Buffer$3.concat([W, K.pubkey]), J = K.path.split("/"), re = Buffer$3.allocUnsafe(4 * J.length);
     K.masterFingerprint.copy(re, 0);
     let ie = 4;
     return J.slice(1).forEach((ne) => {
@@ -5105,7 +5105,7 @@ function makeConverter$4(B, L = isValidDERKey) {
       oe && (ce += 2147483648), re.writeUInt32LE(ce, ie), ie += 4;
     }), { key: V, value: re };
   }, check: function(K) {
-    return Buffer$2.isBuffer(K.pubkey) && Buffer$2.isBuffer(K.masterFingerprint) && typeof K.path == "string" && L(K.pubkey) && K.masterFingerprint.length === 4;
+    return Buffer$3.isBuffer(K.pubkey) && Buffer$3.isBuffer(K.masterFingerprint) && typeof K.path == "string" && L(K.pubkey) && K.masterFingerprint.length === 4;
   }, expected: "{ masterFingerprint: Buffer; pubkey: Buffer; path: string; }", canAddToArray: function(K, W, V) {
     const J = W.pubkey.toString("hex");
     return !V.has(J) && (V.add(J), K.filter((re) => re.pubkey.equals(W.pubkey)).length === 0);
@@ -5127,9 +5127,9 @@ function makeConverter$3(B) {
     if (L.key[0] !== B) throw new Error("Decode Error: could not decode redeemScript with key 0x" + L.key.toString("hex"));
     return L.value;
   }, encode: function(L) {
-    return { key: Buffer$2.from([B]), value: L };
+    return { key: Buffer$3.from([B]), value: L };
   }, check: function(L) {
-    return Buffer$2.isBuffer(L);
+    return Buffer$3.isBuffer(L);
   }, expected: "Buffer", canAdd: function(L, K) {
     return !!L && !!K && L.redeemScript === void 0;
   } };
@@ -5145,12 +5145,12 @@ function makeConverter$2(B) {
     for (let ie = 0, ne = V; ie < W; ie++, ne += 32) re[ie] = K.value.slice(ne, ne + 32);
     return Object.assign({}, J, { leafHashes: re });
   }, encode: function(K) {
-    const W = L.encode(K), V = varuint$3.encodingLength(K.leafHashes.length), J = Buffer$2.allocUnsafe(V);
+    const W = L.encode(K), V = varuint$3.encodingLength(K.leafHashes.length), J = Buffer$3.allocUnsafe(V);
     varuint$3.encode(K.leafHashes.length, J);
-    const re = Buffer$2.concat([J, ...K.leafHashes, W.value]);
+    const re = Buffer$3.concat([J, ...K.leafHashes, W.value]);
     return Object.assign({}, W, { value: re });
   }, check: function(K) {
-    return Array.isArray(K.leafHashes) && K.leafHashes.every((W) => Buffer$2.isBuffer(W) && W.length === 32) && L.check(K);
+    return Array.isArray(K.leafHashes) && K.leafHashes.every((W) => Buffer$3.isBuffer(W) && W.length === 32) && L.check(K);
   }, expected: "{ masterFingerprint: Buffer; pubkey: Buffer; path: string; leafHashes: Buffer[]; }", canAddToArray: L.canAddToArray };
 }
 tapBip32Derivation$1.makeConverter = makeConverter$2;
@@ -5161,9 +5161,9 @@ function makeConverter$1(B) {
     if (L.value.length !== 32) throw new Error("Decode Error: tapInternalKey not a 32-byte x-only pubkey");
     return L.value;
   }, encode: function(L) {
-    return { key: Buffer$2.from([B]), value: L };
+    return { key: Buffer$3.from([B]), value: L };
   }, check: function(L) {
-    return Buffer$2.isBuffer(L) && L.length === 32;
+    return Buffer$3.isBuffer(L) && L.length === 32;
   }, expected: "Buffer", canAdd: function(L, K) {
     return !!L && !!K && L.tapInternalKey === void 0;
   } };
@@ -5175,9 +5175,9 @@ function makeConverter(B) {
     if (L.key[0] !== B) throw new Error("Decode Error: could not decode witnessScript with key 0x" + L.key.toString("hex"));
     return L.value;
   }, encode: function(L) {
-    return { key: Buffer$2.from([B]), value: L };
+    return { key: Buffer$3.from([B]), value: L };
   }, check: function(L) {
-    return Buffer$2.isBuffer(L);
+    return Buffer$3.isBuffer(L);
   }, expected: "Buffer", canAdd: function(L, K) {
     return !!L && !!K && L.witnessScript === void 0;
   } };
@@ -5244,7 +5244,7 @@ function psbtFromBuffer(B, L) {
   return psbtFromKeyVals(oe, { globalMapKeyVals: re, inputKeyVals: ke, outputKeyVals: ot });
 }
 function checkKeyBuffer(B, L, K) {
-  if (!L.equals(Buffer$2.from([K]))) throw new Error(`Format Error: Invalid ${B} key: ${L.toString("hex")}`);
+  if (!L.equals(Buffer$3.from([K]))) throw new Error(`Format Error: Invalid ${B} key: ${L.toString("hex")}`);
 }
 function psbtFromKeyVals(B, { globalMapKeyVals: L, inputKeyVals: K, outputKeyVals: W }) {
   const V = { unsignedTx: B };
@@ -5357,8 +5357,8 @@ var toBuffer$1 = {};
 Object.defineProperty(toBuffer$1, "__esModule", { value: !0 });
 const convert = converter, tools_1 = tools;
 function psbtToBuffer({ globalMap: B, inputs: L, outputs: K }) {
-  const { globalKeyVals: W, inputKeyVals: V, outputKeyVals: J } = psbtToKeyVals({ globalMap: B, inputs: L, outputs: K }), re = tools_1.keyValsToBuffer(W), ie = (pe) => pe.length === 0 ? [Buffer$2.from([0])] : pe.map(tools_1.keyValsToBuffer), ne = ie(V), oe = ie(J), ce = Buffer$2.allocUnsafe(5);
-  return ce.writeUIntBE(482972169471, 0, 5), Buffer$2.concat([ce, re].concat(ne, oe));
+  const { globalKeyVals: W, inputKeyVals: V, outputKeyVals: J } = psbtToKeyVals({ globalMap: B, inputs: L, outputs: K }), re = tools_1.keyValsToBuffer(W), ie = (pe) => pe.length === 0 ? [Buffer$3.from([0])] : pe.map(tools_1.keyValsToBuffer), ne = ie(V), oe = ie(J), ce = Buffer$3.allocUnsafe(5);
+  return ce.writeUIntBE(482972169471, 0, 5), Buffer$3.concat([ce, re].concat(ne, oe));
 }
 toBuffer$1.psbtToBuffer = psbtToBuffer;
 const sortKeyVals = (B, L) => B.key.compare(L.key);
@@ -5474,10 +5474,10 @@ var utils$4 = {};
     const ne = W(re, re.length - 1);
     B.updateOutput(ie, ne);
   }, B.defaultVersionSetter = function(re, ie) {
-    if (!Buffer$2.isBuffer(ie) || ie.length < 4) throw new Error("Set Version: Invalid Transaction");
+    if (!Buffer$3.isBuffer(ie) || ie.length < 4) throw new Error("Set Version: Invalid Transaction");
     return ie.writeUInt32LE(re, 0), ie;
   }, B.defaultLocktimeSetter = function(re, ie) {
-    if (!Buffer$2.isBuffer(ie) || ie.length < 4) throw new Error("Set Locktime: Invalid Transaction");
+    if (!Buffer$3.isBuffer(ie) || ie.length < 4) throw new Error("Set Locktime: Invalid Transaction");
     return ie.writeUInt32LE(re, ie.length - 4), ie;
   };
 })(utils$4), Object.defineProperty(psbt, "__esModule", { value: !0 });
@@ -5487,11 +5487,11 @@ let Psbt$1 = class {
     this.inputs = [], this.outputs = [], this.globalMap = { unsignedTx: B };
   }
   static fromBase64(B, L) {
-    const K = Buffer$2.from(B, "base64");
+    const K = Buffer$3.from(B, "base64");
     return this.fromBuffer(K, L);
   }
   static fromHex(B, L) {
-    const K = Buffer$2.from(B, "hex");
+    const K = Buffer$3.from(B, "hex");
     return this.fromBuffer(K, L);
   }
   static fromBuffer(B, L) {
@@ -5558,7 +5558,7 @@ let Psbt$1 = class {
 psbt.Psbt = Psbt$1;
 var bip371 = {}, psbtutils = {};
 Object.defineProperty(psbtutils, "__esModule", { value: !0 }), psbtutils.signatureBlocksAction = psbtutils.checkInputForSig = psbtutils.pubkeyInScript = psbtutils.pubkeyPositionInScript = psbtutils.witnessStackToScriptWitness = psbtutils.isP2TR = psbtutils.isP2SHScript = psbtutils.isP2WSHScript = psbtutils.isP2WPKH = psbtutils.isP2PKH = psbtutils.isP2PK = psbtutils.isP2MS = void 0;
-const varuint$1 = varint, bscript$1 = requireScript(), transaction_1$2 = transaction, crypto_1 = crypto$4, payments$1 = requirePayments();
+const varuint$1 = varint, bscript$1 = requireScript(), transaction_1$2 = transaction, crypto_1 = crypto$5, payments$1 = requirePayments();
 function isPaymentFactory(B) {
   return (L) => {
     try {
@@ -5569,15 +5569,15 @@ function isPaymentFactory(B) {
   };
 }
 function witnessStackToScriptWitness(B) {
-  let L = Buffer$2.allocUnsafe(0);
+  let L = Buffer$3.allocUnsafe(0);
   function K(V) {
     const J = L.length, re = varuint$1.encodingLength(V);
-    L = Buffer$2.concat([L, Buffer$2.allocUnsafe(re)]), varuint$1.encode(V, L, J);
+    L = Buffer$3.concat([L, Buffer$3.allocUnsafe(re)]), varuint$1.encode(V, L, J);
   }
   var W;
   return K((W = B).length), W.forEach(function(V) {
     K(V.length), function(J) {
-      L = Buffer$2.concat([L, Buffer$2.from(J)]);
+      L = Buffer$3.concat([L, Buffer$3.from(J)]);
     }(V);
   }), L;
 }
@@ -5613,7 +5613,7 @@ function extractPartialSigs(B) {
 }
 function getPsigsFromInputFinalScripts(B) {
   const L = B.finalScriptSig && bscript$1.decompile(B.finalScriptSig) || [], K = B.finalScriptWitness && bscript$1.decompile(B.finalScriptWitness) || [];
-  return L.concat(K).filter((W) => Buffer$2.isBuffer(W) && bscript$1.isCanonicalScriptSignature(W)).map((W) => ({ signature: W }));
+  return L.concat(K).filter((W) => Buffer$3.isBuffer(W) && bscript$1.isCanonicalScriptSignature(W)).map((W) => ({ signature: W }));
 }
 psbtutils.isP2MS = isPaymentFactory(payments$1.p2ms), psbtutils.isP2PK = isPaymentFactory(payments$1.p2pk), psbtutils.isP2PKH = isPaymentFactory(payments$1.p2pkh), psbtutils.isP2WPKH = isPaymentFactory(payments$1.p2wpkh), psbtutils.isP2WSHScript = isPaymentFactory(payments$1.p2wsh), psbtutils.isP2SHScript = isPaymentFactory(payments$1.p2sh), psbtutils.isP2TR = isPaymentFactory(payments$1.p2tr), psbtutils.witnessStackToScriptWitness = witnessStackToScriptWitness, psbtutils.pubkeyPositionInScript = pubkeyPositionInScript, psbtutils.pubkeyInScript = pubkeyInScript, psbtutils.checkInputForSig = checkInputForSig, psbtutils.signatureBlocksAction = signatureBlocksAction, Object.defineProperty(bip371, "__esModule", { value: !0 }), bip371.checkTaprootInputForSigs = bip371.tapTreeFromList = bip371.tapTreeToList = bip371.tweakInternalPubKey = bip371.checkTaprootOutputFields = bip371.checkTaprootInputFields = bip371.isTaprootOutput = bip371.isTaprootInput = bip371.serializeTaprootSignature = bip371.tapScriptFinalizer = bip371.toXOnly = void 0;
 const types_1 = types$7, transaction_1$1 = transaction, psbtutils_1$1 = psbtutils, bip341_1$1 = bip341, payments_1 = requirePayments(), psbtutils_2 = psbtutils, toXOnly$1 = (B) => B.length === 32 ? B : B.slice(1, 33);
@@ -5627,8 +5627,8 @@ function tapScriptFinalizer(B, L, K) {
   }
 }
 function serializeTaprootSignature(B, L) {
-  const K = L ? Buffer$2.from([L]) : Buffer$2.from([]);
-  return Buffer$2.concat([B, K]);
+  const K = L ? Buffer$3.from([L]) : Buffer$3.from([]);
+  return Buffer$3.concat([B, K]);
 }
 function isTaprootInput(B) {
   return B && !!(B.tapInternalKey || B.tapMerkleRoot || B.tapLeafScript && B.tapLeafScript.length || B.tapBip32Derivation && B.tapBip32Derivation.length || B.witnessUtxo && (0, psbtutils_1$1.isP2TR)(B.witnessUtxo.script));
@@ -5747,11 +5747,11 @@ bip371.toXOnly = toXOnly$1, bip371.tapScriptFinalizer = tapScriptFinalizer, bip3
 const bip174_1 = psbt, varuint = varint, utils_1$1 = utils$4, address_1 = requireAddress(), bufferutils_1 = bufferutils, networks_1 = networks$2, payments = requirePayments(), bip341_1 = bip341, bscript = requireScript(), transaction_1 = transaction, bip371_1 = bip371, psbtutils_1 = psbtutils, DEFAULT_OPTS = { network: networks_1.bitcoin, maximumFeeRate: 5e3 };
 class Psbt {
   static fromBase64(L, K = {}) {
-    const W = Buffer$2.from(L, "base64");
+    const W = Buffer$3.from(L, "base64");
     return this.fromBuffer(W, K);
   }
   static fromHex(L, K = {}) {
-    const W = Buffer$2.from(L, "hex");
+    const W = Buffer$3.from(L, "hex");
     return this.fromBuffer(W, K);
   }
   static fromBuffer(L, K = {}) {
@@ -6109,19 +6109,19 @@ class Psbt {
 psbt$1.Psbt = Psbt;
 const transactionFromBuffer = (B) => new PsbtTransaction(B);
 class PsbtTransaction {
-  constructor(L = Buffer$2.from([2, 0, 0, 0, 0, 0, 0, 0, 0, 0])) {
+  constructor(L = Buffer$3.from([2, 0, 0, 0, 0, 0, 0, 0, 0, 0])) {
     this.tx = transaction_1.Transaction.fromBuffer(L), checkTxEmpty(this.tx), Object.defineProperty(this, "tx", { enumerable: !1, writable: !0 });
   }
   getInputOutputCounts() {
     return { inputCount: this.tx.ins.length, outputCount: this.tx.outs.length };
   }
   addInput(L) {
-    if (L.hash === void 0 || L.index === void 0 || !Buffer$2.isBuffer(L.hash) && typeof L.hash != "string" || typeof L.index != "number") throw new Error("Error adding input.");
-    const K = typeof L.hash == "string" ? (0, bufferutils_1.reverseBuffer)(Buffer$2.from(L.hash, "hex")) : L.hash;
+    if (L.hash === void 0 || L.index === void 0 || !Buffer$3.isBuffer(L.hash) && typeof L.hash != "string" || typeof L.index != "number") throw new Error("Error adding input.");
+    const K = typeof L.hash == "string" ? (0, bufferutils_1.reverseBuffer)(Buffer$3.from(L.hash, "hex")) : L.hash;
     this.tx.addInput(K, L.index, L.sequence);
   }
   addOutput(L) {
-    if (L.script === void 0 || L.value === void 0 || !Buffer$2.isBuffer(L.script) || typeof L.value != "number") throw new Error("Error adding output.");
+    if (L.script === void 0 || L.value === void 0 || !Buffer$3.isBuffer(L.script) || typeof L.value != "number") throw new Error("Error adding output.");
     this.tx.addOutput(L.script, L.value);
   }
   toBuffer() {
@@ -6191,7 +6191,7 @@ function checkTxForDupeIns(B, L) {
   });
 }
 function checkTxInputCache(B, L) {
-  const K = (0, bufferutils_1.reverseBuffer)(Buffer$2.from(L.hash)).toString("hex") + ":" + L.index;
+  const K = (0, bufferutils_1.reverseBuffer)(Buffer$3.from(L.hash)).toString("hex") + ":" + L.index;
   if (B.__TX_IN_CACHE[K]) throw new Error("Duplicate input detected.");
   B.__TX_IN_CACHE[K] = 1;
 }
@@ -6270,7 +6270,7 @@ function getTaprootHashesForSig(B, L, K, W, V, J, re) {
   checkSighashTypeAllowed(ne, re);
   const oe = K.map((at, ft) => getScriptAndAmountFromUtxo(ft, at, V)), ce = oe.map((at) => at.script), pe = oe.map((at) => at.value), ke = [];
   if (L.tapInternalKey && !J) {
-    const at = getPrevoutTaprootKey(B, L, V) || Buffer$2.from([]);
+    const at = getPrevoutTaprootKey(B, L, V) || Buffer$3.from([]);
     if ((0, bip371_1.toXOnly)(W).equals(at)) {
       const ft = ie.hashForWitnessV1(B, ce, pe, ne);
       ke.push({ pubkey: W, hash: ft });
@@ -6420,7 +6420,7 @@ function redeemFromFinalScriptSig(B) {
   const L = bscript.decompile(B);
   if (!L) return;
   const K = L[L.length - 1];
-  return !Buffer$2.isBuffer(K) || isPubkeyLike(K) || isSigLike(K) ? void 0 : bscript.decompile(K) ? K : void 0;
+  return !Buffer$3.isBuffer(K) || isPubkeyLike(K) || isSigLike(K) ? void 0 : bscript.decompile(K) ? K : void 0;
 }
 function redeemFromFinalWitnessScript(B) {
   if (!B) return;
@@ -6460,7 +6460,7 @@ function range$1(B) {
   Object.defineProperty(B, "__esModule", { value: !0 }), B.initEccLib = B.Transaction = B.opcodes = B.Psbt = B.Block = B.script = B.payments = B.networks = B.crypto = B.address = void 0;
   const L = requireAddress();
   B.address = L;
-  const K = crypto$4;
+  const K = crypto$5;
   B.crypto = K;
   const W = networks$2;
   B.networks = W;
@@ -6727,7 +6727,7 @@ var C = { 0: { type: k.p2pkh, network: x.mainnet }, 111: { type: k.p2pkh, networ
   } catch {
     return !1;
   }
-}, src$2 = {}, bip32 = {}, crypto$2 = {}, hmac$2 = {};
+}, src$2 = {}, bip32 = {}, crypto$3 = {}, hmac$2 = {};
 (function(B) {
   Object.defineProperty(B, "__esModule", { value: !0 }), B.hmac = B.HMAC = void 0;
   const L = _assert, K = utils$5;
@@ -6875,26 +6875,26 @@ class SHA384 extends SHA512 {
     super(), this.Ah = -876896931, this.Al = -1056596264, this.Bh = 1654270250, this.Bl = 914150663, this.Ch = -1856437926, this.Cl = 812702999, this.Dh = 355462360, this.Dl = -150054599, this.Eh = 1731405415, this.El = -4191439, this.Fh = -1900787065, this.Fl = 1750603025, this.Gh = -619958771, this.Gl = 1694076839, this.Hh = 1203062813, this.Hl = -1090891868, this.outputLen = 48;
   }
 }
-sha512$2.SHA384 = SHA384, sha512$2.sha512 = (0, utils_js_1.wrapConstructor)(() => new SHA512()), sha512$2.sha512_224 = (0, utils_js_1.wrapConstructor)(() => new SHA512_224()), sha512$2.sha512_256 = (0, utils_js_1.wrapConstructor)(() => new SHA512_256()), sha512$2.sha384 = (0, utils_js_1.wrapConstructor)(() => new SHA384()), Object.defineProperty(crypto$2, "__esModule", { value: !0 }), crypto$2.hmacSHA512 = crypto$2.hash160 = void 0;
+sha512$2.SHA384 = SHA384, sha512$2.sha512 = (0, utils_js_1.wrapConstructor)(() => new SHA512()), sha512$2.sha512_224 = (0, utils_js_1.wrapConstructor)(() => new SHA512_224()), sha512$2.sha512_256 = (0, utils_js_1.wrapConstructor)(() => new SHA512_256()), sha512$2.sha384 = (0, utils_js_1.wrapConstructor)(() => new SHA384()), Object.defineProperty(crypto$3, "__esModule", { value: !0 }), crypto$3.hmacSHA512 = crypto$3.hash160 = void 0;
 const hmac_1$1 = hmac$2, ripemd160_1 = ripemd160$1, sha256_1$5 = sha256$5, sha512_1 = sha512$2;
 function hash160(B) {
   const L = (0, sha256_1$5.sha256)(Uint8Array.from(B));
-  return Buffer$2.from((0, ripemd160_1.ripemd160)(L));
+  return Buffer$3.from((0, ripemd160_1.ripemd160)(L));
 }
 function hmacSHA512(B, L) {
-  return Buffer$2.from((0, hmac_1$1.hmac)(sha512_1.sha512, B, L));
+  return Buffer$3.from((0, hmac_1$1.hmac)(sha512_1.sha512, B, L));
 }
-crypto$2.hash160 = hash160, crypto$2.hmacSHA512 = hmacSHA512;
+crypto$3.hash160 = hash160, crypto$3.hmacSHA512 = hmacSHA512;
 var testecc$1 = {};
 Object.defineProperty(testecc$1, "__esModule", { value: !0 }), testecc$1.testEcc = void 0;
-const h$1 = (B) => Buffer$2.from(B, "hex");
+const h$1 = (B) => Buffer$3.from(B, "hex");
 function testEcc$1(B) {
-  if (assert$1(B.isPoint(h$1("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert$1(!B.isPoint(h$1("030000000000000000000000000000000000000000000000000000000000000005"))), assert$1(B.isPrivate(h$1("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert$1(B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert$1(!B.isPrivate(h$1("0000000000000000000000000000000000000000000000000000000000000000"))), assert$1(!B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"))), assert$1(!B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364142"))), assert$1(Buffer$2.from(B.pointFromScalar(h$1("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h$1("02b07ba9dca9523b7ef4bd97703d43d20399eb698e194704791a25ce77a400df99"))), B.xOnlyPointAddTweak) {
+  if (assert$1(B.isPoint(h$1("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert$1(!B.isPoint(h$1("030000000000000000000000000000000000000000000000000000000000000005"))), assert$1(B.isPrivate(h$1("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert$1(B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert$1(!B.isPrivate(h$1("0000000000000000000000000000000000000000000000000000000000000000"))), assert$1(!B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"))), assert$1(!B.isPrivate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364142"))), assert$1(Buffer$3.from(B.pointFromScalar(h$1("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h$1("02b07ba9dca9523b7ef4bd97703d43d20399eb698e194704791a25ce77a400df99"))), B.xOnlyPointAddTweak) {
     assert$1(B.xOnlyPointAddTweak(h$1("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140")) === null);
     let L = B.xOnlyPointAddTweak(h$1("1617d38ed8d8657da4d4761e8057bc396ea9e4b9d29776d4be096016dbd2509b"), h$1("a8397a935f0dfceba6ba9618f6451ef4d80637abf4e6af2669fbc9de6a8fd2ac"));
-    assert$1(Buffer$2.from(L.xOnlyPubkey).equals(h$1("e478f99dab91052ab39a33ea35fd5e6e4933f4d28023cd597c9a1f6760346adf")) && L.parity === 1), L = B.xOnlyPointAddTweak(h$1("2c0b7cf95324a07d05398b240174dc0c2be444d96b159aa6c7f7b1e668680991"), h$1("823c3cd2142744b075a87eade7e1b8678ba308d566226a0056ca2b7a76f86b47"));
+    assert$1(Buffer$3.from(L.xOnlyPubkey).equals(h$1("e478f99dab91052ab39a33ea35fd5e6e4933f4d28023cd597c9a1f6760346adf")) && L.parity === 1), L = B.xOnlyPointAddTweak(h$1("2c0b7cf95324a07d05398b240174dc0c2be444d96b159aa6c7f7b1e668680991"), h$1("823c3cd2142744b075a87eade7e1b8678ba308d566226a0056ca2b7a76f86b47"));
   }
-  assert$1(Buffer$2.from(B.pointAddScalar(h$1("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h$1("0000000000000000000000000000000000000000000000000000000000000003"))).equals(h$1("02c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"))), assert$1(Buffer$2.from(B.privateAdd(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"), h$1("0000000000000000000000000000000000000000000000000000000000000002"))).equals(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), B.privateNegate && (assert$1(Buffer$2.from(B.privateNegate(h$1("0000000000000000000000000000000000000000000000000000000000000001"))).equals(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert$1(Buffer$2.from(B.privateNegate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"))).equals(h$1("0000000000000000000000000000000000000000000000000000000000000003"))), assert$1(Buffer$2.from(B.privateNegate(h$1("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h$1("4eede1bf775995d70a494f0a7bb6bc11e0b8cccd41cce8009ab1132c8b0a3792")))), assert$1(Buffer$2.from(B.sign(h$1("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))).equals(h$1("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), assert$1(B.verify(h$1("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h$1("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h$1("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), B.signSchnorr && assert$1(Buffer$2.from(B.signSchnorr(h$1("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h$1("c90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b14e5c9"), h$1("c87aa53824b4d7ae2eb035a2b5bbbccc080e76cdc6d1692c4b0b62d798e6d906"))).equals(h$1("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7"))), B.verifySchnorr && assert$1(B.verifySchnorr(h$1("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h$1("dd308afec5777e13121fa72b9cc1b7cc0139715309b086c960e18fd969774eb8"), h$1("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7")));
+  assert$1(Buffer$3.from(B.pointAddScalar(h$1("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h$1("0000000000000000000000000000000000000000000000000000000000000003"))).equals(h$1("02c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"))), assert$1(Buffer$3.from(B.privateAdd(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"), h$1("0000000000000000000000000000000000000000000000000000000000000002"))).equals(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), B.privateNegate && (assert$1(Buffer$3.from(B.privateNegate(h$1("0000000000000000000000000000000000000000000000000000000000000001"))).equals(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert$1(Buffer$3.from(B.privateNegate(h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"))).equals(h$1("0000000000000000000000000000000000000000000000000000000000000003"))), assert$1(Buffer$3.from(B.privateNegate(h$1("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h$1("4eede1bf775995d70a494f0a7bb6bc11e0b8cccd41cce8009ab1132c8b0a3792")))), assert$1(Buffer$3.from(B.sign(h$1("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h$1("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))).equals(h$1("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), assert$1(B.verify(h$1("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h$1("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h$1("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), B.signSchnorr && assert$1(Buffer$3.from(B.signSchnorr(h$1("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h$1("c90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b14e5c9"), h$1("c87aa53824b4d7ae2eb035a2b5bbbccc080e76cdc6d1692c4b0b62d798e6d906"))).equals(h$1("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7"))), B.verifySchnorr && assert$1(B.verifySchnorr(h$1("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h$1("dd308afec5777e13121fa72b9cc1b7cc0139715309b086c960e18fd969774eb8"), h$1("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7")));
 }
 function assert$1(B) {
   if (!B) throw new Error("ecc library invalid");
@@ -8265,7 +8265,7 @@ function requireDestroy$1() {
     J && J.autoDestroy || re && re.autoDestroy ? W.destroy(V) : W.emit("error", V);
   } };
 }
-var errorsBrowser = {}, hasRequiredErrorsBrowser, state, hasRequiredState, browser$b, hasRequiredBrowser$b, _stream_writable$1, hasRequired_stream_writable$1, _stream_duplex$1, hasRequired_stream_duplex$1;
+var errorsBrowser = {}, hasRequiredErrorsBrowser, state, hasRequiredState, browser$b, hasRequiredBrowser$a, _stream_writable$1, hasRequired_stream_writable$1, _stream_duplex$1, hasRequired_stream_duplex$1;
 function requireErrorsBrowser() {
   if (hasRequiredErrorsBrowser) return errorsBrowser;
   hasRequiredErrorsBrowser = 1;
@@ -8327,8 +8327,8 @@ function requireState() {
     return L.objectMode ? 16 : 16384;
   } };
 }
-function requireBrowser$b() {
-  if (hasRequiredBrowser$b) return browser$b;
+function requireBrowser$a() {
+  if (hasRequiredBrowser$a) return browser$b;
   function B(L) {
     try {
       if (!commonjsGlobal.localStorage) return !1;
@@ -8338,7 +8338,7 @@ function requireBrowser$b() {
     var K = commonjsGlobal.localStorage[L];
     return K != null && String(K).toLowerCase() === "true";
   }
-  return hasRequiredBrowser$b = 1, browser$b = function(L, K) {
+  return hasRequiredBrowser$a = 1, browser$b = function(L, K) {
     if (B("noDeprecation")) return L;
     var W = !1;
     return function() {
@@ -8367,7 +8367,7 @@ function require_stream_writable$1() {
   }
   var L;
   hasRequired_stream_writable$1 = 1, _stream_writable$1 = $t, $t.WritableState = mt;
-  var K, W = { deprecate: requireBrowser$b() }, V = requireStreamBrowser$1(), J = require$$1$2.Buffer, re = (commonjsGlobal !== void 0 ? commonjsGlobal : typeof window < "u" ? window : typeof self < "u" ? self : {}).Uint8Array || function() {
+  var K, W = { deprecate: requireBrowser$a() }, V = requireStreamBrowser$1(), J = require$$1$2.Buffer, re = (commonjsGlobal !== void 0 ? commonjsGlobal : typeof window < "u" ? window : typeof self < "u" ? self : {}).Uint8Array || function() {
   }, ie = requireDestroy$1(), ne = requireState().getHighWaterMark, oe = requireErrorsBrowser().codes, ce = oe.ERR_INVALID_ARG_TYPE, pe = oe.ERR_METHOD_NOT_IMPLEMENTED, ke = oe.ERR_MULTIPLE_CALLBACK, ot = oe.ERR_STREAM_CANNOT_PIPE, at = oe.ERR_STREAM_DESTROYED, ft = oe.ERR_STREAM_NULL_VALUES, dt = oe.ERR_STREAM_WRITE_AFTER_END, lt = oe.ERR_UNKNOWN_ENCODING, yt = ie.errorOrDestroy;
   function St() {
   }
@@ -9293,7 +9293,7 @@ function requireRipemd160() {
     return lt.writeInt32LE(this._a, 0), lt.writeInt32LE(this._b, 4), lt.writeInt32LE(this._c, 8), lt.writeInt32LE(this._d, 12), lt.writeInt32LE(this._e, 16), lt;
   }, ripemd160 = ce;
 }
-var sha_js = { exports: {} }, hash$1, hasRequiredHash$1, sha$1, hasRequiredSha$1, sha1, hasRequiredSha1, sha256$3, hasRequiredSha256, sha224$1, hasRequiredSha224, sha512$1, hasRequiredSha512, sha384$1, hasRequiredSha384, hasRequiredSha_js, streamBrowserify, hasRequiredStreamBrowserify, cipherBase, hasRequiredCipherBase, browser$a, hasRequiredBrowser$a;
+var sha_js = { exports: {} }, hash$1, hasRequiredHash$1, sha$1, hasRequiredSha$1, sha1, hasRequiredSha1, sha256$3, hasRequiredSha256, sha224$1, hasRequiredSha224, sha512$1, hasRequiredSha512, sha384$1, hasRequiredSha384, hasRequiredSha_js, streamBrowserify, hasRequiredStreamBrowserify, cipherBase, hasRequiredCipherBase, browser$a, hasRequiredBrowser$9;
 function requireHash$1() {
   if (hasRequiredHash$1) return hash$1;
   hasRequiredHash$1 = 1;
@@ -9599,9 +9599,9 @@ function requireCipherBase() {
     return re && (ie += this._decoder.end()), ie;
   }, cipherBase = W;
 }
-function requireBrowser$a() {
-  if (hasRequiredBrowser$a) return browser$a;
-  hasRequiredBrowser$a = 1;
+function requireBrowser$9() {
+  if (hasRequiredBrowser$9) return browser$a;
+  hasRequiredBrowser$9 = 1;
   var B = requireInherits_browser(), L = requireMd5_js(), K = requireRipemd160(), W = requireSha_js(), V = requireCipherBase();
   function J(re) {
     V.call(this, "digest"), this._hash = re;
@@ -9659,14 +9659,14 @@ function base$3(B) {
     throw new Error("Non-base" + re + " character");
   } };
 }
-var src$1 = base$3, basex = src$1, ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz", bs58 = basex(ALPHABET), base58 = bs58, Buffer = safeBufferExports.Buffer, base$2 = function(B) {
+var src$1 = base$3, basex = src$1, ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz", bs58 = basex(ALPHABET), base58 = bs58, Buffer$1 = safeBufferExports.Buffer, base$2 = function(B) {
   function L(K) {
     var W = K.slice(0, -4), V = K.slice(-4), J = B(W);
     if (!(V[0] ^ J[0] | V[1] ^ J[1] | V[2] ^ J[2] | V[3] ^ J[3])) return W;
   }
   return { encode: function(K) {
     var W = B(K);
-    return base58.encode(Buffer.concat([K, W], K.length + 4));
+    return base58.encode(Buffer$1.concat([K, W], K.length + 4));
   }, decode: function(K) {
     var W = L(base58.decode(K));
     if (!W) throw new Error("Invalid checksum");
@@ -9675,7 +9675,7 @@ var src$1 = base$3, basex = src$1, ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZ
     var W = base58.decodeUnsafe(K);
     if (W) return L(W);
   } };
-}, createHash = requireBrowser$a(), bs58checkBase = base$2;
+}, createHash = requireBrowser$9(), bs58checkBase = base$2;
 function sha256x2(B) {
   var L = createHash("sha256").update(B).digest();
   return createHash("sha256").update(L).digest();
@@ -9689,7 +9689,7 @@ function decodeRaw(B, L) {
   return { version: B[0], privateKey: B.slice(1, 33), compressed: !0 };
 }
 function encodeRaw(B, L, K) {
-  var W = new Buffer$2(K ? 34 : 33);
+  var W = new Buffer$3(K ? 34 : 33);
   return W.writeUInt8(B, 0), L.copy(W, 1), K && (W[33] = 1), W;
 }
 function decode$2(B, L) {
@@ -9700,7 +9700,7 @@ function encode$1(B, L, K) {
 }
 var wif$2 = { decode: decode$2, decodeRaw, encode: encode$1, encodeRaw };
 Object.defineProperty(bip32, "__esModule", { value: !0 }), bip32.BIP32Factory = void 0;
-const crypto$1 = crypto$2, testecc_1$1 = testecc$1, base_1 = lib$2, sha256_1$4 = sha256$5, typeforce = typeforce_1, wif$1 = wif$2, _bs58check = (0, base_1.base58check)(sha256_1$4.sha256), bs58check = { encode: (B) => _bs58check.encode(Uint8Array.from(B)), decode: (B) => Buffer$2.from(_bs58check.decode(B)) };
+const crypto$2 = crypto$3, testecc_1$1 = testecc$1, base_1 = lib$2, sha256_1$4 = sha256$5, typeforce = typeforce_1, wif$1 = wif$2, _bs58check = (0, base_1.base58check)(sha256_1$4.sha256), bs58check = { encode: (B) => _bs58check.encode(Uint8Array.from(B)), decode: (B) => Buffer$3.from(_bs58check.decode(B)) };
 function BIP32Factory(B) {
   (0, testecc_1$1.testEcc)(B);
   const L = typeforce.BufferN(32), K = typeforce.compile({ wif: typeforce.UInt8, bip32: { public: typeforce.UInt32, private: typeforce.UInt32 } }), W = { messagePrefix: `Bitcoin Signed Message:
@@ -9716,26 +9716,26 @@ function BIP32Factory(B) {
       this.__D = at, this.__Q = ft, this.lowR = !1;
     }
     get publicKey() {
-      return this.__Q === void 0 && (this.__Q = Buffer$2.from(B.pointFromScalar(this.__D, !0))), this.__Q;
+      return this.__Q === void 0 && (this.__Q = Buffer$3.from(B.pointFromScalar(this.__D, !0))), this.__Q;
     }
     get privateKey() {
       return this.__D;
     }
     sign(at, ft) {
       if (!this.privateKey) throw new Error("Missing private key");
-      if (ft === void 0 && (ft = this.lowR), ft === !1) return Buffer$2.from(B.sign(at, this.privateKey));
+      if (ft === void 0 && (ft = this.lowR), ft === !1) return Buffer$3.from(B.sign(at, this.privateKey));
       {
-        let dt = Buffer$2.from(B.sign(at, this.privateKey));
-        const lt = Buffer$2.alloc(32, 0);
+        let dt = Buffer$3.from(B.sign(at, this.privateKey));
+        const lt = Buffer$3.alloc(32, 0);
         let yt = 0;
-        for (; dt[0] > 127; ) yt++, lt.writeUIntLE(yt, 0, 6), dt = Buffer$2.from(B.sign(at, this.privateKey, lt));
+        for (; dt[0] > 127; ) yt++, lt.writeUIntLE(yt, 0, 6), dt = Buffer$3.from(B.sign(at, this.privateKey, lt));
         return dt;
       }
     }
     signSchnorr(at) {
       if (!this.privateKey) throw new Error("Missing private key");
       if (!B.signSchnorr) throw new Error("signSchnorr not supported by ecc library");
-      return Buffer$2.from(B.signSchnorr(at, this.privateKey));
+      return Buffer$3.from(B.signSchnorr(at, this.privateKey));
     }
     verify(at, ft) {
       return B.verify(at, this.publicKey, ft);
@@ -9759,7 +9759,7 @@ function BIP32Factory(B) {
       return this.__PARENT_FINGERPRINT;
     }
     get identifier() {
-      return crypto$1.hash160(this.publicKey);
+      return crypto$2.hash160(this.publicKey);
     }
     get fingerprint() {
       return this.identifier.slice(0, 4);
@@ -9774,7 +9774,7 @@ function BIP32Factory(B) {
       return ke(this.publicKey, this.chainCode, this.network, this.depth, this.index, this.parentFingerprint);
     }
     toBase58() {
-      const at = this.network, ft = this.isNeutered() ? at.bip32.public : at.bip32.private, dt = Buffer$2.allocUnsafe(78);
+      const at = this.network, ft = this.isNeutered() ? at.bip32.public : at.bip32.private, dt = Buffer$3.allocUnsafe(78);
       return dt.writeUInt32BE(ft, 0), dt.writeUInt8(this.depth, 4), dt.writeUInt32BE(this.parentFingerprint, 5), dt.writeUInt32BE(this.index, 9), this.chainCode.copy(dt, 13), this.isNeutered() ? this.publicKey.copy(dt, 45) : (dt.writeUInt8(0, 45), this.privateKey.copy(dt, 46)), bs58check.encode(dt);
     }
     toWIF() {
@@ -9783,20 +9783,20 @@ function BIP32Factory(B) {
     }
     derive(at) {
       typeforce(typeforce.UInt32, at);
-      const ft = at >= V, dt = Buffer$2.allocUnsafe(37);
+      const ft = at >= V, dt = Buffer$3.allocUnsafe(37);
       if (ft) {
         if (this.isNeutered()) throw new TypeError("Missing private key for hardened child key");
         dt[0] = 0, this.privateKey.copy(dt, 1), dt.writeUInt32BE(at, 33);
       } else this.publicKey.copy(dt, 0), dt.writeUInt32BE(at, 33);
-      const lt = crypto$1.hmacSHA512(this.chainCode, dt), yt = lt.slice(0, 32), St = lt.slice(32);
+      const lt = crypto$2.hmacSHA512(this.chainCode, dt), yt = lt.slice(0, 32), St = lt.slice(32);
       if (!B.isPrivate(yt)) return this.derive(at + 1);
       let mt;
       if (this.isNeutered()) {
-        const $t = Buffer$2.from(B.pointAddScalar(this.publicKey, yt, !0));
+        const $t = Buffer$3.from(B.pointAddScalar(this.publicKey, yt, !0));
         if ($t === null) return this.derive(at + 1);
         mt = ke($t, St, this.network, this.depth + 1, at, this.fingerprint.readUInt32BE(0));
       } else {
-        const $t = Buffer$2.from(B.privateAdd(this.privateKey, yt));
+        const $t = Buffer$3.from(B.privateAdd(this.privateKey, yt));
         if ($t == null) return this.derive(at + 1);
         mt = pe($t, St, this.network, this.depth + 1, at, this.fingerprint.readUInt32BE(0));
       }
@@ -9826,7 +9826,7 @@ function BIP32Factory(B) {
       if (!B.xOnlyPointAddTweak) throw new Error("xOnlyPointAddTweak not supported by ecc library");
       const lt = B.xOnlyPointAddTweak(ft, at);
       if (!lt || lt.xOnlyPubkey === null) throw new Error("Cannot tweak public key!");
-      const yt = Buffer$2.from([lt.parity === 0 ? 2 : 3]), St = Buffer$2.concat([yt, lt.xOnlyPubkey]);
+      const yt = Buffer$3.from([lt.parity === 0 ? 2 : 3]), St = Buffer$3.concat([yt, lt.xOnlyPubkey]);
       return new ne(void 0, St);
     }
     tweakFromPrivateKey(at) {
@@ -9838,7 +9838,7 @@ function BIP32Factory(B) {
         return this.privateKey;
       })(), lt = B.privateAdd(dt, at);
       if (!lt) throw new Error("Invalid tweaked private key!");
-      return new ne(Buffer$2.from(lt), void 0);
+      return new ne(Buffer$3.from(lt), void 0);
     }
   }
   function ce(ot, at, ft) {
@@ -9856,7 +9856,7 @@ function BIP32Factory(B) {
     if (typeforce(typeforce.Buffer, ot), ot.length < 16) throw new TypeError("Seed should be at least 128 bits");
     if (ot.length > 64) throw new TypeError("Seed should be at most 512 bits");
     at = at || W;
-    const ft = crypto$1.hmacSHA512(Buffer$2.from("Bitcoin seed", "utf8"), ot);
+    const ft = crypto$2.hmacSHA512(Buffer$3.from("Bitcoin seed", "utf8"), ot);
     return ce(ft.slice(0, 32), ft.slice(32), at);
   }, fromBase58: function(ot, at) {
     const ft = bs58check.decode(ot);
@@ -9888,24 +9888,23 @@ bip32.BIP32Factory = BIP32Factory, function(B) {
     return L.BIP32Factory;
   } });
 }(src$2);
-var dist = {}, lib$1 = {}, cryptoBrowserify = {}, browser$9 = { exports: {} }, hasRequiredBrowser$9, legacy, hasRequiredLegacy, md5, hasRequiredMd5, browser$8, hasRequiredBrowser$8;
-function requireBrowser$9() {
-  if (hasRequiredBrowser$9) return browser$9.exports;
-  hasRequiredBrowser$9 = 1;
-  var B = 65536, L = safeBufferExports.Buffer, K = commonjsGlobal.crypto || commonjsGlobal.msCrypto;
-  return K && K.getRandomValues ? browser$9.exports = function(W, V) {
-    if (W > 4294967295) throw new RangeError("requested too many random bytes");
-    var J = L.allocUnsafe(W);
-    if (W > 0) if (W > B) for (var re = 0; re < W; re += B) K.getRandomValues(J.slice(re, re + B));
-    else K.getRandomValues(J);
-    return typeof V == "function" ? process$1.nextTick(function() {
-      V(null, J);
-    }) : J;
-  } : browser$9.exports = function() {
-    throw new Error(`Secure random number generation is not supported by this browser.
+var dist = {}, lib$1 = {}, cryptoBrowserify = {}, browser$9 = { exports: {} }, MAX_BYTES = 65536, MAX_UINT32 = 4294967295;
+function oldBrowser() {
+  throw new Error(`Secure random number generation is not supported by this browser.
 Use Chrome, Firefox or Internet Explorer 11`);
-  }, browser$9.exports;
 }
+var Buffer = safeBufferExports.Buffer, crypto$1 = commonjsGlobal.crypto || commonjsGlobal.msCrypto;
+function randomBytes$1(B, L) {
+  if (B > MAX_UINT32) throw new RangeError("requested too many random bytes");
+  var K = Buffer.allocUnsafe(B);
+  if (B > 0) if (B > MAX_BYTES) for (var W = 0; W < B; W += MAX_BYTES) crypto$1.getRandomValues(K.slice(W, W + MAX_BYTES));
+  else crypto$1.getRandomValues(K);
+  return typeof L == "function" ? process$1.nextTick(function() {
+    L(null, K);
+  }) : K;
+}
+crypto$1 && crypto$1.getRandomValues ? browser$9.exports = randomBytes$1 : browser$9.exports = oldBrowser;
+var browserExports = browser$9.exports, legacy, hasRequiredLegacy, md5, hasRequiredMd5, browser$8, hasRequiredBrowser$8;
 function requireLegacy() {
   if (hasRequiredLegacy) return legacy;
   hasRequiredLegacy = 1;
@@ -10329,7 +10328,7 @@ function requireEcb() {
 var cbc = {}, bufferXor, hasRequiredBufferXor, hasRequiredCbc;
 function requireBufferXor() {
   return hasRequiredBufferXor || (hasRequiredBufferXor = 1, bufferXor = function(B, L) {
-    for (var K = Math.min(B.length, L.length), W = new Buffer$2(K), V = 0; V < K; ++V) W[V] = B[V] ^ L[V];
+    for (var K = Math.min(B.length, L.length), W = new Buffer$3(K), V = 0; V < K; ++V) W[V] = B[V] ^ L[V];
     return W;
   }), bufferXor;
 }
@@ -10409,7 +10408,7 @@ function requireOfb() {
     return K._prev = K._cipher.encryptBlock(K._prev), K._prev;
   }
   return ofb.encrypt = function(K, W) {
-    for (; K._cache.length < W.length; ) K._cache = Buffer$2.concat([K._cache, L(K)]);
+    for (; K._cache.length < W.length; ) K._cache = Buffer$3.concat([K._cache, L(K)]);
     var V = K._cache.slice(0, W.length);
     return K._cache = K._cache.slice(W.length), B(W, V);
   }, ofb;
@@ -11711,7 +11710,7 @@ function requireMr() {
 function requireGeneratePrime() {
   if (hasRequiredGeneratePrime) return generatePrime;
   hasRequiredGeneratePrime = 1;
-  var B = requireBrowser$9();
+  var B = browserExports;
   generatePrime = ft, ft.simpleSieve = ot, ft.fermatTest = at;
   var L = requireBn$1(), K = new L(24), W = new (requireMr())(), V = new L(1), J = new L(2), re = new L(5);
   new L(16), new L(8);
@@ -11756,12 +11755,12 @@ var dh, hasRequiredDh, hasRequiredBrowser$4;
 function requireDh() {
   if (hasRequiredDh) return dh;
   hasRequiredDh = 1;
-  var B = requireBn$1(), L = new (requireMr())(), K = new B(24), W = new B(11), V = new B(10), J = new B(3), re = new B(7), ie = requireGeneratePrime(), ne = requireBrowser$9();
+  var B = requireBn$1(), L = new (requireMr())(), K = new B(24), W = new B(11), V = new B(10), J = new B(3), re = new B(7), ie = requireGeneratePrime(), ne = browserExports;
   function oe(at, ft) {
-    return ft = ft || "utf8", Buffer$2.isBuffer(at) || (at = new Buffer$2(at, ft)), this._pub = new B(at), this;
+    return ft = ft || "utf8", Buffer$3.isBuffer(at) || (at = new Buffer$3(at, ft)), this._pub = new B(at), this;
   }
   function ce(at, ft) {
-    return ft = ft || "utf8", Buffer$2.isBuffer(at) || (at = new Buffer$2(at, ft)), this._priv = new B(at), this;
+    return ft = ft || "utf8", Buffer$3.isBuffer(at) || (at = new Buffer$3(at, ft)), this._priv = new B(at), this;
   }
   dh = ke;
   var pe = {};
@@ -11769,7 +11768,7 @@ function requireDh() {
     this.setGenerator(ft), this.__prime = new B(at), this._prime = B.mont(this.__prime), this._primeLen = at.length, this._pub = void 0, this._priv = void 0, this._primeCode = void 0, dt ? (this.setPublicKey = oe, this.setPrivateKey = ce) : this._primeCode = 8;
   }
   function ot(at, ft) {
-    var dt = new Buffer$2(at.toArray());
+    var dt = new Buffer$3(at.toArray());
     return ft ? dt.toString(ft) : dt;
   }
   return Object.defineProperty(ke.prototype, "verifyError", { enumerable: !0, get: function() {
@@ -11793,10 +11792,10 @@ function requireDh() {
   } }), ke.prototype.generateKeys = function() {
     return this._priv || (this._priv = new B(ne(this._primeLen))), this._pub = this._gen.toRed(this._prime).redPow(this._priv).fromRed(), this.getPublicKey();
   }, ke.prototype.computeSecret = function(at) {
-    var ft = (at = (at = new B(at)).toRed(this._prime)).redPow(this._priv).fromRed(), dt = new Buffer$2(ft.toArray()), lt = this.getPrime();
+    var ft = (at = (at = new B(at)).toRed(this._prime)).redPow(this._priv).fromRed(), dt = new Buffer$3(ft.toArray()), lt = this.getPrime();
     if (dt.length < lt.length) {
-      var yt = new Buffer$2(lt.length - dt.length);
-      yt.fill(0), dt = Buffer$2.concat([yt, dt]);
+      var yt = new Buffer$3(lt.length - dt.length);
+      yt.fill(0), dt = Buffer$3.concat([yt, dt]);
     }
     return dt;
   }, ke.prototype.getPublicKey = function(at) {
@@ -11808,7 +11807,7 @@ function requireDh() {
   }, ke.prototype.getGenerator = function(at) {
     return ot(this._gen, at);
   }, ke.prototype.setGenerator = function(at, ft) {
-    return ft = ft || "utf8", Buffer$2.isBuffer(at) || (at = new Buffer$2(at, ft)), this.__gen = at, this._gen = new B(at), this;
+    return ft = ft || "utf8", Buffer$3.isBuffer(at) || (at = new Buffer$3(at, ft)), this.__gen = at, this._gen = new B(at), this;
   }, dh;
 }
 function requireBrowser$4() {
@@ -11816,10 +11815,10 @@ function requireBrowser$4() {
   hasRequiredBrowser$4 = 1;
   var B = requireGeneratePrime(), L = require$$1$1, K = requireDh(), W = { binary: !0, hex: !0, base64: !0 };
   return browser$4.DiffieHellmanGroup = browser$4.createDiffieHellmanGroup = browser$4.getDiffieHellman = function(V) {
-    var J = new Buffer$2(L[V].prime, "hex"), re = new Buffer$2(L[V].gen, "hex");
+    var J = new Buffer$3(L[V].prime, "hex"), re = new Buffer$3(L[V].gen, "hex");
     return new K(J, re);
   }, browser$4.createDiffieHellman = browser$4.DiffieHellman = function V(J, re, ie, ne) {
-    return Buffer$2.isBuffer(re) || W[re] === void 0 ? V(J, "binary", re, ie) : (re = re || "binary", ne = ne || "binary", ie = ie || new Buffer$2([2]), Buffer$2.isBuffer(ie) || (ie = new Buffer$2(ie, ne)), typeof J == "number" ? new K(B(J, ie), ie, !0) : (Buffer$2.isBuffer(J) || (J = new Buffer$2(J, re)), new K(J, ie, !0)));
+    return Buffer$3.isBuffer(re) || W[re] === void 0 ? V(J, "binary", re, ie) : (re = re || "binary", ne = ne || "binary", ie = ie || new Buffer$3([2]), Buffer$3.isBuffer(ie) || (ie = new Buffer$3(ie, ne)), typeof J == "number" ? new K(B(J, ie), ie, !0) : (Buffer$3.isBuffer(J) || (J = new Buffer$3(J, re)), new K(J, ie, !0)));
   }, browser$4;
 }
 var readableBrowser = { exports: {} }, processNextickArgs = { exports: {} }, hasRequiredProcessNextickArgs, isarray, hasRequiredIsarray, streamBrowser, hasRequiredStreamBrowser;
@@ -12003,7 +12002,7 @@ function require_stream_writable() {
   ot.WritableState = ke;
   var V = Object.create(requireUtil());
   V.inherits = requireInherits_browser();
-  var J, re = { deprecate: requireBrowser$b() }, ie = requireStreamBrowser(), ne = requireSafeBuffer().Buffer, oe = (commonjsGlobal !== void 0 ? commonjsGlobal : typeof window < "u" ? window : typeof self < "u" ? self : {}).Uint8Array || function() {
+  var J, re = { deprecate: requireBrowser$a() }, ie = requireStreamBrowser(), ne = requireSafeBuffer().Buffer, oe = (commonjsGlobal !== void 0 ? commonjsGlobal : typeof window < "u" ? window : typeof self < "u" ? self : {}).Uint8Array || function() {
   }, ce = requireDestroy();
   function pe() {
   }
@@ -13317,7 +13316,7 @@ function requireBn() {
 function requireBrowserifyRsa() {
   if (hasRequiredBrowserifyRsa) return browserifyRsa;
   hasRequiredBrowserifyRsa = 1;
-  var B = requireBn(), L = requireBrowser$9();
+  var B = requireBn(), L = browserExports;
   function K(V) {
     var J, re = V.modulus.byteLength();
     do
@@ -13330,7 +13329,7 @@ function requireBrowserifyRsa() {
       var yt = K(lt);
       return { blinder: yt.toRed(B.mont(lt.modulus)).redPow(new B(lt.publicExponent)).fromRed(), unblinder: yt.invm(lt.modulus) };
     }(J), ie = J.modulus.byteLength(), ne = new B(V).mul(re.blinder).umod(J.modulus), oe = ne.toRed(B.mont(J.prime1)), ce = ne.toRed(B.mont(J.prime2)), pe = J.coefficient, ke = J.prime1, ot = J.prime2, at = oe.redPow(J.exponent1).fromRed(), ft = ce.redPow(J.exponent2).fromRed(), dt = at.isub(ft).imul(pe).umod(ke).imul(ot);
-    return ft.iadd(dt).imul(re.unblinder).umod(J.modulus).toArrayLike(Buffer$2, "be", ie);
+    return ft.iadd(dt).imul(re.unblinder).umod(J.modulus).toArrayLike(Buffer$3, "be", ie);
   }
   return W.getr = K, browserifyRsa = W;
 }
@@ -15565,7 +15564,7 @@ function requireVerify() {
 function requireBrowser$3() {
   if (hasRequiredBrowser$3) return browser$3;
   hasRequiredBrowser$3 = 1;
-  var B = safeBufferExports.Buffer, L = requireBrowser$a(), K = requireReadableBrowser(), W = requireInherits_browser(), V = requireSign(), J = requireVerify(), re = require$$6;
+  var B = safeBufferExports.Buffer, L = requireBrowser$9(), K = requireReadableBrowser(), W = requireInherits_browser(), V = requireSign(), J = requireVerify(), re = require$$6;
   function ie(pe) {
     K.Writable.call(this);
     var ke = re[pe];
@@ -15618,26 +15617,26 @@ function requireBrowser$2() {
   }
   function V(J, re, ie) {
     Array.isArray(J) || (J = J.toArray());
-    var ne = new Buffer$2(J);
+    var ne = new Buffer$3(J);
     if (ie && ne.length < ie) {
-      var oe = new Buffer$2(ie - ne.length);
-      oe.fill(0), ne = Buffer$2.concat([oe, ne]);
+      var oe = new Buffer$3(ie - ne.length);
+      oe.fill(0), ne = Buffer$3.concat([oe, ne]);
     }
     return re ? ne.toString(re) : ne;
   }
   return K.p224 = K.secp224r1, K.p256 = K.secp256r1 = K.prime256v1, K.p192 = K.secp192r1 = K.prime192v1, K.p384 = K.secp384r1, K.p521 = K.secp521r1, W.prototype.generateKeys = function(J, re) {
     return this.keys = this.curve.genKeyPair(), this.getPublicKey(J, re);
   }, W.prototype.computeSecret = function(J, re, ie) {
-    return re = re || "utf8", Buffer$2.isBuffer(J) || (J = new Buffer$2(J, re)), V(this.curve.keyFromPublic(J).getPublic().mul(this.keys.getPrivate()).getX(), ie, this.curveType.byteLength);
+    return re = re || "utf8", Buffer$3.isBuffer(J) || (J = new Buffer$3(J, re)), V(this.curve.keyFromPublic(J).getPublic().mul(this.keys.getPrivate()).getX(), ie, this.curveType.byteLength);
   }, W.prototype.getPublicKey = function(J, re) {
     var ie = this.keys.getPublic(re === "compressed", !0);
     return re === "hybrid" && (ie[ie.length - 1] % 2 ? ie[0] = 7 : ie[0] = 6), V(ie, J);
   }, W.prototype.getPrivateKey = function(J) {
     return V(this.keys.getPrivate(), J);
   }, W.prototype.setPublicKey = function(J, re) {
-    return re = re || "utf8", Buffer$2.isBuffer(J) || (J = new Buffer$2(J, re)), this.keys._importPublic(J), this;
+    return re = re || "utf8", Buffer$3.isBuffer(J) || (J = new Buffer$3(J, re)), this.keys._importPublic(J), this;
   }, W.prototype.setPrivateKey = function(J, re) {
-    re = re || "utf8", Buffer$2.isBuffer(J) || (J = new Buffer$2(J, re));
+    re = re || "utf8", Buffer$3.isBuffer(J) || (J = new Buffer$3(J, re));
     var ie = new L(J);
     return ie = ie.toString(16), this.keys = this.curve.genKeyPair(), this.keys._importPrivate(ie), this;
   }, browser$2;
@@ -15646,7 +15645,7 @@ var browser$1 = {}, mgf, hasRequiredMgf, xor, hasRequiredXor, withPublic_1, hasR
 function requireMgf() {
   if (hasRequiredMgf) return mgf;
   hasRequiredMgf = 1;
-  var B = requireBrowser$a(), L = safeBufferExports.Buffer;
+  var B = requireBrowser$9(), L = safeBufferExports.Buffer;
   function K(W) {
     var V = L.allocUnsafe(4);
     return V.writeUInt32BE(W, 0), V;
@@ -15673,7 +15672,7 @@ function requireWithPublic() {
 function requirePublicEncrypt() {
   if (hasRequiredPublicEncrypt) return publicEncrypt;
   hasRequiredPublicEncrypt = 1;
-  var B = requireParseAsn1(), L = requireBrowser$9(), K = requireBrowser$a(), W = requireMgf(), V = requireXor(), J = requireBn$1(), re = requireWithPublic(), ie = requireBrowserifyRsa(), ne = safeBufferExports.Buffer;
+  var B = requireParseAsn1(), L = browserExports, K = requireBrowser$9(), W = requireMgf(), V = requireXor(), J = requireBn$1(), re = requireWithPublic(), ie = requireBrowserifyRsa(), ne = safeBufferExports.Buffer;
   return publicEncrypt = function(oe, ce, pe) {
     var ke;
     ke = oe.padding ? oe.padding : pe ? 1 : 4;
@@ -15702,7 +15701,7 @@ function requirePublicEncrypt() {
 function requirePrivateDecrypt() {
   if (hasRequiredPrivateDecrypt) return privateDecrypt;
   hasRequiredPrivateDecrypt = 1;
-  var B = requireParseAsn1(), L = requireMgf(), K = requireXor(), W = requireBn$1(), V = requireBrowserifyRsa(), J = requireBrowser$a(), re = requireWithPublic(), ie = safeBufferExports.Buffer;
+  var B = requireParseAsn1(), L = requireMgf(), K = requireXor(), W = requireBn$1(), V = requireBrowserifyRsa(), J = requireBrowser$9(), re = requireWithPublic(), ie = safeBufferExports.Buffer;
   return privateDecrypt = function(ne, oe, ce) {
     var pe;
     pe = ne.padding ? ne.padding : ce ? 1 : 4;
@@ -15755,7 +15754,7 @@ function requireBrowser() {
 use chrome, FireFox or Internet Explorer 11`);
   }
   hasRequiredBrowser = 1;
-  var L = safeBufferExports, K = requireBrowser$9(), W = L.Buffer, V = L.kMaxLength, J = commonjsGlobal.crypto || commonjsGlobal.msCrypto, re = Math.pow(2, 32) - 1;
+  var L = safeBufferExports, K = browserExports, W = L.Buffer, V = L.kMaxLength, J = commonjsGlobal.crypto || commonjsGlobal.msCrypto, re = Math.pow(2, 32) - 1;
   function ie(ce, pe) {
     if (typeof ce != "number" || ce != ce) throw new TypeError("offset must be a number");
     if (ce > re || ce < 0) throw new TypeError("offset must be a uint32");
@@ -15792,7 +15791,7 @@ use chrome, FireFox or Internet Explorer 11`);
 }
 function requireCryptoBrowserify() {
   if (hasRequiredCryptoBrowserify) return cryptoBrowserify;
-  hasRequiredCryptoBrowserify = 1, cryptoBrowserify.randomBytes = cryptoBrowserify.rng = cryptoBrowserify.pseudoRandomBytes = cryptoBrowserify.prng = requireBrowser$9(), cryptoBrowserify.createHash = cryptoBrowserify.Hash = requireBrowser$a(), cryptoBrowserify.createHmac = cryptoBrowserify.Hmac = requireBrowser$8();
+  hasRequiredCryptoBrowserify = 1, cryptoBrowserify.randomBytes = cryptoBrowserify.rng = cryptoBrowserify.pseudoRandomBytes = cryptoBrowserify.prng = browserExports, cryptoBrowserify.createHash = cryptoBrowserify.Hash = requireBrowser$9(), cryptoBrowserify.createHmac = cryptoBrowserify.Hmac = requireBrowser$8();
   var B = requireAlgos(), L = Object.keys(B), K = ["sha1", "sha224", "sha256", "sha384", "sha512", "md5", "rmd160"].concat(L);
   cryptoBrowserify.getHashes = function() {
     return K;
@@ -16686,7 +16685,7 @@ function signRecoverable(B, L, K) {
   const [W, V] = necc__namespace.signSync(B, L, { der: !1, extraEntropy: K, recovered: !0 });
   return { signature: W, recoveryId: V };
 }
-function signSchnorr(B, L, K = Buffer$2.alloc(32, 0)) {
+function signSchnorr(B, L, K = Buffer$3.alloc(32, 0)) {
   if (!isPrivate(L)) throw new Error(THROW_BAD_PRIVATE);
   if (!isHash(B)) throw new Error(THROW_BAD_SCALAR);
   if (!isExtraData(K)) throw new Error(THROW_BAD_EXTRA_DATA);
@@ -16723,11 +16722,11 @@ var types$1 = {};
 })(types$1);
 var testecc = {};
 Object.defineProperty(testecc, "__esModule", { value: !0 }), testecc.testEcc = void 0;
-const h = (B) => Buffer$2.from(B, "hex");
+const h = (B) => Buffer$3.from(B, "hex");
 function testEcc(B) {
-  assert(B.isPoint(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(!B.isPoint(h("030000000000000000000000000000000000000000000000000000000000000005"))), assert(B.isPrivate(h("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert(!B.isPrivate(h("0000000000000000000000000000000000000000000000000000000000000000"))), assert(!B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"))), assert(!B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364142"))), assert(Buffer$2.from(B.privateAdd(h("0000000000000000000000000000000000000000000000000000000000000001"), h("0000000000000000000000000000000000000000000000000000000000000000"))).equals(h("0000000000000000000000000000000000000000000000000000000000000001"))), assert(B.privateAdd(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"), h("0000000000000000000000000000000000000000000000000000000000000003")) === null), assert(Buffer$2.from(B.privateAdd(h("e211078564db65c3ce7704f08262b1f38f1ef412ad15b5ac2d76657a63b2c500"), h("b51fbb69051255d1becbd683de5848242a89c229348dd72896a87ada94ae8665"))).equals(h("9730c2ee69edbb958d42db7460bafa18fef9d955325aec99044c81c8282b0a24"))), assert(Buffer$2.from(B.privateNegate(h("0000000000000000000000000000000000000000000000000000000000000001"))).equals(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert(Buffer$2.from(B.privateNegate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"))).equals(h("0000000000000000000000000000000000000000000000000000000000000003"))), assert(Buffer$2.from(B.privateNegate(h("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h("4eede1bf775995d70a494f0a7bb6bc11e0b8cccd41cce8009ab1132c8b0a3792"))), assert(Buffer$2.from(B.pointCompress(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"), !0)).equals(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(Buffer$2.from(B.pointCompress(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"), !1)).equals(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"))), assert(Buffer$2.from(B.pointCompress(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), !0)).equals(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(Buffer$2.from(B.pointCompress(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), !1)).equals(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"))), assert(Buffer$2.from(B.pointFromScalar(h("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h("02b07ba9dca9523b7ef4bd97703d43d20399eb698e194704791a25ce77a400df99"))), assert(B.xOnlyPointAddTweak(h("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140")) === null);
+  assert(B.isPoint(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(!B.isPoint(h("030000000000000000000000000000000000000000000000000000000000000005"))), assert(B.isPrivate(h("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert(!B.isPrivate(h("0000000000000000000000000000000000000000000000000000000000000000"))), assert(!B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"))), assert(!B.isPrivate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364142"))), assert(Buffer$3.from(B.privateAdd(h("0000000000000000000000000000000000000000000000000000000000000001"), h("0000000000000000000000000000000000000000000000000000000000000000"))).equals(h("0000000000000000000000000000000000000000000000000000000000000001"))), assert(B.privateAdd(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"), h("0000000000000000000000000000000000000000000000000000000000000003")) === null), assert(Buffer$3.from(B.privateAdd(h("e211078564db65c3ce7704f08262b1f38f1ef412ad15b5ac2d76657a63b2c500"), h("b51fbb69051255d1becbd683de5848242a89c229348dd72896a87ada94ae8665"))).equals(h("9730c2ee69edbb958d42db7460bafa18fef9d955325aec99044c81c8282b0a24"))), assert(Buffer$3.from(B.privateNegate(h("0000000000000000000000000000000000000000000000000000000000000001"))).equals(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))), assert(Buffer$3.from(B.privateNegate(h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd036413e"))).equals(h("0000000000000000000000000000000000000000000000000000000000000003"))), assert(Buffer$3.from(B.privateNegate(h("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h("4eede1bf775995d70a494f0a7bb6bc11e0b8cccd41cce8009ab1132c8b0a3792"))), assert(Buffer$3.from(B.pointCompress(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"), !0)).equals(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(Buffer$3.from(B.pointCompress(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"), !1)).equals(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"))), assert(Buffer$3.from(B.pointCompress(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), !0)).equals(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"))), assert(Buffer$3.from(B.pointCompress(h("0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), !1)).equals(h("0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"))), assert(Buffer$3.from(B.pointFromScalar(h("b1121e4088a66a28f5b6b0f5844943ecd9f610196d7bb83b25214b60452c09af"))).equals(h("02b07ba9dca9523b7ef4bd97703d43d20399eb698e194704791a25ce77a400df99"))), assert(B.xOnlyPointAddTweak(h("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140")) === null);
   let L = B.xOnlyPointAddTweak(h("1617d38ed8d8657da4d4761e8057bc396ea9e4b9d29776d4be096016dbd2509b"), h("a8397a935f0dfceba6ba9618f6451ef4d80637abf4e6af2669fbc9de6a8fd2ac"));
-  assert(Buffer$2.from(L.xOnlyPubkey).equals(h("e478f99dab91052ab39a33ea35fd5e6e4933f4d28023cd597c9a1f6760346adf")) && L.parity === 1), L = B.xOnlyPointAddTweak(h("2c0b7cf95324a07d05398b240174dc0c2be444d96b159aa6c7f7b1e668680991"), h("823c3cd2142744b075a87eade7e1b8678ba308d566226a0056ca2b7a76f86b47")), assert(Buffer$2.from(L.xOnlyPubkey).equals(h("9534f8dc8c6deda2dc007655981c78b49c5d96c778fbf363462a11ec9dfd948c")) && L.parity === 0), assert(Buffer$2.from(B.sign(h("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))).equals(h("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), assert(B.verify(h("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), B.signSchnorr && assert(Buffer$2.from(B.signSchnorr(h("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h("c90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b14e5c9"), h("c87aa53824b4d7ae2eb035a2b5bbbccc080e76cdc6d1692c4b0b62d798e6d906"))).equals(h("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7"))), B.verifySchnorr && assert(B.verifySchnorr(h("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h("dd308afec5777e13121fa72b9cc1b7cc0139715309b086c960e18fd969774eb8"), h("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7")));
+  assert(Buffer$3.from(L.xOnlyPubkey).equals(h("e478f99dab91052ab39a33ea35fd5e6e4933f4d28023cd597c9a1f6760346adf")) && L.parity === 1), L = B.xOnlyPointAddTweak(h("2c0b7cf95324a07d05398b240174dc0c2be444d96b159aa6c7f7b1e668680991"), h("823c3cd2142744b075a87eade7e1b8678ba308d566226a0056ca2b7a76f86b47")), assert(Buffer$3.from(L.xOnlyPubkey).equals(h("9534f8dc8c6deda2dc007655981c78b49c5d96c778fbf363462a11ec9dfd948c")) && L.parity === 0), assert(Buffer$3.from(B.sign(h("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h("fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364140"))).equals(h("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), assert(B.verify(h("5e9f0a0d593efdcf78ac923bc3313e4e7d408d574354ee2b3288c0da9fbba6ed"), h("0379be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), h("54c4a33c6423d689378f160a7ff8b61330444abb58fb470f96ea16d99d4a2fed07082304410efa6b2943111b6a4e0aaa7b7db55a07e9861d1fb3cb1f421044a5"))), B.signSchnorr && assert(Buffer$3.from(B.signSchnorr(h("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h("c90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b14e5c9"), h("c87aa53824b4d7ae2eb035a2b5bbbccc080e76cdc6d1692c4b0b62d798e6d906"))).equals(h("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7"))), B.verifySchnorr && assert(B.verifySchnorr(h("7e2d58d8b3bcdf1abadec7829054f90dda9805aab56c77333024b9d0a508b75c"), h("dd308afec5777e13121fa72b9cc1b7cc0139715309b086c960e18fd969774eb8"), h("5831aaeed7b44bb74e5eab94ba9d4294c49bcf2a60728d8b4c200f50dd313c1bab745879a5ad954a72c45a91c3a51d3c7adea98d82f8481e0e1e03674a6f3fb7")));
 }
 function assert(B) {
   if (!B) throw new Error("ecc library invalid");
@@ -16735,7 +16734,7 @@ function assert(B) {
 testecc.testEcc = testEcc, Object.defineProperty(ecpair, "__esModule", { value: !0 }), ecpair.ECPairFactory = ecpair.networks = void 0;
 const networks = networks$1;
 ecpair.networks = networks;
-const types = types$1, randomBytes = requireBrowser$9(), wif = wif$2, testecc_1 = testecc, isOptions = types.typeforce.maybe(types.typeforce.compile({ compressed: types.maybe(types.Boolean), network: types.maybe(types.Network) })), toXOnly = (B) => B.length === 32 ? B : B.slice(1, 33);
+const types = types$1, randomBytes = browserExports, wif = wif$2, testecc_1 = testecc, isOptions = types.typeforce.maybe(types.typeforce.compile({ compressed: types.maybe(types.Boolean), network: types.maybe(types.Network) })), toXOnly = (B) => B.length === 32 ? B : B.slice(1, 33);
 function ECPairFactory(B) {
   function L(V, J) {
     if (types.typeforce(types.Buffer256bit, V), !B.isPrivate(V)) throw new TypeError("Private key not in range [1, n)");
@@ -16752,7 +16751,7 @@ function ECPairFactory(B) {
       Xr(this, "compressed");
       Xr(this, "network");
       Xr(this, "lowR");
-      this.__D = J, this.__Q = re, this.lowR = !1, ie === void 0 && (ie = {}), this.compressed = ie.compressed === void 0 || ie.compressed, this.network = ie.network || networks.bitcoin, re !== void 0 && (this.__Q = Buffer$2.from(B.pointCompress(re, this.compressed)));
+      this.__D = J, this.__Q = re, this.lowR = !1, ie === void 0 && (ie = {}), this.compressed = ie.compressed === void 0 || ie.compressed, this.network = ie.network || networks.bitcoin, re !== void 0 && (this.__Q = Buffer$3.from(B.pointCompress(re, this.compressed)));
     }
     get privateKey() {
       return this.__D;
@@ -16760,7 +16759,7 @@ function ECPairFactory(B) {
     get publicKey() {
       if (!this.__Q) {
         const J = B.pointFromScalar(this.__D, this.compressed);
-        this.__Q = Buffer$2.from(J);
+        this.__Q = Buffer$3.from(J);
       }
       return this.__Q;
     }
@@ -16773,19 +16772,19 @@ function ECPairFactory(B) {
     }
     sign(J, re) {
       if (!this.__D) throw new Error("Missing private key");
-      if (re === void 0 && (re = this.lowR), re === !1) return Buffer$2.from(B.sign(J, this.__D));
+      if (re === void 0 && (re = this.lowR), re === !1) return Buffer$3.from(B.sign(J, this.__D));
       {
         let ie = B.sign(J, this.__D);
-        const ne = Buffer$2.alloc(32, 0);
+        const ne = Buffer$3.alloc(32, 0);
         let oe = 0;
         for (; ie[0] > 127; ) oe++, ne.writeUIntLE(oe, 0, 6), ie = B.sign(J, this.__D, ne);
-        return Buffer$2.from(ie);
+        return Buffer$3.from(ie);
       }
     }
     signSchnorr(J) {
       if (!this.privateKey) throw new Error("Missing private key");
       if (!B.signSchnorr) throw new Error("signSchnorr not supported by ecc library");
-      return Buffer$2.from(B.signSchnorr(J, this.privateKey));
+      return Buffer$3.from(B.signSchnorr(J, this.privateKey));
     }
     verify(J, re) {
       return B.verify(J, this.publicKey, re);
@@ -16797,13 +16796,13 @@ function ECPairFactory(B) {
     tweakFromPublicKey(J) {
       const re = toXOnly(this.publicKey), ie = B.xOnlyPointAddTweak(re, J);
       if (!ie || ie.xOnlyPubkey === null) throw new Error("Cannot tweak public key!");
-      const ne = Buffer$2.from([ie.parity === 0 ? 2 : 3]);
-      return K(Buffer$2.concat([ne, ie.xOnlyPubkey]), { network: this.network, compressed: this.compressed });
+      const ne = Buffer$3.from([ie.parity === 0 ? 2 : 3]);
+      return K(Buffer$3.concat([ne, ie.xOnlyPubkey]), { network: this.network, compressed: this.compressed });
     }
     tweakFromPrivateKey(J) {
       const re = this.publicKey[0] !== 3 && (this.publicKey[0] !== 4 || 1 & ~this.publicKey[64]) ? this.privateKey : B.privateNegate(this.privateKey), ie = B.privateAdd(re, J);
       if (!ie) throw new Error("Invalid tweaked private key!");
-      return L(Buffer$2.from(ie), { network: this.network, compressed: this.compressed });
+      return L(Buffer$3.from(ie), { network: this.network, compressed: this.compressed });
     }
   }
   return { isPoint: function(V) {
@@ -18291,12 +18290,12 @@ var BigNumber = clone(), browserPonyfill = { exports: {} };
 var browserPonyfillExports = browserPonyfill.exports;
 const fetch = getDefaultExportFromCjs(browserPonyfillExports);
 var bufferReverse = function(B) {
-  for (var L = new Buffer$2(B.length), K = 0, W = B.length - 1; K <= W; ++K, --W) L[K] = B[W], L[W] = B[K];
+  for (var L = new Buffer$3(B.length), K = 0, W = B.length - 1; K <= W; ++K, --W) L[K] = B[W], L[W] = B[K];
   return L;
 };
 const reverseBuffer = getDefaultExportFromCjs(bufferReverse);
 export {
-  Buffer$2 as B,
+  Buffer$3 as B,
   O,
   _t as _,
   qe as a,
