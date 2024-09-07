@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "private": true,
   "repository": "https://github.com/ordlify/wallie",
@@ -19,6 +19,9 @@
     "husky": "^9.1.2",
     "turbo": "^2.0.11"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
   },
