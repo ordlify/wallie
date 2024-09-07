@@ -1,0 +1,77 @@
+{
+  "name": "@oviato/wallie",
+  "version": "0.0.0",
+  "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
+  "repository": "https://github.com/ordlify/wallie",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "index.d.ts"
+  ],
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:watch": "tsc && vite build --watch",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@bitcoinerlab/secp256k1": "1.1.1",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@wallet-standard/core": "^0.0.0-20240703212708",
+    "bignumber.js": "9.1.2",
+    "bip32": "4.0.0",
+    "bip39": "3.1.0",
+    "bitcoin-address-validation": "2.2.3",
+    "bitcoinjs-lib": "6.1.6",
+    "bitcoinjs-message": "2.2.0",
+    "buffer-reverse": "1.0.1",
+    "cross-fetch": "4.0.0",
+    "ecpair": "2.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sats-connect": "^2.8.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-node-polyfills": "^0.22.0"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.19",
+    "bignumber.js": "^9.1.2",
+    "bitcoinjs-lib": "6.1.6",
+    "boring-avatars": "^1.10.2"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

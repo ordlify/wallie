@@ -1,8 +1,0 @@
-src/
-tests/
-.github/
-.vscode/
-.eslintrc.js
-.prettierrc
-tsconfig.json
-vite.config.ts
