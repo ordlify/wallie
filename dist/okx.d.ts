@@ -1,1 +1,1 @@
-export * from './browser-wallets/okx/index'
+export * from './src/browser-wallets/okx/index'

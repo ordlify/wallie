@@ -1,0 +1,1 @@
+{"version":3,"file":"useSignMessage.d.ts","sourceRoot":"","sources":["../../../src/hooks/useSignMessage.ts"],"names":[],"mappings":"AAKA,wBAAgB,cAAc,IAAI;IAChC,SAAS,EAAE,OAAO,CAAC;IACnB,OAAO,EAAE,CAAC,OAAO,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,KAAK,OAAO,CAAC,MAAM,GAAG,IAAI,CAAC,CAAC;IACtE,KAAK,EAAE,MAAM,GAAG,IAAI,CAAC;CACtB,CAmDA"}

@@ -1,1 +1,1 @@
-export * from './browser-wallets/leather/index'
+export * from './src/browser-wallets/leather/index'

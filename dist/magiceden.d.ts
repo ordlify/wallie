@@ -1,1 +1,1 @@
-export * from './browser-wallets/magiceden/index'
+export * from './src/browser-wallets/magiceden/index'

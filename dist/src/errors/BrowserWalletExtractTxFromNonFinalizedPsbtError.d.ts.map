@@ -1,0 +1,1 @@
+{"version":3,"file":"BrowserWalletExtractTxFromNonFinalizedPsbtError.d.ts","sourceRoot":"","sources":["../../../src/errors/BrowserWalletExtractTxFromNonFinalizedPsbtError.ts"],"names":[],"mappings":"AAAA,qBAAa,+CAAgD,SAAQ,KAAK;gBAEtE,OAAO,GAAE,MAA8D;CAK1E"}

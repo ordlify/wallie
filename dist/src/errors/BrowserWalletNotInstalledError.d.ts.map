@@ -1,0 +1,1 @@
+{"version":3,"file":"BrowserWalletNotInstalledError.d.ts","sourceRoot":"","sources":["../../../src/errors/BrowserWalletNotInstalledError.ts"],"names":[],"mappings":"AAAA,qBAAa,8BAA+B,SAAQ,KAAK;gBAC3C,OAAO,EAAE,MAAM;CAI5B"}

@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.54",
+  "version": "1.0.55",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -63,7 +63,7 @@
     "buffer-reverse": "1.0.1",
     "cross-fetch": "4.0.0",
     "ecpair": "2.1.0",
-    "sats-connect": "2.6.0"
+    "sats-connect": "2.8.0"
   },
   "devDependencies": {
     "@ordzaar/standard-prettier": "^1.8.8",

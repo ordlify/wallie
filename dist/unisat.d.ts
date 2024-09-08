@@ -1,1 +1,1 @@
-export * from './browser-wallets/unisat/index'
+export * from './src/browser-wallets/unisat/index'
