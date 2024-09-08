@@ -7,15 +7,37 @@
   "type": "module",
   "files": [
     "dist/*",
-    "index.d.ts"
+    "index.d.ts",
+    "magiceden.d.ts",
+    "unisat.d.ts",
+    "xverse.d.ts",
+    "leather.d.ts"
   ],
   "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
-    "./dist/style.css": {
-      "import": "./dist/style.css"
+    "./magiceden": {
+      "import": "./dist/magiceden.js",
+      "require": "./dist/magiceden.cjs"
+    },
+    "./unisat": {
+      "import": "./dist/unisat.js",
+      "require": "./dist/unisat.cjs"
+    },
+    "./xverse": {
+      "import": "./dist/xverse.js",
+      "require": "./dist/xverse.cjs"
+    },
+    "./leather": {
+      "import": "./dist/leather.js",
+      "require": "./dist/leather.cjs"
+    },
+    "./okx": {
+      "import": "./dist/okx.js",
+      "require": "./dist/okx.cjs"
     }
   },
   "scripts": {
@@ -53,8 +75,6 @@
     "postcss": "^8.4.45",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rollup-plugin-swc3": "^0.11.2",
-    "rollup-plugin-terser": "^7.0.2",
     "sats-connect": "1.4.1",
     "tailwindcss": "3.3.2",
     "typescript": "^5.5.4",
