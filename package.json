@@ -1,16 +1,17 @@
 {
-  "name": "@oviato/wallie",
-  "version": "1.0.44",
+  "name": "@oviato/mono",
+  "version": "1.0.45",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "private": true,
   "repository": "https://github.com/ordlify/wallie",
   "bugs": "https://github.com/ordlify/wallie/issues",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "pnpm build",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "format": "prettier --write .",
+    "clean": "rm -rf packages/*/dist && rm -rf packages/*/node_modules && rm -rf packages/*/.turbo &&  rm -rf node_modules",
     "lint": "turbo run lint -- --fix"
   },
   "devDependencies": {
@@ -19,9 +20,6 @@
     "husky": "^9.1.2",
     "turbo": "^2.0.11"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
   },
