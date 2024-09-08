@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.51",
+  "version": "1.0.52",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -50,29 +50,33 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "@ordzaar/standard-prettier": "^1.8.8",
-    "@ordzaar/standard-web-linter": "^1.8.8",
+  "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "@bitcoinerlab/secp256k1": "1.1.1",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@swc/core": "^1.7.23",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.16.0",
-    "@typescript-eslint/parser": "^7.16.0",
-    "@vitejs/plugin-react-swc": "^3.7.0",
     "@wallet-standard/core": "^1.0.3",
-    "autoprefixer": "^10.4.20",
-    "bignumber.js": "9.1.2",
+    "bignumber.js": "^9.1.2",
+    "bitcoinjs-lib": "6.1.6",
     "bip32": "4.0.0",
     "bip39": "3.1.0",
     "bitcoin-address-validation": "2.2.3",
     "bitcoinjs-message": "2.2.0",
     "buffer-reverse": "1.0.1",
     "cross-fetch": "4.0.0",
-    "cssnano": "^7.0.6",
     "ecpair": "2.1.0",
+    "sats-connect": "2.6.0"
+  },
+  "devDependencies": {
+    "@ordzaar/standard-prettier": "^1.8.8",
+    "@ordzaar/standard-web-linter": "^1.8.8",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.8",
@@ -80,7 +84,6 @@
     "postcss": "^8.4.45",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sats-connect": "1.4.1",
     "tailwindcss": "3.3.2",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
@@ -88,11 +91,6 @@
     "vite-plugin-dts": "3.7.3",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-node-polyfills": "^0.22.0"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.19",
-    "bignumber.js": "^9.1.2",
-    "bitcoinjs-lib": "6.1.6"
   },
   "lint-staged": {
     "*": [
