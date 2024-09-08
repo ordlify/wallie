@@ -1,6 +1,5 @@
-import { BrowserWalletNetwork } from '../../../config/types';
-import { InputsToSign } from '../../../inscription/types';
-
+import type { BrowserWalletNetwork } from "../../../config/types";
+import { InputsToSign } from "../../../inscription/types";
 export type SatsConnectNetwork = "Mainnet" | "Testnet";
 export type SatsConnectSignPSBTOptions = {
     finalize?: boolean;

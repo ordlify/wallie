@@ -1,5 +1,4 @@
-import { Sat } from './Sat';
-
+import type { Sat } from "./Sat";
 /**
  * Degree converts Sat into format `A°B′C″D‴`
  */

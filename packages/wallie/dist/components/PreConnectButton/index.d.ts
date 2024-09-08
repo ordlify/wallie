@@ -1,6 +1,5 @@
-import { ReactNode } from 'react';
-import { OrdConnectKitProp } from '../OrdConnectKit';
-
+import { ReactNode } from "react";
+import type { OrdConnectKitProp } from "../OrdConnectKit";
 interface PreConnectButtonProp extends OrdConnectKitProp {
     openModal: () => void;
     disabled?: boolean;

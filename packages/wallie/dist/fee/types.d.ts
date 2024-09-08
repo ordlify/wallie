@@ -1,7 +1,6 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { Buffer } from 'buffer';
-import { Network } from '../config/types';
-
+import type { Psbt } from "bitcoinjs-lib";
+import type { Buffer } from "buffer";
+import type { Network } from "../config/types";
 export interface FeeEstimatorOptions {
     /**
      * Fee rate in Satoshi per byte (sats/vB). Can only be a whole number.

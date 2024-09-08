@@ -1,8 +1,7 @@
-import { GetBalanceOptions, GetInscriptionOptions, GetInscriptionsOptions, GetInscriptionUTXOOptions, GetSpendablesOptions, GetTransactionOptions, GetTransactionResponse, GetUnspentsOptions, GetUnspentsResponse, RelayOptions } from '../api/types';
-import { Network } from '../config/types';
-import { Inscription } from '../inscription/types';
-import { UTXO, UTXOLimited } from '../transactions/types';
-
+import type { GetBalanceOptions, GetInscriptionOptions, GetInscriptionsOptions, GetInscriptionUTXOOptions, GetSpendablesOptions, GetTransactionOptions, GetTransactionResponse, GetUnspentsOptions, GetUnspentsResponse, RelayOptions } from "../api/types";
+import type { Network } from "../config/types";
+import type { Inscription } from "../inscription/types";
+import type { UTXO, UTXOLimited } from "../transactions/types";
 export interface BaseDatasourceOptions {
     network: Network;
 }

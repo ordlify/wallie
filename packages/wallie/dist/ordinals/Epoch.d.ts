@@ -1,6 +1,5 @@
-import { Height } from './Height';
-import { Sat } from './Sat';
-
+import { Height } from "./Height";
+import type { Sat } from "./Sat";
 export declare class Epoch {
     #private;
     readonly n: number;

@@ -1,6 +1,5 @@
-import { AddressFormat } from '../addresses';
-import { Network, Wallet } from '../providers/WallieProvider';
-
+import { AddressFormat } from "../addresses";
+import { Network, Wallet } from "../providers/WallieProvider";
 interface SignMessageParams {
     message: string;
     wallet: Wallet;

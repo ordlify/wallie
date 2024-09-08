@@ -1,7 +1,6 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { Network } from '../config/types';
-import { FeeEstimatorOptions } from './types';
-
+import { Psbt } from "bitcoinjs-lib";
+import type { Network } from "../config/types";
+import type { FeeEstimatorOptions } from "./types";
 declare class FeeEstimator {
     /**
      * Fee in satoshis

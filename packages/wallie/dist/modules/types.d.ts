@@ -1,6 +1,5 @@
-import { Inscription } from '../inscription/types';
-import { UTXO } from '../transactions/types';
-
+import type { Inscription } from "../inscription/types";
+import type { UTXO } from "../transactions/types";
 export interface JsonRpcPagination {
     limit: number;
     prev: string | null;

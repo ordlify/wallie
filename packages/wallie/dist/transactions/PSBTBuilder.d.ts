@@ -1,11 +1,10 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { Network } from '../config/types';
-import { FeeEstimator } from '../fee/FeeEstimator';
-import { InputsToSign } from '../inscription/types';
-import { BaseDatasource } from '../modules/BaseDatasource';
-import { InputType } from './helper';
-import { Output, UTXOLimited } from './types';
-
+import { Psbt } from "bitcoinjs-lib";
+import type { Network } from "../config/types";
+import { FeeEstimator } from "../fee/FeeEstimator";
+import type { InputsToSign } from "../inscription/types";
+import { BaseDatasource } from "../modules/BaseDatasource";
+import { InputType } from "./helper";
+import type { Output, UTXOLimited } from "./types";
 export interface PSBTBuilderOptions {
     address: string;
     changeAddress?: string;

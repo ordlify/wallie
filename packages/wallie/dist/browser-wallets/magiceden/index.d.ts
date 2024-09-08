@@ -1,10 +1,9 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { BitcoinProvider } from 'sats-connect';
-import { Wallet } from '@wallet-standard/core';
-import { BrowserWalletNetwork } from '../../config/types';
-import { SatsConnectSignPSBTOptions } from '../internal/sats-connect/types';
-import { BrowserWalletSignResponse, WalletAddress } from '../types';
-
+import { Psbt } from "bitcoinjs-lib";
+import { BitcoinProvider } from "sats-connect";
+import { Wallet } from "@wallet-standard/core";
+import { BrowserWalletNetwork } from "../../config/types";
+import type { SatsConnectSignPSBTOptions } from "../internal/sats-connect/types";
+import { BrowserWalletSignResponse, WalletAddress } from "../types";
 export interface MagicEdenBitcoinProvider extends BitcoinProvider {
     isMagicEden: boolean | undefined;
 }

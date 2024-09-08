@@ -1,8 +1,7 @@
-import { AddressFormat } from '../addresses/types';
-import { Network } from '../config/types';
-import { BaseDatasource } from '../modules';
-import { UTXO, UTXOLimited } from './types';
-
+import type { AddressFormat } from "../addresses/types";
+import type { Network } from "../config/types";
+import { BaseDatasource } from "../modules";
+import type { UTXO, UTXOLimited } from "./types";
 interface BaseInputType {
     hash: string;
     index: number;

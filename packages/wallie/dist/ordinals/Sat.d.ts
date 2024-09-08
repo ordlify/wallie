@@ -1,10 +1,9 @@
-import { Decimal } from './Decimal';
-import { Degree } from './Degree';
-import { Epoch } from './Epoch';
-import { Height } from './Height';
-import { Rarity } from './Rarity';
-import { Sattributes } from './Sattributes';
-
+import { Decimal } from "./Decimal";
+import { Degree } from "./Degree";
+import { Epoch } from "./Epoch";
+import { Height } from "./Height";
+import { Rarity } from "./Rarity";
+import { Sattributes } from "./Sattributes";
 export declare class Sat {
     #private;
     readonly n: number;
@@ -32,9 +31,9 @@ export declare class Sat {
         epoch: number;
         period: number;
         offset: number;
-        rarity: import('./Rarity').RarityAttribute;
+        rarity: import("./Rarity").RarityAttribute;
         percentile: string;
-        sattributes: import('./Sattributes').Sattribute[];
+        sattributes: import("./Sattributes").Sattribute[];
     };
 }
 /**

@@ -1,5 +1,4 @@
-import { Wallet } from '../../providers/WallieProvider';
-
+import { Wallet } from "../../providers/WallieProvider";
 interface WalletButtonProp {
     wallet: Wallet;
     subtitle: string;

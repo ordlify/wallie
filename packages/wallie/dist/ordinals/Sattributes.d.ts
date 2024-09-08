@@ -1,5 +1,4 @@
-import { Sat } from './Sat';
-
+import type { Sat } from "./Sat";
 export declare enum Sattribute {
     Common = "common",
     Uncommon = "uncommon",

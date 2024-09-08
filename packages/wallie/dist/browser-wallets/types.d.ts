@@ -1,5 +1,4 @@
-import { AddressFormat } from '../addresses/types';
-
+import type { AddressFormat } from "../addresses/types";
 export type WalletAddress = {
     publicKey: string;
     address: string;

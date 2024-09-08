@@ -1,6 +1,5 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { Network, Wallet } from '../providers/WallieProvider';
-
+import { Psbt } from "bitcoinjs-lib";
+import { Network, Wallet } from "../providers/WallieProvider";
 interface InputsToSign {
     address: string;
     signingIndexes: number[];

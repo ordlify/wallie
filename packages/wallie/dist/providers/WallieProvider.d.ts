@@ -1,6 +1,5 @@
-import { PropsWithChildren } from 'react';
-import { AddressFormat } from '../addresses';
-
+import { PropsWithChildren } from "react";
+import { AddressFormat } from "../addresses";
 export declare enum Network {
     MAINNET = "mainnet",
     TESTNET = "testnet",

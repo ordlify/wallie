@@ -1,8 +1,7 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { BrowserWalletNetwork } from '../../config/types';
-import { BrowserWalletSignResponse, WalletAddress } from '../types';
-import { UnisatSignPSBTOptions } from './types';
-
+import { Psbt } from "bitcoinjs-lib";
+import type { BrowserWalletNetwork } from "../../config/types";
+import type { BrowserWalletSignResponse, WalletAddress } from "../types";
+import type { UnisatSignPSBTOptions } from "./types";
 type MessageSignatureTypes = "bip322-simple" | "ecdsa";
 /**
  * Checks if the browser wallet extension is installed.
@@ -44,5 +43,5 @@ declare function signPsbt(psbt: Psbt, { finalize, extractTx }?: UnisatSignPSBTOp
  */
 declare function signMessage(message: string, type?: MessageSignatureTypes): Promise<BrowserWalletSignResponse>;
 export { getAddresses, isInstalled, signMessage, signPsbt };
-export * from '../types';
-export * from './types';
+export * from "../types";
+export * from "./types";

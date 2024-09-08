@@ -1,8 +1,7 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { BrowserWalletNetwork } from '../../config/types';
-import { SatsConnectSignPSBTOptions } from '../internal/sats-connect/types';
-import { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from '../types';
-
+import { Psbt } from "bitcoinjs-lib";
+import { BrowserWalletNetwork } from "../../config/types";
+import type { SatsConnectSignPSBTOptions } from "../internal/sats-connect/types";
+import { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from "../types";
 /**
  * Checks if the Xverse extension is installed.
  *

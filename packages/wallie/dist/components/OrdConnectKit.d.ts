@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-
+import { ReactNode } from "react";
+import "./style.css";
 export interface OrdConnectKitProp {
     connectButton?: string;
     connectButtonComponent?: ReactNode;

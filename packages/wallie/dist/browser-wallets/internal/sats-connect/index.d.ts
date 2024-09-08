@@ -1,9 +1,8 @@
-import { Psbt } from 'bitcoinjs-lib';
-import { BitcoinProvider } from 'sats-connect';
-import { BrowserWalletNetwork } from '../../../config/types';
-import { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from '../../types';
-import { SatsConnectSignPSBTOptions } from './types';
-
+import { Psbt } from "bitcoinjs-lib";
+import { BitcoinProvider } from "sats-connect";
+import type { BrowserWalletNetwork } from "../../../config/types";
+import type { BrowserWalletSendBtcResponse, BrowserWalletSignResponse, WalletAddress } from "../../types";
+import type { SatsConnectSignPSBTOptions } from "./types";
 /**
  * Gets addresses from the browser wallet.
  *
@@ -55,5 +54,5 @@ declare function satsConnectWalletSignMessage(getProvider: () => Promise<Bitcoin
  */
 declare function satsConnectWalletSendBTC(getProvider: () => Promise<BitcoinProvider>, message: string, address: string, senderAddress: string, satoshis: number, network?: BrowserWalletNetwork): Promise<BrowserWalletSendBtcResponse>;
 export { satsConnectWalletGetAddresses, satsConnectWalletSendBTC, satsConnectWalletSignMessage, satsConnectWalletSignPsbt, };
-export * from '../../types';
-export * from './types';
+export * from "../../types";
+export * from "./types";

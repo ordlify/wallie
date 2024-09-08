@@ -1,3 +1,2 @@
-import { BrowserWalletSignPSBTOptions } from '../types';
-
+import type { BrowserWalletSignPSBTOptions } from "../types";
 export type UnisatSignPSBTOptions = BrowserWalletSignPSBTOptions;

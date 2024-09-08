@@ -1,7 +1,6 @@
-import { GetUnspentsResponse } from '../api/types';
-import { Inscription } from '../inscription/types';
-import { UTXO } from '../transactions/types';
-
+import type { GetUnspentsResponse } from "../api/types";
+import type { Inscription } from "../inscription/types";
+import type { UTXO } from "../transactions/types";
 interface SegregateUTXOsBySpendStatusArgOptions {
     utxos: UTXO[];
 }

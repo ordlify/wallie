@@ -1,5 +1,4 @@
-import { AddressFormat } from '../addresses/types';
-
+import type { AddressFormat } from "../addresses/types";
 /**
  * Transaction header size for all script types. We overestimate the header size (previously 10 for p2sh-p2wpkh and legacy) during calculation as the final result will have almost no difference.
  */

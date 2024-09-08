@@ -1,5 +1,4 @@
-import { BrowserWalletNetwork } from '../../config/types';
-
+import { BrowserWalletNetwork } from "../../config/types";
 export declare enum LeatherSignatureHash {
     ALL = 1,
     NONE = 2,

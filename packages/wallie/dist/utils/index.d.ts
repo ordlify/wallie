@@ -1,11 +1,10 @@
-import { BIP32Interface } from 'bip32';
-import { Network as BitcoinNetwork, Payment, Psbt, Signer, Transaction } from 'bitcoinjs-lib';
-import { ECPairInterface } from 'ecpair';
-import { AddressFormat, AddressType } from '../addresses/types';
-import { Network } from '../config/types';
-import { UTXO } from '../transactions/types';
-import { BufferOrHex, GetScriptTypeResponse, IsBitcoinPaymentResponse, NestedObject, OneOfAllDataFormats } from './types';
-
+import { BIP32Interface } from "bip32";
+import { Network as BitcoinNetwork, Payment, Psbt, Signer, Transaction } from "bitcoinjs-lib";
+import { ECPairInterface } from "ecpair";
+import type { AddressFormat, AddressType } from "../addresses/types";
+import type { Network } from "../config/types";
+import type { UTXO } from "../transactions/types";
+import type { BufferOrHex, GetScriptTypeResponse, IsBitcoinPaymentResponse, NestedObject, OneOfAllDataFormats } from "./types";
 export declare function getNetwork(value: Network): BitcoinNetwork;
 export declare function createPayment(key: Buffer, type: AddressType, network: Network | BitcoinNetwork, paymentOptions?: Payment): Payment;
 export declare function getDerivationPath(formatType: AddressFormat, account?: number, addressIndex?: number): string;

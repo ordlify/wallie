@@ -1,7 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "write": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
     "build": {
+      "inputs": ["tsconfig.json", "vite.config.ts", "src/**"],
       "outputs": ["dist/**"]
     },
     "dev": {

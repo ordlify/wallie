@@ -19,7 +19,7 @@ export declare const INSTANT_BUY_SELLER_INPUT_INDEX = 2;
 /**
  * BIP32 instance
  */
-export declare const BIP32: import('bip32').BIP32API;
+export declare const BIP32: import("bip32").BIP32API;
 /**
  * Fixed chain code for public key operations
  */

@@ -1,6 +1,5 @@
-import { Height } from './Height';
-import { Sat } from './Sat';
-
+import type { Height } from "./Height";
+import type { Sat } from "./Sat";
 /**
  * Decimal converts Sat into format `A.B`
  */

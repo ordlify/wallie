@@ -1,5 +1,4 @@
-import { Inscription, Ordinal } from '../inscription/types';
-
+import type { Inscription, Ordinal } from "../inscription/types";
 /**
  * Transaction output (Vout)
  */

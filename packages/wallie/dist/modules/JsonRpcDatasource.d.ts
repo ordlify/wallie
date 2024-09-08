@@ -1,9 +1,8 @@
-import { Transaction as BTCTransaction } from 'bitcoinjs-lib';
-import { GetBalanceOptions, GetInscriptionOptions, GetInscriptionsOptions, GetInscriptionUTXOOptions, GetSpendablesOptions, GetTransactionOptions, GetUnspentsOptions, GetUnspentsResponse, RelayOptions } from '../api/types';
-import { Network } from '../config/types';
-import { Transaction, UTXO, UTXOLimited } from '../transactions/types';
-import { BaseDatasource } from './BaseDatasource';
-
+import { Transaction as BTCTransaction } from "bitcoinjs-lib";
+import type { GetBalanceOptions, GetInscriptionOptions, GetInscriptionsOptions, GetInscriptionUTXOOptions, GetSpendablesOptions, GetTransactionOptions, GetUnspentsOptions, GetUnspentsResponse, RelayOptions } from "../api/types";
+import type { Network } from "../config/types";
+import type { Transaction, UTXO, UTXOLimited } from "../transactions/types";
+import { BaseDatasource } from "./BaseDatasource";
 export interface JsonRpcDatasourceOptions {
     network: Network;
 }

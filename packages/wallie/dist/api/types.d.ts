@@ -1,8 +1,7 @@
-import { Transaction as BTCTransaction } from 'bitcoinjs-lib';
-import { Rarity } from '../inscription/types';
-import { Transaction, UTXO } from '../transactions/types';
-import { RequireAtLeastOne } from '../utils/types';
-
+import type { Transaction as BTCTransaction } from "bitcoinjs-lib";
+import type { Rarity } from "../inscription/types";
+import type { Transaction, UTXO } from "../transactions/types";
+import type { RequireAtLeastOne } from "../utils/types";
 export interface GetUnspentsOptions {
     /**
      * Address to list unspent UTXOs for

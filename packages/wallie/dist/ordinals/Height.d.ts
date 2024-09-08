@@ -1,5 +1,4 @@
-import { Sat } from './Sat';
-
+import { Sat } from "./Sat";
 export declare class Height {
     #private;
     readonly n: number;

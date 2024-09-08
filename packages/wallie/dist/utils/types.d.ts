@@ -1,7 +1,6 @@
-import { Payment } from 'bitcoinjs-lib';
-import { Buffer } from 'buffer';
-import { AddressFormat, AddressType } from '../addresses/types';
-
+import type { Payment } from "bitcoinjs-lib";
+import type { Buffer } from "buffer";
+import type { AddressFormat, AddressType } from "../addresses/types";
 export interface NestedObject {
     [key: string]: NestedObject | unknown;
 }
