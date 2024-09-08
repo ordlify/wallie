@@ -1,6 +1,6 @@
 node_modules
 packages/wallie/node_modules
-packages/wallie/dist
+# packages/wallie/dist
 
 # misc
 .DS_Store
