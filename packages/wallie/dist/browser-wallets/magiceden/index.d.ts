@@ -16,6 +16,7 @@ export interface MagicEdenWallet extends Wallet {
         };
     };
 }
+declare function getMagicEdenWalletProvider(): Promise<MagicEdenBitcoinProvider>;
 /**
  * Checks if the MagicEden Wallet extension is installed.
  *
@@ -26,4 +27,4 @@ declare function isInstalled(): Promise<boolean>;
 declare function getAddresses(network?: BrowserWalletNetwork): Promise<WalletAddress[]>;
 declare function signPsbt(psbt: Psbt, { finalize, extractTx, network, inputsToSign, }?: SatsConnectSignPSBTOptions): Promise<BrowserWalletSignResponse>;
 declare function signMessage(message: string, address: string, network?: BrowserWalletNetwork): Promise<BrowserWalletSignResponse>;
-export { getAddresses, isInstalled, signMessage, signPsbt };
+export { getAddresses, getMagicEdenWalletProvider, isInstalled, signMessage, signPsbt, };

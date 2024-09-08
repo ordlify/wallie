@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
 import { BitcoinNetworkType, sendBtcTransaction } from "sats-connect";
 
+import { leatherRequest } from "../browser-wallets/leather/utils";
+import { getMagicEdenWalletProvider as getMeProvider } from "../browser-wallets/magiceden";
 // import { sendBtc as sendXverseBTC } from "../browser-wallets/xverse";
-import { leatherRequest } from "../lib/leatherProvider";
-import magicEdenProvider from "../lib/magicEdenProvider";
 import { useWallie } from "../providers/WallieProvider";
 
 type SendFunction = (
@@ -32,8 +32,7 @@ export function useSendBtc() {
         }
 
         if (wallet === "magiceden" || wallet === "xverse") {
-          const wp =
-            wallet === "magiceden" ? await magicEdenProvider() : undefined;
+          const wp = wallet === "magiceden" ? await getMeProvider() : undefined;
 
           let txid: string | null = null;
 

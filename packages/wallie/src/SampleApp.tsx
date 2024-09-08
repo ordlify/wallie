@@ -45,7 +45,7 @@ function TestControls() {
     const signed = await sign(
       address.payments,
       "cHNidP8BAFICAAAAARXJoLPdXB0nA98DsK0PaC5ABbmJbxKPAZ+WUvKJYgieAAAAAAD/////AaRCDwAAAAAAFgAUQQLeNoYbzPdxCaEZpQnxIuzjchIAAAAAAAEBH2QAAAAAAAAAFgAUQQLeNoYbzPdxCaEZpQnxIuzjchIBAwSDAAAAAAA=",
-      { extractTx: false }
+      { extractTx: false },
     );
     console.log(signed);
   }, [address.payments, sign]);
@@ -57,7 +57,7 @@ function TestControls() {
 
     const signed = await signMsg(
       address.ordinals,
-      "This is a test message which will not be used anywhere."
+      "This is a test message which will not be used anywhere.",
     );
     console.log(signed);
   }, [address.ordinals, signMsg]);

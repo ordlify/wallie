@@ -433,7 +433,7 @@ export function SelectWalletModal({
                     as="h3"
                     className="wallie-text-[21px] wallie-font-medium wallie-leading-8 wallie--mt-1  wallie-text-ord-gray"
                   >
-                    Connect a wallet to continue
+                    Connect a wallet to continue!
                   </Dialog.Title>
                   <button
                     type="button"
