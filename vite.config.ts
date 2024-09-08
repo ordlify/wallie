@@ -53,7 +53,11 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     eslint(),
-    cssInjectedByJsPlugin(),
+    cssInjectedByJsPlugin({
+      jsAssetsFilterFunction: (asset) => {
+        if (asset.preliminaryFileName.includes("index")) return true;
+      },
+    }),
     nodePolyfills({
       globals: {
         Buffer: true,

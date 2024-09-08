@@ -5,7 +5,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react-hooks/recommended",
-    "../../node_modules/@ordzaar/standard-web-linter",
+    "./node_modules/@ordzaar/standard-web-linter",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: { project: [path.join(__dirname, "tsconfig.eslint.json")] },
