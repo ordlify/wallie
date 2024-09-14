@@ -1,4 +1,7 @@
-type SendFunction = (address: string, satoshis: number) => Promise<string | null>;
+type SendFunction = (recipients: {
+    address: string;
+    satoshis: number;
+}[]) => Promise<string | null>;
 export declare function useSendBtc(): {
     send: SendFunction;
     error: string | null;

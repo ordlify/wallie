@@ -31,7 +31,12 @@ function TestControls() {
   }, [getBalance]);
 
   const handleSend = useCallback(async () => {
-    const txId = await send("2NF2Uwm15ovqBFcKs6RHiNgzuAwCt7e2wCq", 5000);
+    const txId = await send([
+      {
+        address: "2NF2Uwm15ovqBFcKs6RHiNgzuAwCt7e2wCq",
+        satoshis: 5000,
+      },
+    ]);
     if (txId) {
       setResult(txId);
     }
@@ -45,7 +50,7 @@ function TestControls() {
     const signed = await sign(
       address.payments,
       "cHNidP8BAFICAAAAARXJoLPdXB0nA98DsK0PaC5ABbmJbxKPAZ+WUvKJYgieAAAAAAD/////AaRCDwAAAAAAFgAUQQLeNoYbzPdxCaEZpQnxIuzjchIAAAAAAAEBH2QAAAAAAAAAFgAUQQLeNoYbzPdxCaEZpQnxIuzjchIBAwSDAAAAAAA=",
-      { extractTx: false },
+      { extractTx: false }
     );
     console.log(signed);
   }, [address.payments, sign]);
@@ -57,7 +62,7 @@ function TestControls() {
 
     const signed = await signMsg(
       address.ordinals,
-      "This is a test message which will not be used anywhere.",
+      "This is a test message which will not be used anywhere."
     );
     console.log(signed);
   }, [address.ordinals, signMsg]);

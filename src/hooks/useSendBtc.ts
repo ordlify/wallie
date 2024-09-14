@@ -6,9 +6,9 @@ import { getMagicEdenWalletProvider as getMeProvider } from "../browser-wallets/
 // import { sendBtc as sendXverseBTC } from "../browser-wallets/xverse";
 import { useWallie } from "../providers/WallieProvider";
 
+// Change to accept multiple recipients
 type SendFunction = (
-  address: string,
-  satoshis: number,
+  recipients: { address: string; satoshis: number }[]
 ) => Promise<string | null>;
 
 export function useSendBtc() {
@@ -17,7 +17,7 @@ export function useSendBtc() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const send: SendFunction = useCallback(
-    async (toAddress, satoshis) => {
+    async (recipients) => {
       setLoading(true);
       try {
         setError(null);
@@ -46,12 +46,10 @@ export function useSendBtc() {
                       : BitcoinNetworkType.Testnet,
                 },
                 message: "Sign Transaction",
-                recipients: [
-                  {
-                    address: toAddress,
-                    amountSats: BigInt(satoshis),
-                  },
-                ],
+                recipients: recipients.map((recipient) => ({
+                  address: recipient.address,
+                  amountSats: BigInt(recipient.satoshis),
+                })),
                 senderAddress: address.payments!,
               },
               getProvider: async () => wp,
@@ -71,7 +69,12 @@ export function useSendBtc() {
         if (wallet === "unisat") {
           let txid: string = "";
 
-          txid = await window.unisat.sendBitcoin(toAddress, satoshis, {});
+          txid = await window.unisat.sendBitcoin(
+            recipients[0].address,
+            recipients[0].satoshis,
+            {}
+          );
+
           setLoading(false);
           return txid;
         }
@@ -82,14 +85,12 @@ export function useSendBtc() {
           const request: { txid: string } = await leatherRequest(
             "sendTransfer",
             {
-              recipients: [
-                {
-                  address: toAddress,
-                  amount: satoshis,
-                },
-              ],
+              recipients: recipients.map((recipient) => ({
+                address: recipient.address,
+                amount: recipient.satoshis,
+              })),
               network,
-            },
+            }
           );
           txid = request.txid;
           setLoading(false);
@@ -98,25 +99,23 @@ export function useSendBtc() {
 
         if (wallet === "okx") {
           let txid: string = "";
+
           if (network === "mainnet") {
             txid = await window.okxwallet.bitcoin.sendBitcoin(
-              toAddress,
-              satoshis,
-              {},
+              recipients[0].address,
+              recipients[0].satoshis,
+              {}
             );
-            setLoading(false);
-            return txid;
+          } else if (network === "testnet") {
+            txid = await window.okxwallet.bitcoinTestnet.sendBitcoin(
+              recipients[0].address,
+              recipients[0].satoshis,
+              {}
+            );
           }
 
-          if (network === "testnet") {
-            txid = await window.okxwallet.bitcoinTestnet.sendBitcoin(
-              toAddress,
-              satoshis,
-              {},
-            );
-            setLoading(false);
-            return txid;
-          }
+          setLoading(false);
+          return txid;
         }
 
         setLoading(false);
@@ -127,7 +126,7 @@ export function useSendBtc() {
         return null;
       }
     },
-    [address, network, publicKey, wallet],
+    [address, network, publicKey, wallet]
   );
 
   return { send, error, loading };
