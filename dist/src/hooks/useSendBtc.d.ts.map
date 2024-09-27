@@ -1,1 +1,1 @@
-{"version":3,"file":"useSendBtc.d.ts","sourceRoot":"","sources":["../../../src/hooks/useSendBtc.ts"],"names":[],"mappings":"AASA,KAAK,YAAY,GAAG,CAClB,UAAU,EAAE;IAAE,OAAO,EAAE,MAAM,CAAC;IAAC,QAAQ,EAAE,MAAM,CAAA;CAAE,EAAE,KAChD,OAAO,CAAC,MAAM,GAAG,IAAI,CAAC,CAAC;AAE5B,wBAAgB,UAAU;;;;EAuHzB"}
+{"version":3,"file":"useSendBtc.d.ts","sourceRoot":"","sources":["../../../src/hooks/useSendBtc.ts"],"names":[],"mappings":"AAcA,KAAK,YAAY,GAAG,CAClB,UAAU,EAAE;IAAE,OAAO,EAAE,MAAM,CAAC;IAAC,QAAQ,EAAE,MAAM,CAAA;CAAE,EAAE,KAChD,OAAO,CAAC,MAAM,GAAG,IAAI,CAAC,CAAC;AAE5B,wBAAgB,UAAU;;;;EAgJzB"}

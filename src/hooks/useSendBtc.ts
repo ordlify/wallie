@@ -1,5 +1,10 @@
 import { useCallback, useState } from "react";
-import { BitcoinNetworkType, sendBtcTransaction } from "sats-connect";
+import {
+  BitcoinNetworkType,
+  request as STReques,
+  RpcErrorCode,
+  sendBtcTransaction,
+} from "sats-connect";
 
 import { leatherRequest } from "../browser-wallets/leather/utils";
 import { getMagicEdenWalletProvider as getMeProvider } from "../browser-wallets/magiceden";
@@ -31,8 +36,8 @@ export function useSendBtc() {
           throw new Error("No wallet is connected");
         }
 
-        if (wallet === "magiceden" || wallet === "xverse") {
-          const wp = wallet === "magiceden" ? await getMeProvider() : undefined;
+        if (wallet === "magiceden") {
+          const wp = await getMeProvider();
 
           let txid: string | null = null;
 
@@ -61,6 +66,31 @@ export function useSendBtc() {
               },
             });
           });
+
+          setLoading(false);
+          return txid;
+        }
+
+        if (wallet === "xverse") {
+          let txid: string = "";
+          try {
+            const response = await STReques("sendTransfer", {
+              recipients: recipients.map((recipient) => ({
+                address: recipient.address,
+                amount: recipient.satoshis,
+              })),
+            });
+            if (response.status === "success") {
+              // handle success
+              txid = response.result.txid;
+            } else if (response.error.code === RpcErrorCode.USER_REJECTION) {
+              throw new Error("Transaction canceled");
+            } else {
+              throw new Error("Transaction canceled");
+            }
+          } catch (err) {
+            throw new Error("Transaction canceled");
+          }
 
           setLoading(false);
           return txid;
