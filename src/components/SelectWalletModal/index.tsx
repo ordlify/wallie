@@ -458,10 +458,10 @@ export function SelectWalletModal({
   ]);
 
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+    <Transition.Root appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="wallie-z-[100] wallie-fixed wallie-inset-0 wallie-overflow-y-auto"
+        className="wallie-fixed wallie-z-50 wallie-inset-0 wallie-overflow-y-auto"
         onClose={closeModal}
       >
         <Transition.Child
@@ -473,7 +473,7 @@ export function SelectWalletModal({
           leaveFrom="wallie-opacity-100"
           leaveTo="wallie-opacity-0"
         >
-          <div className="wallie-fixed wallie-z-60 wallie-inset-0 wallie-bg-black wallie-bg-opacity-90 md:wallie-bg-opacity-75 wallie-transition-opacity" />
+          <div className="wallie-fixed wallie-inset-0 wallie-bg-black/90 md:wallie-bg-black/80 wallie-transition-opacity" />
         </Transition.Child>
 
         <section className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto">
@@ -487,7 +487,10 @@ export function SelectWalletModal({
               leaveFrom="wallie-opacity-100 wallie-scale-100"
               leaveTo="wallie-opacity-0 wallie-scale-95"
             >
-              <Dialog.Panel className="wallie-relative wallie-bg-ord-blue-600 wallie-transform wallie-overflow-hidden wallie-rounded-lg wallie-p-8 wallie-transition-all wallie-w-full">
+              <Dialog.Panel
+                className="wallie-relative wallie-bg-ord-blue-600 wallie-transform wallie-overflow-hidden wallie-rounded-lg wallie-p-8 wallie-transition-all wallie-w-full"
+                onClick={(e) => e.stopPropagation()} // Prevent click propagation
+              >
                 <section className="wallie-flex wallie-flex-row">
                   <Dialog.Title
                     as="h3"
@@ -507,19 +510,16 @@ export function SelectWalletModal({
                     />
                   </button>
                 </section>
-
                 <p className="wallie-text-ord-light-blue-400 wallie-font-medium wallie-py-3">
                   Choose a wallet below to connect and continue
                 </p>
-
                 {errorMessage && (
                   <p className="wallie-text-ord-alert wallie-pb-4">
                     {errorMessage}
                   </p>
                 )}
-
                 <section className="wallie-w-full">
-                  <section className="wallie-w-full wallie-space-y-4">
+                  <section className="wallie-w-full wallie-flex wallie-flex-col wallie-space-y-4 wallie-relative">
                     {!isMobile && (
                       <WalletButton
                         wallet={Wallet.LEATHER}
@@ -552,7 +552,7 @@ export function SelectWalletModal({
                     {!isMobile && ( // TODO: remove this once unisat supported on mobile devices
                       <WalletButton
                         wallet={Wallet.UNISAT}
-                        subtitle="Coming soon on mobile browsing"
+                        subtitle=""
                         onConnect={onConnectUnisatWallet}
                         icon={UnisatWalletIcon}
                         setErrorMessage={setErrorMessage}
@@ -575,6 +575,6 @@ export function SelectWalletModal({
           </div>
         </section>
       </Dialog>
-    </Transition>
+    </Transition.Root>
   );
 }

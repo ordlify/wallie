@@ -27,6 +27,20 @@ module.exports = {
         pop: ["Poppins", "sans-serif"],
         outfit: ["Outfit", "sans-serif"],
       },
+      backgroundOpacity: {
+        90: "0.9",
+        80: "0.8",
+        // Add any other necessary opacities
+      },
+      scale: {
+        120: "1.2",
+        // Add other custom scales if needed
+      },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundOpacity: ["responsive", "hover", "focus"],
     },
   },
   plugins: [],

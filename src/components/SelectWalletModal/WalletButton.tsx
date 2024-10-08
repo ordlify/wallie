@@ -55,7 +55,7 @@ export function WalletButton({
     ]);
     if (result === "timeout") {
       setErrorMessage(
-        "No wallet pop-up? The extension is not responding. Try reloading your browser.",
+        "No wallet pop-up? The extension is not responding. Try reloading your browser."
       );
     } else {
       setLoading(false);
@@ -65,7 +65,7 @@ export function WalletButton({
   return (
     <button
       type="button"
-      className="wallie-w-full wallie-flex wallie-flex-row wallie-justify-between wallie-items-center wallie-text-ord-light-gray wallie-bg-ord-light-blue wallie-hover:bg-ord-light-blue-250 wallie-p-2 wallie-rounded-lg md:wallie-text-xl wallie-space-x-4 md:space-x-6 wallie-ease-in wallie-transition-all wallie-duration-100 wallie-ease-in-outscale-120"
+      className="wallie-w-full wallie-flex wallie-flex-row wallie-justify-between wallie-items-center wallie-text-ord-light-gray wallie-bg-ord-light-blue wallie-hover:bg-ord-light-blue-250 wallie-p-2 wallie-rounded-lg md:wallie-text-xl wallie-space-x-4 md:space-x-6 wallie-ease-in-out wallie-scale-100 wallie-transition-all wallie-duration-100"
       onClick={handleWalletConnectClick}
       disabled={isDisabled}
     >
@@ -76,7 +76,7 @@ export function WalletButton({
         </span>
         <span
           className="wallie-text-sm wallie-font-medium"
-          style={{ display: isMobileDevice ? "block" : "none" }}
+          style={{ display: isMobileDevice ? "none" : "block" }}
         >
           {subtitle}
         </span>

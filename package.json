@@ -1,6 +1,6 @@
 {
   "name": "@oviato/wallie",
-  "version": "1.0.58",
+  "version": "1.0.59",
   "description": "React component library for Bitcoin Ordinals, forked from @ordzaar",
   "repository": "https://github.com/ordlify/wallie",
   "license": "MIT",
@@ -84,7 +84,7 @@
     "postcss": "^8.4.45",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "3.3.2",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-plugin-css-injected-by-js": "^3.5.1",
