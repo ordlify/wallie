@@ -5,6 +5,7 @@ import CloseModalIcon from "../../assets/close-modal.svg";
 import LeatherWalletIcon from "../../assets/leather-wallet.svg";
 import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
 import OKXWalletIcon from "../../assets/okx-wallet.svg";
+import OviatoLoading from "../../assets/oviato-loading.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
 import XverseWalletIcon from "../../assets/xverse-wallet.svg";
 import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
@@ -62,6 +63,15 @@ export function SelectWalletModal({
   } = useWallie();
   const [errorMessage, setErrorMessage] = useState<string>("");
   const isMobile = isMobileUserAgent();
+  const [loading, setLoading] = useState(!!isMobile);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3500);
+    }
+  }, [isOpen]);
 
   const onError = useCallback(
     async (
@@ -462,7 +472,7 @@ export function SelectWalletModal({
       <Dialog
         as="div"
         className="wallie-fixed wallie-z-50 wallie-inset-0 wallie-overflow-y-auto"
-        onClose={() => {}}
+        onClose={closeModal}
       >
         <Transition.Child
           as={Fragment}
@@ -506,7 +516,7 @@ export function SelectWalletModal({
                     <img
                       src={CloseModalIcon}
                       alt="close modal"
-                      className="wallie-w-[24px] wallie-h-[24px]"
+                      className="wallie-w-[19px] wallie-h-[19px]"
                     />
                   </button>
                 </section>
@@ -518,7 +528,19 @@ export function SelectWalletModal({
                     {errorMessage}
                   </p>
                 )}
-                <section className="wallie-w-full">
+                <section className="wallie-w-full wallie-relative">
+                  {loading && (
+                    <div className="wallie-absolute  wallie-bg-ord-blue wallie-bg-opacity-90 wallie-rounded-lg wallie-h-full wallie-z-[200] wallie-w-full wallie-flex wallie-items-center wallie-flex-col wallie-space-y-2 wallie-justify-center">
+                      <img
+                        src={OviatoLoading}
+                        alt=""
+                        className="wallie-w-12 ovi-tilting-icon"
+                      />
+                      <p className="wallie-text-sm wallie-text-center wallie-text-ord-gray">
+                        Loading wallets...
+                      </p>
+                    </div>
+                  )}
                   <section className="wallie-w-full wallie-flex wallie-flex-col wallie-space-y-4 wallie-relative">
                     {!isMobile && (
                       <WalletButton
