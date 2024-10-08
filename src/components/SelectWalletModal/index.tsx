@@ -462,7 +462,7 @@ export function SelectWalletModal({
       <Dialog
         as="div"
         className="wallie-fixed wallie-z-50 wallie-inset-0 wallie-overflow-y-auto"
-        onClose={closeModal}
+        onClose={() => {}}
       >
         <Transition.Child
           as={Fragment}
@@ -506,7 +506,7 @@ export function SelectWalletModal({
                     <img
                       src={CloseModalIcon}
                       alt="close modal"
-                      className="wallie-w-[19px] wallie-h-[19px]"
+                      className="wallie-w-[24px] wallie-h-[24px]"
                     />
                   </button>
                 </section>
