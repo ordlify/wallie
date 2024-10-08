@@ -4,12 +4,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import CloseModalIcon from "../../assets/close-modal.svg";
 import LeatherWalletIcon from "../../assets/leather-wallet.svg";
 import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
-// import OKXWalletIcon from "../../assets/okx-wallet.svg";
+import OKXWalletIcon from "../../assets/okx-wallet.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
 import XverseWalletIcon from "../../assets/xverse-wallet.svg";
 import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
 import { getAddresses as getMagicEdenAddress } from "../../browser-wallets/magiceden";
-// import { getAddresses as getOKXAddresses } from "../../browser-wallets/okx";
+import { getAddresses as getOKXAddresses } from "../../browser-wallets/okx";
 import { getAddresses as getUnisatAddresses } from "../../browser-wallets/unisat";
 import { getAddresses as getXverseAddresses } from "../../browser-wallets/xverse";
 import {
@@ -17,7 +17,7 @@ import {
   BrowserWalletRequestCancelledByUserError,
 } from "../../errors";
 // import { Network, useWallie, Wallet } from "../../providers/WallieProvider";
-import { useWallie, Wallet } from "../../providers/WallieProvider";
+import { Network, useWallie, Wallet } from "../../providers/WallieProvider";
 import { isMobileUserAgent } from "../../utils/mobile-detector";
 import { waitForUnisatExtensionReady } from "../../utils/unisat";
 
@@ -34,6 +34,14 @@ const WALLET_CHROME_EXTENSION_URL: Record<Wallet, string> = {
   [Wallet.LEATHER]: "https://leather.io/install-extension",
   [Wallet.MAGICEDEN]: "https://wallet.magiceden.io/",
   [Wallet.UNISAT]: "https://unisat.io/download", // their www subdomain doesn't work
+};
+
+const WALLET_DEEP_LINK_URL: Record<Wallet, string> = {
+  [Wallet.XVERSE]: "xverse://browser?url=",
+  [Wallet.UNISAT]: "",
+  [Wallet.MAGICEDEN]: "",
+  [Wallet.LEATHER]: "",
+  [Wallet.OKX]: "",
 };
 
 export function SelectWalletModal({
@@ -56,30 +64,82 @@ export function SelectWalletModal({
   const isMobile = isMobileUserAgent();
 
   const onError = useCallback(
-    (
+    async (
       walletProvider: Wallet,
       err:
         | BrowserWalletNotInstalledError
         | BrowserWalletRequestCancelledByUserError
-        | Error,
+        | Error
     ) => {
       if (err instanceof BrowserWalletNotInstalledError) {
-        window.open(
-          WALLET_CHROME_EXTENSION_URL[walletProvider],
-          "_blank",
-          "noopener,noreferrer",
-        );
+        if (isMobile) {
+          const deepLinkUrl = WALLET_DEEP_LINK_URL[walletProvider];
+          const fallbackUrl = WALLET_CHROME_EXTENSION_URL[walletProvider];
+
+          if (deepLinkUrl) {
+            let timeoutId: number | undefined;
+
+            const visibilityChangeHandler = () => {
+              if (document.hidden) {
+                // The page is hidden, assume the app was opened
+                clearTimeout(timeoutId);
+                document.removeEventListener(
+                  "visibilitychange",
+                  visibilityChangeHandler
+                );
+              }
+            };
+
+            // Add the visibility change listener
+            document.addEventListener(
+              "visibilitychange",
+              visibilityChangeHandler
+            );
+
+            // Attempt to open the deep link
+            window.location.href = deepLinkUrl;
+
+            // Set a timeout to open the fallback if the deep link fails
+            timeoutId = window.setTimeout(() => {
+              document.removeEventListener(
+                "visibilitychange",
+                visibilityChangeHandler
+              );
+              // Deep link failed, open fallback URL
+              window.location.href = fallbackUrl;
+              // Update error message and disconnect the wallet
+              setErrorMessage(err.message ?? err.toString());
+              disconnectWallet();
+            }, 2000); // 2 seconds timeout
+          } else {
+            // If no deep link URL is provided, directly open the fallback URL
+            window.location.href = fallbackUrl;
+            setErrorMessage(err.message ?? err.toString());
+            disconnectWallet();
+          }
+        } else {
+          // For desktop, directly open the Chrome extension URL
+          window.open(
+            WALLET_CHROME_EXTENSION_URL[walletProvider],
+            "_blank",
+            "noopener,noreferrer"
+          );
+          setErrorMessage(err.message ?? err.toString());
+          disconnectWallet();
+        }
+      } else {
+        // Handle other error types
+        setErrorMessage(err.message ?? err.toString());
+        disconnectWallet();
       }
-      setErrorMessage(err.message ?? err.toString());
-      disconnectWallet();
     },
-    [disconnectWallet],
+    [disconnectWallet, isMobile]
   );
 
   const onConnectMagicEdenWallet = useCallback(async () => {
     if (network === "testnet") {
       const unsupportedNetworkError = new Error(
-        "Magic Eden wallet is not supported on testnet",
+        "Magic Eden wallet is not supported on testnet"
       );
       onError(Wallet.MAGICEDEN, unsupportedNetworkError);
       return false;
@@ -98,22 +158,22 @@ export function SelectWalletModal({
       const paymentAddress = magicEdenAddresses.find(
         (walletAddress) =>
           walletAddress.format === "segwit" ||
-          walletAddress.format === "p2sh-p2wpkh",
+          walletAddress.format === "p2sh-p2wpkh"
       );
 
       if (!paymentAddress) {
         throw new Error(
-          "Magic Eden via Ordit did not return a P2SH or Segwit address.",
+          "Magic Eden via Ordit did not return a P2SH or Segwit address."
         );
       }
 
       const ordinalsAddress = magicEdenAddresses.find(
-        (walletAddress) => walletAddress.format === "taproot",
+        (walletAddress) => walletAddress.format === "taproot"
       );
 
       if (!ordinalsAddress) {
         throw new Error(
-          "Magic Eden via Ordit did not return a Taproot address.",
+          "Magic Eden via Ordit did not return a Taproot address."
         );
       }
 
@@ -191,7 +251,7 @@ export function SelectWalletModal({
       updateFormat,
       updatePublicKey,
       updateWallet,
-    ],
+    ]
   );
 
   const onConnectXverseWallet = useCallback(async () => {
@@ -210,17 +270,17 @@ export function SelectWalletModal({
       const paymentAddress = xverse.find(
         (walletAddress) =>
           walletAddress.format === "p2sh-p2wpkh" ||
-          walletAddress.format === "segwit",
+          walletAddress.format === "segwit"
       );
 
       if (!paymentAddress) {
         throw new Error(
-          "Xverse via Ordit did not return a P2SH or Segwit address.",
+          "Xverse via Ordit did not return a P2SH or Segwit address."
         );
       }
 
       const ordinalsAddress = xverse.find(
-        (walletAddress) => walletAddress.format === "taproot",
+        (walletAddress) => walletAddress.format === "taproot"
       );
 
       if (!ordinalsAddress) {
@@ -267,14 +327,14 @@ export function SelectWalletModal({
       }
 
       const paymentAddress = leather.find(
-        (walletAddress) => walletAddress.format === "segwit",
+        (walletAddress) => walletAddress.format === "segwit"
       );
       if (!paymentAddress) {
         throw new Error("Leather via Ordit did not return a Segwit address.");
       }
 
       const ordinalAddress = leather.find(
-        (walletAddress) => walletAddress.format === "taproot",
+        (walletAddress) => walletAddress.format === "taproot"
       );
       if (!ordinalAddress) {
         throw new Error("Leather via Ordit did not return a Taproot address.");
@@ -310,45 +370,45 @@ export function SelectWalletModal({
     updateWallet,
   ]);
 
-  // const onConnectOKXWallet = useCallback(async () => {
-  //   try {
-  //     setErrorMessage("");
-  //     const okx = await getOKXAddresses(network);
-  //     if (!okx || okx.length < 1) {
-  //       disconnectWallet();
-  //       throw new Error("OKX via Ordit returned no addresses.");
-  //     }
+  const onConnectOKXWallet = useCallback(async () => {
+    try {
+      setErrorMessage("");
+      const okx = await getOKXAddresses(network);
+      if (!okx || okx.length < 1) {
+        disconnectWallet();
+        throw new Error("OKX via Ordit returned no addresses.");
+      }
 
-  //     const okxWallet = okx[0];
-  //     updateAddress({
-  //       ordinals: okxWallet.address,
-  //       payments: okxWallet.address,
-  //     });
-  //     updatePublicKey({
-  //       ordinals: okxWallet.publicKey,
-  //       payments: okxWallet.publicKey,
-  //     });
-  //     updateWallet(Wallet.OKX);
-  //     updateFormat({
-  //       ordinals: okxWallet.format,
-  //       payments: okxWallet.format,
-  //     });
-  //     closeModal();
-  //     return true;
-  //   } catch (err) {
-  //     onError(Wallet.OKX, err as Error);
-  //     return false;
-  //   }
-  // }, [
-  //   closeModal,
-  //   disconnectWallet,
-  //   network,
-  //   onError,
-  //   updateAddress,
-  //   updateFormat,
-  //   updatePublicKey,
-  //   updateWallet,
-  // ]);
+      const okxWallet = okx[0];
+      updateAddress({
+        ordinals: okxWallet.address,
+        payments: okxWallet.address,
+      });
+      updatePublicKey({
+        ordinals: okxWallet.publicKey,
+        payments: okxWallet.publicKey,
+      });
+      updateWallet(Wallet.OKX);
+      updateFormat({
+        ordinals: okxWallet.format,
+        payments: okxWallet.format,
+      });
+      closeModal();
+      return true;
+    } catch (err) {
+      onError(Wallet.OKX, err as Error);
+      return false;
+    }
+  }, [
+    closeModal,
+    disconnectWallet,
+    network,
+    onError,
+    updateAddress,
+    updateFormat,
+    updatePublicKey,
+    updateWallet,
+  ]);
 
   // Reconnect address change listener if there there is already a connected wallet
   useEffect(() => {
@@ -401,7 +461,7 @@ export function SelectWalletModal({
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="wallie-z-50 wallie-fixed wallie-inset-0 wallie-overflow-y-auto"
+        className="wallie-z-[100] wallie-fixed wallie-inset-0 wallie-overflow-y-auto"
         onClose={closeModal}
       >
         <Transition.Child
@@ -413,11 +473,11 @@ export function SelectWalletModal({
           leaveFrom="wallie-opacity-100"
           leaveTo="wallie-opacity-0"
         >
-          <div className="wallie-fixed wallie-inset-0 wallie-bg-black wallie-bg-opacity-90 md:wallie-bg-opacity-75 wallie-transition-opacity" />
+          <div className="wallie-fixed wallie-z-60 wallie-inset-0 wallie-bg-black wallie-bg-opacity-90 md:wallie-bg-opacity-75 wallie-transition-opacity" />
         </Transition.Child>
 
-        <section className="wallie-fixed wallie-inset-0 wallie-z-10 wallie-overflow-y-auto">
-          <div className="wallie-flex wallie-min-h-full wallie-w-full md:wallie-w-96 wallie-mx-auto wallie-items-end wallie-justify-center wallie-p-4 wallie-text-left sm:wallie-items-center sm:wallie-p-0">
+        <section className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto">
+          <div className="wallie-flex wallie-min-h-full wallie-w-full md:wallie-w-96 wallie-mx-auto wallie-items-center wallie-justify-center wallie-p-4 wallie-text-left sm:wallie-items-center sm:wallie-p-0">
             <Transition.Child
               as={Fragment}
               enter="wallie-ease-out wallie-duration-300"
@@ -460,15 +520,17 @@ export function SelectWalletModal({
 
                 <section className="wallie-w-full">
                   <section className="wallie-w-full wallie-space-y-4">
-                    <WalletButton
-                      wallet={Wallet.LEATHER}
-                      subtitle="Coming soon on mobile browsing"
-                      onConnect={onConnectLeatherWallet}
-                      icon={LeatherWalletIcon}
-                      setErrorMessage={setErrorMessage}
-                      isDisabled={isMobile}
-                      isMobileDevice={isMobile}
-                    />
+                    {!isMobile && (
+                      <WalletButton
+                        wallet={Wallet.LEATHER}
+                        subtitle=""
+                        onConnect={onConnectLeatherWallet}
+                        icon={LeatherWalletIcon}
+                        setErrorMessage={setErrorMessage}
+                        isDisabled={isMobile}
+                        isMobileDevice={isMobile}
+                      />
+                    )}
                     <WalletButton
                       wallet={Wallet.XVERSE}
                       subtitle=""
@@ -477,7 +539,7 @@ export function SelectWalletModal({
                       setErrorMessage={setErrorMessage}
                       isMobileDevice={isMobile}
                     />
-                    {/* {!isMobile || (isMobile && network === Network.MAINNET) ? (
+                    {!isMobile || (isMobile && network === Network.MAINNET) ? (
                       <WalletButton
                         wallet={Wallet.OKX}
                         subtitle=""
@@ -486,7 +548,7 @@ export function SelectWalletModal({
                         setErrorMessage={setErrorMessage}
                         isMobileDevice={isMobile}
                       />
-                    ) : null} */}
+                    ) : null}
                     {!isMobile && ( // TODO: remove this once unisat supported on mobile devices
                       <WalletButton
                         wallet={Wallet.UNISAT}

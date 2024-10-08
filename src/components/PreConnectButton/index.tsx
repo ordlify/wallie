@@ -22,7 +22,7 @@ export function PreConnectButton({
         onClick={openModal}
         aria-label="Connect Button"
         type="button"
-        className="wallie-w-full"
+        className="wallie-w-full wallie-block"
       >
         {connectButtonComponent}
       </button>

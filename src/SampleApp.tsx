@@ -2,6 +2,7 @@
 import { useCallback, useState } from "react";
 
 import OviatoIcon from "./assets/oviato.svg";
+import WalletIcon from "./assets/wallet.svg";
 import { useBalance } from "./hooks/useBalance";
 import { useSignMessage } from "./hooks/useSignMessage";
 import { Network, useWallie, WallieProvider } from "./providers/WallieProvider";
@@ -164,6 +165,18 @@ export function SampleApp() {
         <div className="wallie-flex wallie-flex-col">
           <OrdConnectKit
             onViewProfile={() => console.log("View profile clicked")}
+            connectButtonComponent={
+              <div className="wallie-bg-ord-orange wallie-rounded-full wallie-flex wallie-flex-row md:wallie-space-x-2 wallie-items-center wallie-justify-center wallie-p-2 wallie-space-x-2">
+                <img
+                  src={WalletIcon}
+                  alt=""
+                  className="wallie-w-6 md:wallie-w-7"
+                />
+                <span className="wallie-text-ord-blue wallie-mb-0.5">
+                  Wallet Connect
+                </span>
+              </div>
+            }
           />
           <TestControls />
         </div>
