@@ -462,28 +462,23 @@ export function SelectWalletModal({
       <Dialog
         as="div"
         className="wallie-fixed wallie-z-50 wallie-inset-0 wallie-overflow-y-auto"
-        onClose={closeModal}
+        role="dialog"
+        onClose={() => {}}
         static
       >
-        <div className="wallie-fixed wallie-inset-0" aria-hidden="true">
-          <Transition.Child
-            as={Fragment}
-            enter="wallie-ease-out wallie-duration-300"
-            enterFrom="wallie-opacity-0"
-            enterTo="wallie-opacity-100"
-            leave="wallie-ease-in wallie-duration-200"
-            leaveFrom="wallie-opacity-100"
-            leaveTo="wallie-opacity-0"
-          >
-            <div className="wallie-fixed wallie-inset-0 wallie-bg-black/90 md:wallie-bg-black/80 wallie-transition-opacity" />
-          </Transition.Child>
-        </div>
-
-        <div
-          role="presentation"
-          className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto"
-          onClick={(e) => e.stopPropagation()}
+        <Transition.Child
+          as={Fragment}
+          enter="wallie-ease-out wallie-duration-300"
+          enterFrom="wallie-opacity-0"
+          enterTo="wallie-opacity-100"
+          leave="wallie-ease-in wallie-duration-200"
+          leaveFrom="wallie-opacity-100"
+          leaveTo="wallie-opacity-0"
         >
+          <div className="wallie-fixed wallie-inset-0 wallie-bg-black/90 md:wallie-bg-black/80 wallie-transition-opacity" />
+        </Transition.Child>
+
+        <section className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto">
           <div className="wallie-flex wallie-min-h-full wallie-w-full md:wallie-w-96 wallie-mx-auto wallie-items-center wallie-justify-center wallie-p-4 wallie-text-left sm:wallie-items-center sm:wallie-p-0">
             <Transition.Child
               as={Fragment}
@@ -513,7 +508,7 @@ export function SelectWalletModal({
                     <img
                       src={CloseModalIcon}
                       alt="close modal"
-                      className="wallie-w-[19px] wallie-h-[19px]"
+                      className="wallie-w-[30px] wallie-h-[30px]"
                     />
                   </button>
                 </section>
@@ -581,7 +576,7 @@ export function SelectWalletModal({
               </Dialog.Panel>
             </Transition.Child>
           </div>
-        </div>
+        </section>
       </Dialog>
     </Transition.Root>
   );
