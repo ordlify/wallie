@@ -5,7 +5,6 @@ import CloseModalIcon from "../../assets/close-modal.svg";
 import LeatherWalletIcon from "../../assets/leather-wallet.svg";
 import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
 import OKXWalletIcon from "../../assets/okx-wallet.svg";
-import OviatoLoading from "../../assets/oviato-loading.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
 import XverseWalletIcon from "../../assets/xverse-wallet.svg";
 import { getAddresses as getLeatherAddresses } from "../../browser-wallets/leather";
@@ -63,15 +62,6 @@ export function SelectWalletModal({
   } = useWallie();
   const [errorMessage, setErrorMessage] = useState<string>("");
   const isMobile = isMobileUserAgent();
-  const [loading, setLoading] = useState(!!isMobile);
-
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3500);
-    }
-  }, [isOpen]);
 
   const onError = useCallback(
     async (
@@ -473,20 +463,27 @@ export function SelectWalletModal({
         as="div"
         className="wallie-fixed wallie-z-50 wallie-inset-0 wallie-overflow-y-auto"
         onClose={closeModal}
+        static
       >
-        <Transition.Child
-          as={Fragment}
-          enter="wallie-ease-out wallie-duration-300"
-          enterFrom="wallie-opacity-0"
-          enterTo="wallie-opacity-100"
-          leave="wallie-ease-in wallie-duration-200"
-          leaveFrom="wallie-opacity-100"
-          leaveTo="wallie-opacity-0"
-        >
-          <div className="wallie-fixed wallie-inset-0 wallie-bg-black/90 md:wallie-bg-black/80 wallie-transition-opacity" />
-        </Transition.Child>
+        <div className="wallie-fixed wallie-inset-0" aria-hidden="true">
+          <Transition.Child
+            as={Fragment}
+            enter="wallie-ease-out wallie-duration-300"
+            enterFrom="wallie-opacity-0"
+            enterTo="wallie-opacity-100"
+            leave="wallie-ease-in wallie-duration-200"
+            leaveFrom="wallie-opacity-100"
+            leaveTo="wallie-opacity-0"
+          >
+            <div className="wallie-fixed wallie-inset-0 wallie-bg-black/90 md:wallie-bg-black/80 wallie-transition-opacity" />
+          </Transition.Child>
+        </div>
 
-        <section className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto">
+        <div
+          role="presentation"
+          className="wallie-fixed wallie-inset-0 wallie-z-[200] wallie-overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="wallie-flex wallie-min-h-full wallie-w-full md:wallie-w-96 wallie-mx-auto wallie-items-center wallie-justify-center wallie-p-4 wallie-text-left sm:wallie-items-center sm:wallie-p-0">
             <Transition.Child
               as={Fragment}
@@ -529,19 +526,16 @@ export function SelectWalletModal({
                   </p>
                 )}
                 <section className="wallie-w-full wallie-relative">
-                  {loading && (
-                    <div className="wallie-absolute  wallie-bg-ord-blue wallie-bg-opacity-90 wallie-rounded-lg wallie-h-full wallie-z-[200] wallie-w-full wallie-flex wallie-items-center wallie-flex-col wallie-space-y-2 wallie-justify-center">
-                      <img
-                        src={OviatoLoading}
-                        alt=""
-                        className="wallie-w-12 ovi-tilting-icon"
-                      />
-                      <p className="wallie-text-sm wallie-text-center wallie-text-ord-gray">
-                        Loading wallets...
-                      </p>
-                    </div>
-                  )}
                   <section className="wallie-w-full wallie-flex wallie-flex-col wallie-space-y-4 wallie-relative">
+                    <WalletButton
+                      wallet={Wallet.XVERSE}
+                      subtitle=""
+                      onConnect={onConnectXverseWallet}
+                      icon={XverseWalletIcon}
+                      setErrorMessage={setErrorMessage}
+                      isMobileDevice={isMobile}
+                      preferred
+                    />
                     {!isMobile && (
                       <WalletButton
                         wallet={Wallet.LEATHER}
@@ -553,14 +547,6 @@ export function SelectWalletModal({
                         isMobileDevice={isMobile}
                       />
                     )}
-                    <WalletButton
-                      wallet={Wallet.XVERSE}
-                      subtitle=""
-                      onConnect={onConnectXverseWallet}
-                      icon={XverseWalletIcon}
-                      setErrorMessage={setErrorMessage}
-                      isMobileDevice={isMobile}
-                    />
                     {!isMobile || (isMobile && network === Network.MAINNET) ? (
                       <WalletButton
                         wallet={Wallet.OKX}
@@ -595,7 +581,7 @@ export function SelectWalletModal({
               </Dialog.Panel>
             </Transition.Child>
           </div>
-        </section>
+        </div>
       </Dialog>
     </Transition.Root>
   );

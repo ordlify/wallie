@@ -20,6 +20,7 @@ interface WalletButtonProp {
   setErrorMessage: (msg: string) => void;
   isDisabled?: boolean;
   isMobileDevice?: boolean;
+  preferred?: boolean;
 }
 
 export function WalletButton({
@@ -30,6 +31,7 @@ export function WalletButton({
   setErrorMessage,
   isDisabled,
   isMobileDevice,
+  preferred,
 }: WalletButtonProp) {
   const { wallet: _connectedWallet, address: _connectedAddress } = useWallie();
 
@@ -69,11 +71,16 @@ export function WalletButton({
       onClick={handleWalletConnectClick}
       disabled={isDisabled}
     >
-      <div className="wallie-flex wallie-flex-row wallie-space-x-2">
+      <div className="wallie-flex wallie-flex-row wallie-items-center wallie-space-x-2">
         <img className="wallie-w-5 md:wallie-w-8" src={icon} alt="" />
         <span className="wallie-text-lg wallie-block wallie-font-medium">
           {walletName}
         </span>
+        {preferred && (
+          <span className="wallie-text-sm wallie-font-medium wallie-text-ord-alert">
+            (Preferred)
+          </span>
+        )}
         <span
           className="wallie-text-sm wallie-font-medium"
           style={{ display: isMobileDevice ? "none" : "block" }}
